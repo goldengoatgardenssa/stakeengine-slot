@@ -1,0 +1,22 @@
+{
+  "formatVersion": "1.0",
+  "reels": 6,
+  "rows": 4,
+  "directions": ["left-to-right", "right-to-left"],
+  "symbols": {
+    "regular": ["A","K","Q","J","10","9"],
+    "premium": ["SKULL","MASK","GOLD_BAR"],
+    "special": ["SCATTER","WILD","MULTI"]
+  },
+  "bonusTriggers": {
+    "3_scatter": "BONUS_3_SCATTER",
+    "4_scatter": "BONUS_4_SCATTER",
+    "5_scatter": "BONUS_5_SCATTER",
+    "super_bonus": "SUPER_BONUS"
+  },
+  "mathFiles": {
+    "index": "index.json",
+    "events": "*.jsonl.zst",
+    "weights": "lookup_*.csv"
+  }
+}

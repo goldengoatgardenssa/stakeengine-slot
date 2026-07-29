@@ -1,0 +1,18 @@
+{
+  "gameId": "hybrid_nolimit_hacksaw",
+  "gameName": "Hybrid NoLimit x Hacksaw",
+  "providerId": "goldengoatgardenssa",
+  "version": "1.0.0",
+  "supportedModes": [
+    "base",
+    "bonus_3",
+    "bonus_4",
+    "bonus_5",
+    "super_bonus",
+    "feature_spin",
+    "bonus_buy_base",
+    "bonus_buy_super"
+  ],
+  "demoUrl": "https://your-vercel-demo-url-here.vercel.app",
+  "description": "A 6x4 hybrid slot with bidirectional wins, big multipliers, scatter bonuses, super bonus, feature spins, and bonus buys."
+}
