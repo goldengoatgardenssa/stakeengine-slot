@@ -1,4 +1,4 @@
-# Hybrid NoLimit x Hacksaw Slot (StakeEngine-ready)
+# Secure The Bag PERP Edition (StakeEngine-ready)
 
 Features:
 - 6x4 reels, bidirectional wins

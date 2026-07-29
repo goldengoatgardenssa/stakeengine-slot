@@ -1,5 +1,5 @@
 export const GAME_CONFIG = {
-    name: "Hybrid NoLimit x Hacksaw",
+    name: "Secure The Bag PERP Edition",
     reels: 6,
     rows: 4,
     directions: ["left-to-right", "right-to-left"],
