@@ -6,8 +6,8 @@ export const GAME_CONFIG = {
 
     baseBet: 1.0,
 
-    targetRtp: 0.97,
-    maxRtpAllowed: 0.985,
+    targetRtp: 0.93,
+    maxRtpAllowed: 0.945,
 
     symbols: {
         REGULAR: ["A","K","Q","J","10","9"],
@@ -41,7 +41,7 @@ export const GAME_CONFIG = {
     },
 
     rtpTuning: {
-        baseMultiplier: 1.0,
+        baseMultiplier: 0.96,
         premiumMultiplier: 1.0,
         specialFrequencyBoost: 1.0
     }

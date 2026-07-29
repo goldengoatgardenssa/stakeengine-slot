@@ -7,9 +7,9 @@ const LINE_PAYOUTS = {
     "J": 0.103,
     "10": 0.077,
     "9": 0.052,
-    "SKULL": 2.57,
-    "MASK": 2.05,
-    "GOLD_BAR": 5.12
+    "SKULL": 2.56,
+    "MASK": 2.04,
+    "GOLD_BAR": 5.00
 };
 
 function countSymbol(result, symbol) {

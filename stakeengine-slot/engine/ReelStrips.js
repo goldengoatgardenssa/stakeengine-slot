@@ -2,7 +2,7 @@ import { GAME_CONFIG } from "./GameConfig.js";
 
 const { REGULAR, PREMIUM, SPECIAL } = GAME_CONFIG.symbols;
 
-// Weighted strip with advanced features - tuned for ~96% RTP
+// Weighted strip with advanced features - tuned for ~94% RTP
 const baseStrip = [
     ...REGULAR,
     ...REGULAR,
@@ -16,7 +16,7 @@ const baseStrip = [
     ...PREMIUM,
     ...Array(5).fill("SKULL"),
     ...Array(4).fill("MASK"),
-    ...Array(2).fill("GOLD_BAR"),
+    ...Array(1).fill("GOLD_BAR"),
 
     "SCATTER","SCATTER","SCATTER",
     "WILD","WILD","WILD",
