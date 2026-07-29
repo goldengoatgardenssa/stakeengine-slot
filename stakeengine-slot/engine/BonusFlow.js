@@ -6,7 +6,7 @@ export function runBonusRound(engine, bonus) {
     let persistentMulti = bonus.baseMulti;
 
     for (let i = 0; i < spins; i++) {
-        const spin = engine.spin(bonus.type, persistentMulti);
+        const spin = engine._spinBase(persistentMulti);
         results.push(spin);
         totalWin += spin.win;
 

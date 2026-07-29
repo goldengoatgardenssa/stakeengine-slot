@@ -6,7 +6,7 @@
   "symbols": {
     "regular": ["A","K","Q","J","10","9"],
     "premium": ["SKULL","MASK","GOLD_BAR"],
-    "special": ["SCATTER","WILD","MULTI"]
+    "special": ["SCATTER","WILD","MULTI","XWAYS","XSPLIT","XNUDGE","STICKY_WILD","EXPANDING_MULTI"]
   },
   "bonusTriggers": {
     "3_scatter": "BONUS_3_SCATTER",
