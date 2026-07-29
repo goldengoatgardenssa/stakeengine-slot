@@ -1,37 +1,48 @@
-import { GAME_CONFIG } from "./GameConfig.js";
-
 export function runBonusRound(engine, bonus) {
     const results = [];
     let totalWin = 0;
 
-    for (let i = 0; i < bonus.freeSpins; i++) {
-        const spin = engine.spin(bonus.type);
+    let spins = bonus.freeSpins;
+    let persistentMulti = bonus.baseMulti;
+
+    for (let i = 0; i < spins; i++) {
+        const spin = engine.spin(bonus.type, persistentMulti);
         results.push(spin);
         totalWin += spin.win;
 
-        // Retrigger logic
+        // Retrigger on scatters inside bonus
         if (spin.bonus && spin.bonus.type === bonus.type) {
-            bonus.freeSpins += 2; // small retrigger
+            spins += 1;
+        }
+
+        // Persistent multiplier grows with MULTI/EXPANDING_MULTI
+        const multiHits = spin.result.filter(
+            s => s === "MULTI" || s === "EXPANDING_MULTI"
+        ).length;
+        if (multiHits > 0) {
+            persistentMulti += multiHits * 0.003;
         }
     }
 
     return {
         bonusType: bonus.type,
         totalWin,
-        spins: results
+        spins,
+        persistentMulti,
+        results
     };
 }
 
 export function describeBonus(bonus) {
     switch (bonus.type) {
         case "SUPER_BONUS":
-            return "Super Bonus — highest volatility, persistent multiplier";
+            return "Super Bonus — moderate volatility, persistent multiplier growth.";
         case "BONUS_5_SCATTER":
-            return "5 Scatter Bonus — high volatility";
+            return "5 Scatter Bonus — moderate volatility, good multiplier growth.";
         case "BONUS_4_SCATTER":
-            return "4 Scatter Bonus — medium volatility";
+            return "4 Scatter Bonus — medium volatility.";
         case "BONUS_3_SCATTER":
-            return "3 Scatter Bonus — lower volatility";
+            return "3 Scatter Bonus — lower volatility, more frequent.";
         default:
             return "Unknown bonus type";
     }

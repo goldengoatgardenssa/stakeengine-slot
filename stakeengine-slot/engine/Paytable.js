@@ -1,19 +1,19 @@
 import { GAME_CONFIG } from "./GameConfig.js";
 
 const LINE_PAYOUTS = {
-    "A": 1,
-    "K": 1,
-    "Q": 0.8,
-    "J": 0.8,
-    "10": 0.5,
-    "9": 0.5,
-    "SKULL": 5,
-    "MASK": 3,
-    "GOLD_BAR": 10
+    "A": 0.205,
+    "K": 0.154,
+    "Q": 0.103,
+    "J": 0.103,
+    "10": 0.077,
+    "9": 0.052,
+    "SKULL": 2.57,
+    "MASK": 2.05,
+    "GOLD_BAR": 5.12
 };
 
 function countSymbol(result, symbol) {
-    return result.filter(s => s === symbol || s === "WILD").length;
+    return result.filter(s => s === symbol || s === "WILD" || s === "STICKY_WILD").length;
 }
 
 function baseLineWin(result) {
@@ -28,10 +28,17 @@ function baseLineWin(result) {
 }
 
 function applyMultipliers(result, win) {
+    let multi = 1;
+
     const multis = result.filter(s => s === "MULTI").length;
-    if (multis === 0) return win;
-    const totalMulti = 1 + multis * 2; // 1x base + 2x per MULTI
-    return win * totalMulti;
+    multi += multis * 0.01;
+
+    const expanding = result.filter(s => s === "EXPANDING_MULTI").length;
+    multi += expanding * 0.02;
+
+    multi = Math.min(multi, 1.5);
+
+    return win * multi;
 }
 
 export default {

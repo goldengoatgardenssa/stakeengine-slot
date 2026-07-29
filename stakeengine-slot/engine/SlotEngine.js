@@ -2,32 +2,35 @@ import RNG from "./RNG.js";
 import ReelStrips from "./ReelStrips.js";
 import Paytable from "./Paytable.js";
 import { GAME_CONFIG } from "./GameConfig.js";
-import { checkBonus, applyFreeSpinMode } from "./Features.js";
+import { checkBonus, applyFeatureModifiers } from "./Features.js";
 
 export default class SlotEngine {
-    constructor() {
+    constructor(config = {}) {
         this.rng = new RNG();
         this.state = {
             mode: "base",
-            remainingSpins: 0,
-            globalMulti: 1
+            globalMulti: 1.0
         };
+        this.reels = config.reels || ReelStrips;
+        this.config = config;
+        this.paytable = config.paytable || Paytable;
     }
 
     _rollReels() {
-        return ReelStrips.map(strip => {
+        return this.reels.map(strip => {
             const index = this.rng.randomIndex(strip.length);
             return strip[index];
         });
     }
 
-    _calculateWin(result) {
-        let win = Paytable.calculate(result);
-        win *= this.state.globalMulti;
+    _calculateWin(result, persistentMulti = 1.0) {
+        const tunedResult = applyFeatureModifiers(result);
+        let win = this.paytable.calculate(tunedResult);
+        win *= this.state.globalMulti * persistentMulti * (this.config.rtpTuning?.baseMultiplier || 1.0);
         return win;
     }
 
-    spin(mode = "base") {
+    spin(mode = "base", persistentMulti = 1.0) {
         let costMultiplier = 1.0;
 
         if (mode === "feature_spin") {
@@ -38,18 +41,13 @@ export default class SlotEngine {
             costMultiplier = GAME_CONFIG.bonusBuy.superBonusCost;
         }
 
-        const bet = GAME_CONFIG.betSize * costMultiplier;
+        const bet = GAME_CONFIG.baseBet * costMultiplier;
         const result = this._rollReels();
-        let win = this._calculateWin(result);
+        const win = this._calculateWin(result, persistentMulti);
 
-        let bonus = null;
-
-        if (mode === "feature_spin" || mode === "base") {
-            bonus = checkBonus(result);
-            if (bonus) {
-                this.state = applyFreeSpinMode(this.state, bonus);
-            }
-        }
+        const bonus = (mode === "base" || mode === "feature_spin")
+            ? checkBonus(result)
+            : null;
 
         this.state.mode = mode;
 
@@ -58,7 +56,8 @@ export default class SlotEngine {
             win,
             bet,
             mode,
-            bonus
+            bonus,
+            globalMulti: this.state.globalMulti
         };
     }
 }

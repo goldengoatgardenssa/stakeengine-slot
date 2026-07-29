@@ -1,21 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>StakeEngine Slot Demo</title>
+    <meta charset="UTF-8">
+    <title>Hybrid NoLimit x Hacksaw Slot</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>StakeEngine Slot Demo</h1>
+<div class="app">
+    <header class="header">
+        <div class="branding">
+            <span class="logo">🐐</span>
+            <span class="brand-name">Golden Goat Gardens</span>
+        </div>
+        <div class="game-title">Hybrid NoLimit x Hacksaw</div>
+    </header>
 
-    <div class="controls">
-        <button id="spinBase">BASE SPIN</button>
-        <button id="spinFeature">FEATURE SPIN</button>
-        <button id="buyBase">BONUS BUY BASE</button>
-        <button id="buySuper">BONUS BUY SUPER</button>
-    </div>
+    <main class="main">
+        <section class="slot">
+            <div id="reels" class="reels"></div>
+            <div class="hud">
+                <div class="hud-row">
+                    <span>Mode:</span><span id="modeLabel">base</span>
+                </div>
+                <div class="hud-row">
+                    <span>Bet:</span><span id="betLabel">1.00</span>
+                </div>
+                <div class="hud-row">
+                    <span>Win:</span><span id="winLabel">0.00</span>
+                </div>
+                <div class="hud-row">
+                    <span>Multiplier:</span><span id="multiLabel">1x</span>
+                </div>
+            </div>
+        </section>
 
-    <pre id="result"></pre>
+        <section class="controls">
+            <button data-mode="base">Base Spin</button>
+            <button data-mode="feature_spin">Feature Spin</button>
+            <button data-mode="bonus_buy_base">Bonus Buy (Base)</button>
+            <button data-mode="bonus_buy_super">Bonus Buy (Super)</button>
+        </section>
 
-    <script type="module" src="demo.js"></script>
+        <section class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>NoLimit-style: xWays, xSplit, xNudge, persistent multis</li>
+                <li>Hacksaw-style: expanding multis, sticky wilds, super multis</li>
+                <li>Scatter bonuses & super bonus</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>© Golden Goat Gardens Studio</span>
+    </footer>
+</div>
+
+<audio id="sndSpin" src="/sounds/spin.mp3"></audio>
+<audio id="sndWin" src="/sounds/win.mp3"></audio>
+<audio id="sndBonus" src="/sounds/bonus.mp3"></audio>
+
+<script type="module" src="demo.js"></script>
 </body>
 </html>

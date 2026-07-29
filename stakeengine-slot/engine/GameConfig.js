@@ -4,16 +4,24 @@ export const GAME_CONFIG = {
     rows: 4,
     directions: ["left-to-right", "right-to-left"],
 
-    betSize: 1,
+    baseBet: 1.0,
 
-    // Example RTP cap – adjust to Stake/StakeEngine max if needed
     targetRtp: 0.97,
-    maxRtpAllowed: 0.98,
+    maxRtpAllowed: 0.985,
 
     symbols: {
         REGULAR: ["A","K","Q","J","10","9"],
         PREMIUM: ["SKULL","MASK","GOLD_BAR"],
-        SPECIAL: ["SCATTER","WILD","MULTI"]
+        SPECIAL: [
+            "SCATTER",
+            "WILD",
+            "MULTI",
+            "XWAYS",
+            "XSPLIT",
+            "XNUDGE",
+            "STICKY_WILD",
+            "EXPANDING_MULTI"
+        ]
     },
 
     scattersRequired: {
@@ -30,5 +38,11 @@ export const GAME_CONFIG = {
         enabled: true,
         costMultiplier: 2,
         bonusChanceBoost: 3
+    },
+
+    rtpTuning: {
+        baseMultiplier: 1.0,
+        premiumMultiplier: 1.0,
+        specialFrequencyBoost: 1.0
     }
 };

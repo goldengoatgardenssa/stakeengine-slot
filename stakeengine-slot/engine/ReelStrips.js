@@ -2,15 +2,28 @@ import { GAME_CONFIG } from "./GameConfig.js";
 
 const { REGULAR, PREMIUM, SPECIAL } = GAME_CONFIG.symbols;
 
+// Weighted strip with advanced features - tuned for ~96% RTP
 const baseStrip = [
     ...REGULAR,
+    ...REGULAR,
+    ...Array(8).fill("A"),
+    ...Array(7).fill("K"),
+    ...Array(5).fill("Q"),
+    ...Array(4).fill("J"),
+    ...Array(4).fill("10"),
+    ...Array(4).fill("9"),
+
     ...PREMIUM,
-    ...SPECIAL,
-    ...Array(10).fill("A"),
-    ...Array(8).fill("K"),
-    ...Array(5).fill("SCATTER"),
-    ...Array(7).fill("WILD"),
-    ...Array(6).fill("MULTI")
+    ...Array(5).fill("SKULL"),
+    ...Array(4).fill("MASK"),
+    ...Array(2).fill("GOLD_BAR"),
+
+    "SCATTER","SCATTER","SCATTER",
+    "WILD","WILD","WILD",
+    "MULTI","MULTI",
+    "XNUDGE",
+    "STICKY_WILD",
+    "EXPANDING_MULTI"
 ];
 
 export default [
@@ -19,5 +32,5 @@ export default [
     [...baseStrip],
     [...baseStrip],
     [...baseStrip],
-    [...baseStrip] // 6 reels
+    [...baseStrip]
 ];

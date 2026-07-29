@@ -13,6 +13,6 @@
     "bonus_buy_base",
     "bonus_buy_super"
   ],
-  "demoUrl": "https://your-vercel-demo-url-here.vercel.app",
+  "demoUrl": "https://stakeengine-slot.vercel.app/",
   "description": "A 6x4 hybrid slot with bidirectional wins, big multipliers, scatter bonuses, super bonus, feature spins, and bonus buys."
 }
