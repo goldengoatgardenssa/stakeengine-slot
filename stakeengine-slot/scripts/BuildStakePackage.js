@@ -13,31 +13,16 @@ function copy(src, dest) {
 
 function main() {
     ensureDir(OUTPUT);
-    ensureDir(`${OUTPUT}/math`);
     ensureDir(`${OUTPUT}/metadata`);
 
-    // Copy math files
     const mathFiles = fs.readdirSync("math");
-    const rootFiles = [];
-    const mathOnlyFiles = [];
 
     mathFiles.forEach(file => {
-        if (file.endsWith(".zst")) {
-            mathOnlyFiles.push(file);
-        } else if (file.endsWith(".csv") || file === "index.json") {
-            rootFiles.push(file);
+        if (file.endsWith(".zst") || file.endsWith(".csv") || file === "index.json") {
+            copy(`math/${file}`, `${OUTPUT}/${file}`);
         }
     });
 
-    rootFiles.forEach(file => {
-        copy(`math/${file}`, `${OUTPUT}/${file}`);
-    });
-
-    mathOnlyFiles.forEach(file => {
-        copy(`math/${file}`, `${OUTPUT}/math/${file}`);
-    });
-
-    // Copy metadata
     copy("stakeengine/provider.json", `${OUTPUT}/metadata/provider.json`);
     copy("stakeengine/game.json", `${OUTPUT}/metadata/game.json`);
     copy("stakeengine/game-format.json", `${OUTPUT}/metadata/game-format.json`);
