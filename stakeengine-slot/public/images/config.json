@@ -1,5 +1,24 @@
 {
   "logo": "/images/logo.png",
   "background": "/images/background.jpg",
-  "symbolAtlas": "/images/symbols.png"
+  "symbolAtlas": "/images/symbols.png",
+  "symbolMap": {
+    "A": { "x": 0, "y": 0, "width": 64, "height": 64 },
+    "K": { "x": 64, "y": 0, "width": 64, "height": 64 },
+    "Q": { "x": 128, "y": 0, "width": 64, "height": 64 },
+    "J": { "x": 192, "y": 0, "width": 64, "height": 64 },
+    "10": { "x": 256, "y": 0, "width": 64, "height": 64 },
+    "9": { "x": 320, "y": 0, "width": 64, "height": 64 },
+    "SKULL": { "x": 0, "y": 64, "width": 64, "height": 64 },
+    "MASK": { "x": 64, "y": 64, "width": 64, "height": 64 },
+    "GOLD_BAR": { "x": 128, "y": 64, "width": 64, "height": 64 },
+    "SCATTER": { "x": 192, "y": 64, "width": 64, "height": 64 },
+    "WILD": { "x": 256, "y": 64, "width": 64, "height": 64 },
+    "MULTI": { "x": 320, "y": 64, "width": 64, "height": 64 },
+    "XWAYS": { "x": 0, "y": 128, "width": 64, "height": 64 },
+    "XSPLIT": { "x": 64, "y": 128, "width": 64, "height": 64 },
+    "XNUDGE": { "x": 128, "y": 128, "width": 64, "height": 64 },
+    "STICKY_WILD": { "x": 192, "y": 128, "width": 64, "height": 64 },
+    "EXPANDING_MULTI": { "x": 256, "y": 128, "width": 64, "height": 64 }
+  }
 }

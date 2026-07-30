@@ -1,21 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: radial-gradient(circle at top, #222 0%, #050505 60%);
     color: #f5f5f5;
+    min-height: 100vh;
 }
 
 .app {
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 16px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .branding {
@@ -25,19 +32,34 @@ body {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 28px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffd700;
 }
 
 .game-title {
     font-weight: 600;
+    font-size: 14px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: #ccc;
 }
 
 .main {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 
 .slot {
@@ -59,9 +81,10 @@ body {
     border-radius: 8px;
     padding: 6px;
     display: grid;
-    grid-template-rows: repeat(4, 40px);
+    grid-template-rows: repeat(4, 1fr);
     gap: 4px;
     overflow: hidden;
+    aspect-ratio: 1 / 4;
 }
 
 .symbol {
@@ -70,9 +93,12 @@ body {
     justify-content: center;
     border-radius: 6px;
     background: #222;
-    font-size: 14px;
+    font-size: 12px;
     color: #eee;
     transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .symbol.premium {
@@ -99,8 +125,8 @@ body {
 .hud {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-    font-size: 14px;
+    gap: 6px;
+    font-size: 13px;
 }
 
 .hud-row {
@@ -115,7 +141,7 @@ body {
 }
 
 .controls button {
-    padding: 10px 14px;
+    padding: 12px 14px;
     border-radius: 6px;
     border: none;
     background: #333;
@@ -136,13 +162,28 @@ body {
     transform: translateY(1px);
 }
 
+.controls button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .features {
-    grid-column: span 2;
-    margin-top: 16px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 12px;
     font-size: 13px;
+}
+
+.features h2 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #ffd700;
+}
+
+.features ul {
+    margin: 0;
+    padding-left: 18px;
 }
 
 .footer {
@@ -150,4 +191,101 @@ body {
     font-size: 12px;
     text-align: center;
     color: #999;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.loading-overlay p {
+    margin-top: 16px;
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffd700;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #ffd700;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bonus-overlay .bonus-card {
+    background: linear-gradient(135deg, #2a1a00, #5b3bff);
+    border: 2px solid #ffd700;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    animation: bonusPulse 1.5s ease-in-out infinite;
+    max-width: 90vw;
+}
+
+.bonus-overlay h1 {
+    margin: 0 0 12px 0;
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.bonus-overlay p {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+@keyframes bonusPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@media (min-width: 720px) {
+    .main {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .features {
+        grid-column: span 2;
+    }
+
+    .game-title {
+        font-size: 16px;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .reels {
+        gap: 8px;
+    }
+
+    .symbol {
+        font-size: 14px;
+    }
 }

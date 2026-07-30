@@ -1,5 +1,6 @@
 {
   "spin": "/sounds/spin.mp3",
   "win": "/sounds/win.mp3",
-  "bonus": "/sounds/bonus.mp3"
+  "bonus": "/sounds/bonus.mp3",
+  "bigwin": "/sounds/bigwin.mp3"
 }

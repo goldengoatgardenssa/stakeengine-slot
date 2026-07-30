@@ -137,6 +137,17 @@ Adjust:
 
 until RTP is in the 96–98% range and volatility matches your design.
 
+## Frontend Deployment
+
+The demo is deployed via Vercel. `vercel.json` configures the demo root with clean URLs and long-term caching for static assets.
+
+## UI & Branding
+
+- **Loading animation**: A spinner overlay is shown while spins resolve.
+- **Bonus intro animation**: An animated branded overlay appears when a bonus triggers.
+- **Sound pack**: Triggers for spin, win, bonus, and big win are wired via `public/sounds/config.json`.
+- **Symbol atlas**: Symbol visuals are loaded from an atlas image using mappings in `public/images/config.json`.
+
 ## Assets & Branding
 
 Sound and image references are defined in:
@@ -144,7 +155,7 @@ Sound and image references are defined in:
 - `public/sounds/config.json`
 - `public/images/config.json`
 
-Hook these into your hosting/CDN and update paths as needed for production.
+After deployment, update `stakeengine/game.json` `"demoUrl"` to the Vercel URL.
 
 ### Post-Deployment Steps
 

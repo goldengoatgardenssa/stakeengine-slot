@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hybrid NoLimit x Hacksaw Slot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure The Bag PERP Edition</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,9 +11,11 @@
     <header class="header">
         <div class="branding">
             <span class="logo">🐐</span>
-            <span class="brand-name">Golden Goat Gardens</span>
+            <div class="brand-text">
+                <span class="brand-name">Golden Goat Gardens Studio</span>
+            </div>
         </div>
-        <div class="game-title">Hybrid NoLimit x Hacksaw</div>
+        <div class="game-title">Secure The Bag PERP Edition</div>
     </header>
 
     <main class="main">
@@ -46,7 +49,7 @@
             <ul>
                 <li>NoLimit-style: xWays, xSplit, xNudge, persistent multis</li>
                 <li>Hacksaw-style: expanding multis, sticky wilds, super multis</li>
-                <li>Scatter bonuses & super bonus</li>
+                <li>Scatter bonuses &amp; super bonus</li>
             </ul>
         </section>
     </main>
@@ -56,9 +59,22 @@
     </footer>
 </div>
 
+<div id="loadingOverlay" class="overlay loading-overlay hidden">
+    <div class="spinner"></div>
+    <p>Spinning...</p>
+</div>
+
+<div id="bonusOverlay" class="overlay bonus-overlay hidden">
+    <div class="bonus-card">
+        <h1>🎰 BONUS ACTIVATED 🎰</h1>
+        <p id="bonusText">Preparing free spins...</p>
+    </div>
+</div>
+
 <audio id="sndSpin" src="/sounds/spin.mp3"></audio>
 <audio id="sndWin" src="/sounds/win.mp3"></audio>
 <audio id="sndBonus" src="/sounds/bonus.mp3"></audio>
+<audio id="sndBigWin" src="/sounds/bigwin.mp3"></audio>
 
 <script type="module" src="demo.js"></script>
 </body>
