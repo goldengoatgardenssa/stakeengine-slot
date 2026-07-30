@@ -18,6 +18,7 @@ const sndBonus = document.getElementById("sndBonus");
 const sndBigWin = document.getElementById("sndBigWin");
 
 let symbolAtlas = null;
+let symbolMapping = null;
 
 function playSound(audio) {
     if (!audio) return;
@@ -29,22 +30,60 @@ async function loadSymbolAtlasConfig() {
     try {
         const res = await fetch("/images/config.json");
         const config = await res.json();
-        symbolAtlas = config;
+        symbolAtlas = config.symbolAtlas || null;
+        symbolMapping = config.mapping || {};
     } catch (e) {
-        console.warn("Failed to load symbol atlas config:", e);
+        console.warn("Symbol atlas config load failed:", e);
         symbolAtlas = null;
+        symbolMapping = {};
     }
 }
 
-function applySymbolBackground(div, sym) {
-    if (!symbolAtlas || !symbolAtlas.symbolMap || !symbolAtlas.symbolMap[sym]) {
-        return;
+function getAtlasStyle(sym) {
+    if (!symbolMapping || !symbolMapping[sym]) return null;
+    const coords = symbolMapping[sym];
+    if (typeof coords === "string") {
+        const parts = coords.split(",");
+        const x = parseInt(parts[0], 10);
+        const y = parseInt(parts[1], 10);
+        return { x, y, width: 64, height: 64 };
     }
-    const coords = symbolAtlas.symbolMap[sym];
-    div.style.backgroundImage = `url(${symbolAtlas.symbolAtlas})`;
-    div.style.backgroundPosition = `-${coords.x}px -${coords.y}px`;
-    div.style.backgroundSize = `${Object.values(symbolAtlas.symbolMap).reduce((w, c) => Math.max(w, c.x + c.width), 0)}px ${Object.values(symbolAtlas.symbolMap).reduce((h, c) => Math.max(h, c.y + c.height), 0)}px`;
-    div.textContent = "";
+    return coords;
+}
+
+function createSymbolElement(sym) {
+    const div = document.createElement("div");
+    div.className = "symbol";
+
+    if (["SKULL", "MASK", "GOLD_BAR"].includes(sym)) {
+        div.classList.add("premium");
+    }
+    if (["SCATTER", "WILD", "MULTI", "XWAYS", "XSPLIT", "XNUDGE"].includes(sym)) {
+        div.classList.add("special");
+    }
+    if (sym === "STICKY_WILD") {
+        div.classList.add("sticky");
+    }
+    if (sym === "EXPANDING_MULTI") {
+        div.classList.add("expanding");
+    }
+
+    const atlasStyle = getAtlasStyle(sym);
+    if (atlasStyle && symbolAtlas) {
+        const img = document.createElement("img");
+        img.src = symbolAtlas;
+        img.alt = sym;
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.objectFit = "contain";
+        img.style.imageRendering = "pixelated";
+        div.appendChild(img);
+        div.style.background = "none";
+    } else {
+        div.textContent = sym;
+    }
+
+    return div;
 }
 
 function renderReels(spin) {
@@ -54,32 +93,12 @@ function renderReels(spin) {
 
     for (let c = 0; c < cols; c++) {
         const colDiv = document.createElement("div");
-        colDiv.className = "reel-column";
+        colDiv.className = "reel-column spinning";
 
         for (let r = 0; r < rows; r++) {
             const idx = (c * rows + r) % spin.result.length;
             const sym = spin.result[idx];
-            const div = document.createElement("div");
-            div.className = "symbol";
-
-            if (["SKULL", "MASK", "GOLD_BAR"].includes(sym)) {
-                div.classList.add("premium");
-            }
-            if (["SCATTER", "WILD", "MULTI", "XWAYS", "XSPLIT", "XNUDGE"].includes(sym)) {
-                div.classList.add("special");
-            }
-            if (sym === "STICKY_WILD") {
-                div.classList.add("sticky");
-            }
-            if (sym === "EXPANDING_MULTI") {
-                div.classList.add("expanding");
-            }
-
-            applySymbolBackground(div, sym);
-            if (!div.textContent) {
-                div.textContent = sym;
-            }
-
+            const div = createSymbolElement(sym);
             colDiv.appendChild(div);
         }
 
@@ -106,11 +125,19 @@ function handleSpin(mode) {
     showLoading(true);
     playSound(sndSpin);
 
-    setTimeout(() => {
+    setTimeout(async () => {
         const spin = engine.spin(mode);
         renderReels(spin);
         renderHUD(spin);
-        showLoading(false);
+
+        setTimeout(() => {
+            showLoading(false);
+            document.querySelectorAll(".reel-column.spinning").forEach(col => {
+                col.classList.remove("spinning");
+                col.classList.add("bounce");
+                setTimeout(() => col.classList.remove("bounce"), 300);
+            });
+        }, 800);
 
         if (spin.win > 0) {
             if (spin.win > 10) {

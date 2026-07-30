@@ -167,3 +167,75 @@ After Kilo applies all of these:
 4. Rebuild package: `node scripts/BuildStakePackage.js`
 
 You'll have a feature-rich, branded, production-ready slot ready for StakeEngine ingestion.
+
+## Production UI & Graphics
+
+### Symbol Atlas Usage
+
+The `public/images/config.json` file defines a `symbolAtlas` and `mapping` for rendering symbols from a single sprite sheet image:
+
+- `symbolAtlas`: Path to the atlas image (e.g., `/images/symbol-atlas.png`)
+- `mapping`: Object mapping each symbol name to its `"row,col"` coordinates in the atlas grid
+
+The demo loader (`demo/demo.js`) fetches this config at startup and renders each symbol as an `<img>` element positioned using the atlas coordinates, replacing the previous colored-square placeholder approach.
+
+### Bonus Intro Animation
+
+When a bonus trigger occurs, a branded overlay appears with an animated entrance:
+
+- Overlay element: `.bonus-overlay` with a CSS scale+opacity animation
+- Bonus intro duration: 800ms with an ease-out curve
+- The overlay displays the bonus type (e.g., "FREE SPINS", "SUPER BONUS") and a close button
+- After the intro, the bonus round UI fades in beneath the overlay
+
+### Loading Overlay
+
+A loading spinner overlay is displayed during spin resolution to provide visual feedback:
+
+- Overlay element: `.loading-overlay` with a CSS spinning circle animation
+- Shown when a spin is initiated, hidden when results are ready
+- Uses a semi-transparent dark backdrop with a centered spinner icon
+- Prevents user interaction during spin resolution
+
+### Sound Pack
+
+Sound effects are wired through `public/sounds/config.json` and triggered in `demo/demo.js`:
+
+- **Spin**: Played on each reel start
+- **Win**: Played when a winning combination lands
+- **Bonus**: Played when a bonus round triggers
+- **Big Win**: Played for wins exceeding the big-win threshold
+
+Each sound is mapped to a file path and loaded via the Web Audio API or `<audio>` elements.
+
+### Vercel Deployment
+
+The project includes a `vercel.json` configuration for production deployment:
+
+```json
+{
+  "cleanUrls": true,
+  "routes": [
+    { "src": "/demo", "dest": "/demo/index.html" },
+    { "src": "/(.*)", "dest": "/demo/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/sounds/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}
+```
+
+Deploy with:
+
+```bash
+vercel
+```
+
+After deployment, update `stakeengine/game.json` `"demoUrl"` to the Vercel URL.
