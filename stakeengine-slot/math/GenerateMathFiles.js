@@ -23,12 +23,12 @@ const ROUNDS_PER_MODE = 100000;
 const UINT64_MAX = 2n ** 64n;
 
 const BONUS_MODE_MAP = {
-    bonus_3: { type: "BONUS_3_SCATTER", freeSpins: 8, baseMulti: 1.0, maxMulti: 2.0 },
+    bonus_3: { type: "BONUS_3_SCATTER", freeSpins: 8,  baseMulti: 1.0, maxMulti: 2.0 },
     bonus_4: { type: "BONUS_4_SCATTER", freeSpins: 10, baseMulti: 1.0, maxMulti: 2.5 },
     bonus_5: { type: "BONUS_5_SCATTER", freeSpins: 12, baseMulti: 1.0, maxMulti: 3.0 },
     super_bonus: { type: "SUPER_BONUS", freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 },
-    bonus_buy_base: { type: "BONUS_3_SCATTER", freeSpins: 8, baseMulti: 1.0, maxMulti: 2.0 },
-    bonus_buy_super: { type: "SUPER_BONUS", freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 }
+    bonus_buy_base: { type: "BONUS_3_SCATTER", freeSpins: 20, baseMulti: 1.0, maxMulti: 6.0 },
+    bonus_buy_super: { type: "SUPER_BONUS", freeSpins: 30, baseMulti: 1.0, maxMulti: 10.0 }
 };
 
 function findBestWin(result) {
@@ -243,7 +243,7 @@ function simulateMode(mode, n) {
     }
 
     const bet = MODE_COSTS[mode];
-    const rtp = totalWin / (n * bet);
+    const rtp = totalWin / n;
     return { rounds, rtp };
 }
 

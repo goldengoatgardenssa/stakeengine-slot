@@ -10,8 +10,8 @@ const BONUS_MODE_MAP = {
     bonus_4: { type: "BONUS_4_SCATTER", freeSpins: 10, baseMulti: 1.0, maxMulti: 2.5 },
     bonus_5: { type: "BONUS_5_SCATTER", freeSpins: 12, baseMulti: 1.0, maxMulti: 3.0 },
     super_bonus:     { type: "SUPER_BONUS",      freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 },
-    bonus_buy_base:  { type: "BONUS_3_SCATTER",  freeSpins: 8,  baseMulti: 1.0, maxMulti: 2.0 },
-    bonus_buy_super: { type: "SUPER_BONUS",      freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 }
+    bonus_buy_base:  { type: "BONUS_3_SCATTER",  freeSpins: 20, baseMulti: 1.0, maxMulti: 6.0 },
+    bonus_buy_super: { type: "SUPER_BONUS",      freeSpins: 30, baseMulti: 1.0, maxMulti: 10.0 }
 };
 
 export default class SlotEngine {

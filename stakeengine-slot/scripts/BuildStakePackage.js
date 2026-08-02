@@ -42,18 +42,20 @@ async function main() {
     await copyFile("stakeengine/provider.json", path.join(PACKAGE_DIR, "metadata/provider.json"));
     await copyFile("stakeengine/game.json", path.join(PACKAGE_DIR, "metadata/game.json"));
     await copyFile("stakeengine/game-format.json", path.join(PACKAGE_DIR, "metadata/game-format.json"));
-    await copyFile(path.join(PACKAGE_DIR, "index.json"), path.join(PACKAGE_DIR, "index.json"));
     console.log("Metadata copied.");
 
     const jsonlFiles = await readdir(PACKAGE_DIR);
     const toCompress = jsonlFiles.filter(f => f.endsWith(".jsonl"));
-    if (toCompress.length === 0) {
+    const existingZst = new Set(jsonlFiles.filter(f => f.endsWith(".jsonl.zst")).map(f => f.replace(/\.jsonl\.zst$/, ".jsonl")));
+
+    if (toCompress.length === 0 && existingZst.size === 0) {
         console.log("No JSONL files found. Run math/GenerateMathFiles.js first.");
         return;
     }
 
     console.log("\nCompressing JSONL files...");
     for (const jsonl of toCompress) {
+        if (existingZst.has(jsonl)) continue;
         const src = path.join(PACKAGE_DIR, jsonl);
         const dest = path.join(PACKAGE_DIR, jsonl.replace(/\.jsonl$/, ".jsonl.zst"));
         await compressFile(src, dest);
