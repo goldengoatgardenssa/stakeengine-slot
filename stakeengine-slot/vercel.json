@@ -10,6 +10,5 @@
     { "src": "/demo.js", "dest": "/demo/demo.js", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } }
   ],
   "buildCommand": "echo 'No build step needed for static demo'",
-  "installCommand": "echo 'No install step needed'",
-  "framework": "static"
+  "installCommand": "echo 'No install step needed'"
 }
