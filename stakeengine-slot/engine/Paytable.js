@@ -1,34 +1,41 @@
 // Payouts tuned for 96% base RTP target (within StakeEngine 90-96.70% range)
 const LINE_PAYOUTS = {
-    "A":        0.1120,
-    "K":        0.0840,
-    "Q":        0.0560,
-    "J":        0.0560,
-    "10":       0.0420,
-    "9":        0.0280,
-    "SKULL":    1.400,
-    "MASK":     1.120,
-    "GOLD_BAR": 2.730
+    "A":        0.0628,
+    "K":        0.0471,
+    "Q":        0.0314,
+    "J":        0.0314,
+    "10":       0.0236,
+    "9":        0.0157,
+    "SKULL":    0.7850,
+    "MASK":     0.6280,
+    "GOLD_BAR": 1.5310
 };
 
 const SYMBOL_ORDER = Object.keys(LINE_PAYOUTS);
 
 function baseLineWin(result) {
-    const wilds = result.filter(s => s === "WILD" || s === "STICKY_WILD").length;
     let bestWin = 0;
 
-    for (const symbol of SYMBOL_ORDER) {
-        const symCount = result.filter(s => s === symbol).length;
-        const count = symCount + wilds;
-        if (count >= 3) {
-            const win = LINE_PAYOUTS[symbol] * count;
+    for (let row = 0; row < 4; row++) {
+        const rowSymbols = [];
+        for (let reel = 0; reel < 6; reel++) {
+            rowSymbols.push(result[reel * 4 + row]);
+        }
+
+        const wilds = rowSymbols.filter(s => s === "WILD" || s === "STICKY_WILD").length;
+        for (const symbol of SYMBOL_ORDER) {
+            const symCount = rowSymbols.filter(s => s === symbol).length;
+            const count = symCount + wilds;
+            if (count >= 3) {
+                const win = LINE_PAYOUTS[symbol] * count;
+                if (win > bestWin) bestWin = win;
+            }
+        }
+
+        if (bestWin === 0 && wilds >= 3) {
+            const win = LINE_PAYOUTS["9"] * wilds;
             if (win > bestWin) bestWin = win;
         }
-    }
-
-    // Wilds alone (no matching symbol) — pay as lowest symbol
-    if (bestWin === 0 && wilds >= 3) {
-        bestWin = LINE_PAYOUTS["9"] * wilds;
     }
 
     return bestWin;

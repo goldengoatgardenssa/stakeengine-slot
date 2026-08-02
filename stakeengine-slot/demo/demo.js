@@ -101,7 +101,7 @@ function renderReels(spin) {
         colDiv.className = "reel-column spinning";
 
         for (let r = 0; r < rows; r++) {
-            const idx = (c * rows + r) % spin.result.length;
+            const idx = c * rows + r;
             const sym = spin.result[idx];
             const div = createSymbolElement(sym);
             colDiv.appendChild(div);

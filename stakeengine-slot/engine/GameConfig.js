@@ -51,8 +51,8 @@ export const GAME_CONFIG = {
             bonus_4:         1.017,
             bonus_5:         1.017,
             super_bonus:     1.017,
-            bonus_buy_base:  3.500,
-            bonus_buy_super: 6.200
+            bonus_buy_base:  7.000,
+            bonus_buy_super: 8.500
         }
     }
 };

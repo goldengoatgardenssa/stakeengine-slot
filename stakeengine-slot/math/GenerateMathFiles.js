@@ -19,7 +19,7 @@ const MODE_COSTS = {
     bonus_buy_super: GAME_CONFIG.bonusBuy.superBonusCost
 };
 
-const ROUNDS_PER_MODE = 100000;
+const ROUNDS_PER_MODE = 10000;
 const UINT64_MAX = 2n ** 64n;
 
 const BONUS_MODE_MAP = {
@@ -27,46 +27,66 @@ const BONUS_MODE_MAP = {
     bonus_4: { type: "BONUS_4_SCATTER", freeSpins: 10, baseMulti: 1.0, maxMulti: 2.5 },
     bonus_5: { type: "BONUS_5_SCATTER", freeSpins: 12, baseMulti: 1.0, maxMulti: 3.0 },
     super_bonus: { type: "SUPER_BONUS", freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 },
-    bonus_buy_base: { type: "BONUS_3_SCATTER", freeSpins: 20, baseMulti: 1.0, maxMulti: 6.0 },
-    bonus_buy_super: { type: "SUPER_BONUS", freeSpins: 30, baseMulti: 1.0, maxMulti: 10.0 }
+    bonus_buy_base: { type: "BONUS_3_SCATTER", freeSpins: 8, baseMulti: 1.0, maxMulti: 2.0 },
+    bonus_buy_super: { type: "SUPER_BONUS", freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 }
 };
 
 function findBestWin(result) {
-    const wilds = result.filter(s => s === "WILD" || s === "STICKY_WILD").length;
     let bestWin = 0;
     let bestSymbol = null;
     let bestCount = 0;
 
     const linePayouts = {
-        "A": 0.1120, "K": 0.0840, "Q": 0.0560, "J": 0.0560,
-        "10": 0.0420, "9": 0.0280,
-        "SKULL": 1.400, "MASK": 1.120, "GOLD_BAR": 2.730
+        "A": 0.0628, "K": 0.0471, "Q": 0.0314, "J": 0.0314,
+        "10": 0.0236, "9": 0.0157,
+        "SKULL": 0.7850, "MASK": 0.6280, "GOLD_BAR": 1.5310
     };
 
-    for (const [symbol, payout] of Object.entries(linePayouts)) {
-        const symCount = result.filter(s => s === symbol).length;
-        const count = symCount + wilds;
-        if (count >= 3) {
-            const win = payout * count;
-            if (win > bestWin) {
-                bestWin = win;
-                bestSymbol = symbol;
-                bestCount = count;
+    const symbolOrder = Object.keys(linePayouts);
+
+    for (let row = 0; row < 4; row++) {
+        const rowSymbols = [];
+        for (let reel = 0; reel < 6; reel++) {
+            rowSymbols.push(result[reel * 4 + row]);
+        }
+
+        const wilds = rowSymbols.filter(s => s === "WILD" || s === "STICKY_WILD").length;
+        for (const symbol of symbolOrder) {
+            const symCount = rowSymbols.filter(s => s === symbol).length;
+            const count = symCount + wilds;
+            if (count >= 3) {
+                const win = linePayouts[symbol] * count;
+                if (win > bestWin) {
+                    bestWin = win;
+                    bestSymbol = symbol;
+                    bestCount = count;
+                }
             }
         }
-    }
 
-    if (bestWin === 0 && wilds >= 3) {
-        bestWin = linePayouts["9"] * wilds;
-        bestSymbol = "WILD";
-        bestCount = wilds;
+        if (bestWin === 0 && wilds >= 3) {
+            const win = linePayouts["9"] * wilds;
+            if (win > bestWin) {
+                bestWin = win;
+                bestSymbol = "WILD";
+                bestCount = wilds;
+            }
+        }
     }
 
     return { win: bestWin, symbol: bestSymbol, count: bestCount };
 }
 
 function buildBoard(result) {
-    return [result.map(s => ({ name: s }))];
+    const board = [];
+    for (let row = 0; row < 4; row++) {
+        const rowSymbols = [];
+        for (let reel = 0; reel < 6; reel++) {
+            rowSymbols.push({ name: result[reel * 4 + row] });
+        }
+        board.push(rowSymbols);
+    }
+    return board;
 }
 
 function buildRevealEvent(index, result, gameType) {
@@ -84,14 +104,14 @@ function buildRevealEvent(index, result, gameType) {
 function buildWinInfoEvent(index, result, totalWin) {
     const best = findBestWin(result);
     const wins = [];
-    if (best.win > 0 && best.symbol) {
-        const positions = [];
-        result.forEach((s, i) => {
-            if (s === best.symbol || s === "WILD" || s === "STICKY_WILD") {
-                positions.push({ reel: i, row: 0 });
-            }
-        });
-        wins.push({
+        if (best.win > 0 && best.symbol) {
+            const positions = [];
+            result.forEach((s, i) => {
+                if (s === best.symbol || s === "WILD" || s === "STICKY_WILD") {
+                    positions.push({ reel: Math.floor(i / 4), row: i % 4 });
+                }
+            });
+            wins.push({
             symbol: best.symbol,
             kind: best.count,
             win: Math.round(best.win * 100),
@@ -137,7 +157,7 @@ function buildFreeSpinTriggerEvent(index, totalFs, positions) {
         index,
         type: "freeSpinTrigger",
         totalFs,
-        positions: positions.map((p, i) => ({ reel: p, row: 0 }))
+        positions: positions.map(p => ({ reel: p, row: 0 }))
     };
 }
 
@@ -151,7 +171,11 @@ function buildFreeSpinUpdateEvent(index, current, total) {
 }
 
 function getScatterPositions(result) {
-    return result.map((s, i) => s === "SCATTER" ? i : -1).filter(i => i >= 0);
+    const reels = new Set();
+    result.forEach((s, i) => {
+        if (s === "SCATTER") reels.add(Math.floor(i / 4));
+    });
+    return Array.from(reels);
 }
 
 function simulateBaseMode(engine, mode) {
