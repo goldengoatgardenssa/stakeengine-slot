@@ -44,16 +44,15 @@ export const GAME_CONFIG = {
         baseMultiplier: 1.0,
         premiumMultiplier: 1.0,
         specialFrequencyBoost: 1.0,
-        // Per-mode trim to keep all modes within ±0.25% of 95.5% target
         modeTrim: {
-            base:            1.0,
-            feature_spin:    1.0,
-            bonus_3:         1.0,
-            bonus_4:         1.0,
-            bonus_5:         1.0,
-            super_bonus:     1.0,
-            bonus_buy_base:  1.0,
-            bonus_buy_super: 1.0
+            base:            1.017,
+            feature_spin:    1.017,
+            bonus_3:         1.017,
+            bonus_4:         1.017,
+            bonus_5:         1.017,
+            super_bonus:     1.017,
+            bonus_buy_base:  1.017,
+            bonus_buy_super: 1.017
         }
     }
 };

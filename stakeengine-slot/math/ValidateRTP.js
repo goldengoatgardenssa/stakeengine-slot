@@ -11,24 +11,26 @@ const MODES = [
     "bonus_buy_super"
 ];
 
+const UINT64_MAX = 2n ** 64n;
+
 function parseCsv(path) {
     const data = fs.readFileSync(path, "utf8").trim().split("\n").slice(1);
     return data.map(line => {
         const [id, probability, payoutMultiplier] = line.split(",");
         return {
             id: Number(id),
-            probability: Number(probability),
+            probability: BigInt(probability),
             payoutMultiplier: Number(payoutMultiplier)
         };
     });
 }
 
 function calculateRTP(rows) {
-    let rtp = 0;
+    let rtp = 0n;
     for (const r of rows) {
-        rtp += r.probability * (r.payoutMultiplier / 100);
+        rtp += r.probability * BigInt(r.payoutMultiplier);
     }
-    return rtp;
+    return Number(rtp) / Number(UINT64_MAX) / 100;
 }
 
 function calculateVolatility(rows) {
@@ -40,7 +42,7 @@ function calculateVolatility(rows) {
 
 function main() {
     MODES.forEach(mode => {
-        const csvPath = `math/lookup_${mode}.csv`;
+        const csvPath = `stakeengine_package/lookup_${mode}.csv`;
         if (!fs.existsSync(csvPath)) {
             console.log(`Missing CSV for mode: ${mode}`);
             return;
@@ -51,7 +53,7 @@ function main() {
         const vol = calculateVolatility(rows);
 
         console.log(`Mode: ${mode}`);
-        console.log(`  RTP: ${rtp.toFixed(4)}`);
+        console.log(`  RTP: ${(rtp * 100).toFixed(4)}%`);
         console.log(`  Volatility: ${vol.toFixed(4)}`);
         console.log("");
     });

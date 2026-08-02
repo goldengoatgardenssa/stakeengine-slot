@@ -17,11 +17,11 @@ function checkCsv(path) {
 }
 
 function main() {
-    const files = fs.readdirSync("math");
+    const files = fs.readdirSync("stakeengine_package");
 
     files.forEach(file => {
         if (file.startsWith("lookup_") && file.endsWith(".csv")) {
-            const result = checkCsv(`math/${file}`);
+            const result = checkCsv(`stakeengine_package/${file}`);
             console.log(`${file}: ${result.ok ? `OK (${result.rows} rows)` : `INVALID — ${result.reason}`}`);
         }
     });

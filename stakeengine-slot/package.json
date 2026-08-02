@@ -16,5 +16,9 @@
     "@storybook/html": "^8.6.18",
     "@storybook/html-webpack5": "^8.6.14",
     "storybook": "^8.6.18"
+  },
+  "dependencies": {
+    "@mongodb-js/zstd": "^7.0.0",
+    "adm-zip": "^0.6.0"
   }
 }
