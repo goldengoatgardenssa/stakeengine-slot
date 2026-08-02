@@ -1,0 +1,24 @@
+{
+  "logo": "/images/logo.png",
+  "background": "/images/background.jpg",
+  "symbolAtlas": "/images/symbols.png",
+  "mapping": {
+    "A": "0,0",
+    "K": "64,0",
+    "Q": "128,0",
+    "J": "192,0",
+    "10": "256,0",
+    "9": "320,0",
+    "SKULL": "0,64",
+    "MASK": "64,64",
+    "GOLD_BAR": "128,64",
+    "SCATTER": "192,64",
+    "WILD": "256,64",
+    "MULTI": "320,64",
+    "XWAYS": "0,128",
+    "XSPLIT": "64,128",
+    "XNUDGE": "128,128",
+    "STICKY_WILD": "192,128",
+    "EXPANDING_MULTI": "256,128"
+  }
+}

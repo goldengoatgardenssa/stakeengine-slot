@@ -13,3 +13,7 @@ coverage/
 
 .vercel
 .env*
+
+stakeengine_package/*.jsonl.zst
+stakeengine_package/*.csv
+stakeengine_package.zip

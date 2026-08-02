@@ -38,13 +38,13 @@
     },
     {
       "name": "bonus_buy_base",
-      "cost": 1.0,
+      "cost": 100.0,
       "events": "bonus_buy_base.jsonl.zst",
       "weights": "lookup_bonus_buy_base.csv"
     },
     {
       "name": "bonus_buy_super",
-      "cost": 1.0,
+      "cost": 300.0,
       "events": "bonus_buy_super.jsonl.zst",
       "weights": "lookup_bonus_buy_super.csv"
     }

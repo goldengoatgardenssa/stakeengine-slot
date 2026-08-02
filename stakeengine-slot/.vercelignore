@@ -1,0 +1,9 @@
+stakeengine_package
+stakeengine_package.zip
+engine/web-sdk
+node_modules
+.git
+.kilo
+.playwright-mcp
+*.log
+*.tmp

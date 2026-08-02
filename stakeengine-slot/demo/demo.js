@@ -1,5 +1,5 @@
-import SlotEngine from "../engine/SlotEngine.js";
-import { describeBonus } from "../engine/BonusFlow.js";
+import SlotEngine from "./engine/SlotEngine.js";
+import { describeBonus } from "./engine/BonusFlow.js";
 
 const engine = new SlotEngine();
 
