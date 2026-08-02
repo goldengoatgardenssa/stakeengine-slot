@@ -1,0 +1,29 @@
+{
+  "sounds": {
+    "spins": {
+      "reel_spin": "sounds/spins/reel_spin.wav",
+      "reel_stop": "sounds/spins/reel_stop.wav"
+    },
+    "wins": {
+      "small_win": "sounds/wins/small_win.wav",
+      "medium_win": "sounds/wins/medium_win.wav",
+      "big_win": "sounds/wins/big_win.wav",
+      "mega_win": "sounds/wins/mega_win.wav"
+    },
+    "bonus": {
+      "trigger": "sounds/bonus/trigger.wav",
+      "enter": "sounds/bonus/enter.wav",
+      "super_enter": "sounds/bonus/super_enter.wav"
+    },
+    "ambient": {
+      "base_loop": "sounds/ambient/base_loop.wav",
+      "bonus_loop": "sounds/ambient/bonus_loop.wav"
+    },
+    "characters": {
+      "tray_inhale": "sounds/characters/tray_inhale.wav",
+      "tray_exhale": "sounds/characters/tray_exhale.wav",
+      "perp_secure_it": "sounds/characters/perp_secure_it.wav",
+      "goat_bleat": "sounds/characters/goat_bleat.wav"
+    }
+  }
+}

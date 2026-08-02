@@ -1,0 +1,23 @@
+{
+  "premium": {
+    "traystrees50_goat_hybrid": "images/symbols/premium/traystrees50.png",
+    "perpertium_goat_hybrid": "images/symbols/premium/perpertium.png",
+    "golden_goat_chrome": "images/symbols/premium/golden_goat.png",
+    "secure_the_bag_duffel": "images/symbols/premium/secure_bag.png",
+    "perp_coin_neon": "images/symbols/premium/perp_coin.png"
+  },
+  "mid": {
+    "smoke_wild": "images/symbols/mid/smoke_wild.png",
+    "money_stack": "images/symbols/mid/money_stack.png",
+    "neon_lighter": "images/symbols/mid/lighter.png",
+    "rolling_tray": "images/symbols/mid/rolling_tray.png",
+    "goat_coin": "images/symbols/mid/goat_coin.png"
+  },
+  "low": {
+    "A": "images/symbols/low/A.png",
+    "K": "images/symbols/low/K.png",
+    "Q": "images/symbols/low/Q.png",
+    "J": "images/symbols/low/J.png",
+    "10": "images/symbols/low/10.png"
+  }
+}

@@ -1,0 +1,81 @@
+- generic [ref=f45e3]:
+  - main [ref=f45e5]:
+    - generic [ref=f45e7]:
+      - generic [ref=f45e8]:
+        - button "Remount component" [ref=f45e9] [cursor=pointer]
+        - button "Zoom in" [ref=f45e12] [cursor=pointer]
+        - button "Zoom out" [ref=f45e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f45e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f45e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f45e28] [cursor=pointer]
+        - button "Enable measure" [ref=f45e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f45e37] [cursor=pointer]
+      - generic [ref=f45e40]:
+        - button "Go full screen" [ref=f45e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f45e44] [cursor=pointer]:
+          - /url: iframe.html?id=ui-buttons--button-group
+        - button "Copy canvas link" [ref=f45e48] [cursor=pointer]
+    - generic [ref=f45e53]:
+      - progressbar "Content is loading..." [ref=f45e55]
+      - generic [ref=f45e56]:
+        - link "Skip to sidebar" [ref=f45e57] [cursor=pointer]:
+          - /url: "#ui-buttons--button-group"
+        - iframe [ref=f45e58]:
+          - generic [ref=f46e3]:
+            - button "SPIN" [ref=f46e4] [cursor=pointer]
+            - button "BONUS BUY" [ref=f46e5] [cursor=pointer]
+  - navigation [ref=f45e61]:
+    - generic [ref=f45e65]:
+      - generic [ref=f45e66]:
+        - link "Skip to canvas" [ref=f45e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f45e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f45e70]
+        - button "Shortcuts" [ref=f45e76] [cursor=pointer]
+      - generic [ref=f45e80]: Search for components
+      - combobox [ref=f45e82]:
+        - searchbox "Search for components" [ref=f45e83]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f45e87] [cursor=pointer]
+      - generic [ref=f45e94]:
+        - generic [ref=f45e95]:
+          - button [expanded] [ref=f45e96] [cursor=pointer]
+          - button "Collapse" [ref=f45e100] [cursor=pointer]
+        - link [ref=f45e104] [cursor=pointer]:
+          - /url: /?path=/story/test-hello--hello
+        - generic [ref=f45e108]:
+          - button [expanded] [ref=f45e109] [cursor=pointer]
+          - button "Collapse" [ref=f45e113] [cursor=pointer]
+        - button [ref=f45e117] [cursor=pointer]
+        - generic [ref=f45e124]:
+          - button [expanded] [ref=f45e125] [cursor=pointer]
+          - button "Collapse" [ref=f45e129] [cursor=pointer]
+        - button [ref=f45e133] [cursor=pointer]
+        - generic [ref=f45e140]:
+          - button [expanded] [ref=f45e141] [cursor=pointer]
+          - button "Collapse" [ref=f45e145] [cursor=pointer]
+        - button [ref=f45e149] [cursor=pointer]
+        - generic [ref=f45e156]:
+          - button [expanded] [ref=f45e157] [cursor=pointer]
+          - button "Expand" [ref=f45e161] [cursor=pointer]
+        - button [expanded] [ref=f45e165] [cursor=pointer]
+        - link [ref=f45e173] [cursor=pointer]:
+          - /url: /?path=/docs/ui-buttons--docs
+        - link [ref=f45e178] [cursor=pointer]:
+          - /url: /?path=/story/ui-buttons--spin
+        - link [ref=f45e183] [cursor=pointer]:
+          - /url: /?path=/story/ui-buttons--bonus-buy
+        - generic [ref=f45e187]:
+          - link [ref=f45e188] [cursor=pointer]:
+            - /url: /?path=/story/ui-buttons--button-group
+          - link "Skip to canvas" [ref=f45e192] [cursor=pointer]:
+            - /url: "#storybook-preview-wrapper"
+  - generic [ref=f45e197]:
+    - tablist [ref=f45e199]:
+      - tab "Controls" [ref=f45e200] [cursor=pointer]
+      - tab "Actions" [ref=f45e204] [cursor=pointer]
+      - tab "Code" [ref=f45e208] [cursor=pointer]
+    - generic [ref=f45e211]:
+      - button "Change addon orientation [alt D]" [ref=f45e212] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f45e216] [cursor=pointer]

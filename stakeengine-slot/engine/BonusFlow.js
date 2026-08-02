@@ -1,36 +1,29 @@
-export function runBonusRound(engine, bonus) {
+export function runBonusRound(engine, bonus, mode = null) {
     const results = [];
     let totalWin = 0;
 
     let spins = bonus.freeSpins;
     let persistentMulti = bonus.baseMulti;
+    const maxMulti = bonus.maxMulti || 5.0;
 
     for (let i = 0; i < spins; i++) {
-        const spin = engine._spinBase(persistentMulti);
+        const spin = engine._spinBase(persistentMulti, mode);
         results.push(spin);
         totalWin += spin.win;
 
-        // Retrigger on scatters inside bonus
         if (spin.bonus && spin.bonus.type === bonus.type) {
             spins += 1;
         }
 
-        // Persistent multiplier grows with MULTI/EXPANDING_MULTI
         const multiHits = spin.result.filter(
             s => s === "MULTI" || s === "EXPANDING_MULTI"
         ).length;
         if (multiHits > 0) {
-            persistentMulti += multiHits * 0.003;
+            persistentMulti = Math.min(persistentMulti + multiHits * 0.1, maxMulti);
         }
     }
 
-    return {
-        bonusType: bonus.type,
-        totalWin,
-        spins,
-        persistentMulti,
-        results
-    };
+    return { bonusType: bonus.type, totalWin, spins, persistentMulti, results };
 }
 
 export function describeBonus(bonus) {

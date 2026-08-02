@@ -1,0 +1,19 @@
+{
+  "ui": {
+    "spinButton": "images/ui/buttons/spin.png",
+    "bonusBuyButton": "images/ui/buttons/bonus_buy.png",
+    "featureSpinButton": "images/ui/buttons/feature_spin.png",
+    "counters": {
+      "balance": "images/ui/counters/balance.png",
+      "bet": "images/ui/counters/bet.png",
+      "win": "images/ui/counters/win.png"
+    },
+    "banners": {
+      "bigWin": "images/ui/banners/big_win.png",
+      "megaWin": "images/ui/banners/mega_win.png",
+      "superWin": "images/ui/banners/super_win.png"
+    },
+    "logo": "images/ui/logo/secure_the_bag_perp.png",
+    "publisher": "images/ui/logo/golden_goat_gardens.png"
+  }
+}

@@ -1,0 +1,101 @@
+- generic [ref=f41e3]:
+  - main [ref=f41e5]:
+    - generic [ref=f41e7]:
+      - generic [ref=f41e8]:
+        - button "Remount component" [ref=f41e9] [cursor=pointer]
+        - button "Zoom in" [ref=f41e12] [cursor=pointer]
+        - button "Zoom out" [ref=f41e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f41e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f41e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f41e28] [cursor=pointer]
+        - button "Enable measure" [ref=f41e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f41e37] [cursor=pointer]
+      - generic [ref=f41e40]:
+        - button "Go full screen" [ref=f41e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f41e44] [cursor=pointer]:
+          - /url: iframe.html?id=game-base-reel--full-grid
+        - button "Copy canvas link" [ref=f41e48] [cursor=pointer]
+    - generic [ref=f41e53]:
+      - progressbar "Content is loading..." [ref=f41e55]
+      - generic [ref=f41e56]:
+        - link "Skip to sidebar" [ref=f41e57] [cursor=pointer]:
+          - /url: "#game-base-reel--full-grid"
+        - iframe [ref=f41e58]:
+          - generic [ref=f42e3]:
+            - generic [ref=f42e4]:
+              - img [ref=f42e6]:
+                - generic [ref=f42e12]: "50"
+              - img [ref=f42e14]:
+                - generic [ref=f42e18]: PERP
+              - img [ref=f42e20]:
+                - generic [ref=f42e27]: CHROME
+              - img [ref=f42e29]:
+                - generic [ref=f42e33]: SECURE BAG
+            - generic [ref=f42e34]:
+              - img [ref=f42e36]:
+                - generic [ref=f42e40]: P
+                - generic [ref=f42e41]: NEON
+              - img [ref=f42e43]:
+                - generic [ref=f42e49]: WILD
+              - img [ref=f42e51]:
+                - generic [ref=f42e56]: $ $ $
+              - img [ref=f42e58]:
+                - generic [ref=f42e64]: LIGHTER
+            - generic [ref=f42e65]:
+              - img [ref=f42e67]:
+                - generic [ref=f42e73]: TRAY
+              - img [ref=f42e75]:
+                - generic [ref=f42e80]: GOAT
+              - img [ref=f42e82]:
+                - generic [ref=f42e84]: A
+              - img [ref=f42e86]:
+                - generic [ref=f42e88]: K
+            - generic [ref=f42e89]:
+              - img [ref=f42e91]:
+                - generic [ref=f42e93]: Q
+              - img [ref=f42e95]:
+                - generic [ref=f42e97]: J
+              - img [ref=f42e99]:
+                - generic [ref=f42e101]: "10"
+              - img [ref=f42e103]:
+                - generic [ref=f42e109]: "50"
+            - generic [ref=f42e110]:
+              - img [ref=f42e112]:
+                - generic [ref=f42e116]: PERP
+              - img [ref=f42e118]:
+                - generic [ref=f42e125]: CHROME
+              - img [ref=f42e127]:
+                - generic [ref=f42e131]: SECURE BAG
+              - img [ref=f42e133]:
+                - generic [ref=f42e137]: P
+                - generic [ref=f42e138]: NEON
+            - generic [ref=f42e139]:
+              - img [ref=f42e141]:
+                - generic [ref=f42e147]: WILD
+              - img [ref=f42e149]:
+                - generic [ref=f42e154]: $ $ $
+              - img [ref=f42e156]:
+                - generic [ref=f42e162]: LIGHTER
+              - img [ref=f42e164]:
+                - generic [ref=f42e170]: TRAY
+  - navigation [ref=f41e61]:
+    - generic [ref=f41e65]:
+      - generic [ref=f41e66]:
+        - link "Skip to canvas" [ref=f41e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f41e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f41e70]
+        - button "Shortcuts" [ref=f41e76] [cursor=pointer]
+      - generic [ref=f41e80]: Search for components
+      - combobox [ref=f41e82]:
+        - searchbox "Search for components" [ref=f41e83]
+        - code: ⌃ K
+  - generic [ref=f41e110]:
+    - tablist [ref=f41e112]:
+      - tab "Controls" [ref=f41e113] [cursor=pointer]
+      - tab "Actions" [ref=f41e117] [cursor=pointer]
+      - tab "Code" [ref=f41e121] [cursor=pointer]
+    - generic [ref=f41e124]:
+      - button "Change addon orientation [alt D]" [ref=f41e125] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f41e129] [cursor=pointer]

@@ -12,6 +12,7 @@ Features:
 ```bash
 npm install
 npm run dev
+```
 
 ## Math generation
 

@@ -1,0 +1,100 @@
+- generic [ref=f29e3]:
+  - main [ref=f29e5]:
+    - generic [ref=f29e7]:
+      - generic [ref=f29e8]:
+        - button "Remount component" [ref=f29e9] [cursor=pointer]
+        - button "Zoom in" [ref=f29e12] [cursor=pointer]
+        - button "Zoom out" [ref=f29e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f29e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f29e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f29e28] [cursor=pointer]
+        - button "Enable measure" [ref=f29e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f29e37] [cursor=pointer]
+      - generic [ref=f29e40]:
+        - button "Go full screen" [ref=f29e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f29e44] [cursor=pointer]:
+          - /url: iframe.html?id=symbols-all-tiers--premium
+        - button "Copy canvas link" [ref=f29e48] [cursor=pointer]
+    - generic [ref=f29e53]:
+      - progressbar "Content is loading..." [ref=f29e55]
+      - generic [ref=f29e56]:
+        - link "Skip to sidebar" [ref=f29e57] [cursor=pointer]:
+          - /url: "#symbols-all-tiers--premium"
+        - iframe [ref=f29e58]:
+          - generic [ref=f30e3]:
+            - generic [ref=f30e4]:
+              - img [ref=f30e6]:
+                - generic [ref=f30e12]: "50"
+              - generic [ref=f30e13]: traystrees50_goat_hybrid
+            - generic [ref=f30e14]:
+              - img [ref=f30e16]:
+                - generic [ref=f30e20]: PERP
+              - generic [ref=f30e21]: perpertium_goat_hybrid
+            - generic [ref=f30e22]:
+              - img [ref=f30e24]:
+                - generic [ref=f30e31]: CHROME
+              - generic [ref=f30e32]: golden_goat_chrome
+            - generic [ref=f30e33]:
+              - img [ref=f30e35]:
+                - generic [ref=f30e39]: SECURE BAG
+              - generic [ref=f30e40]: secure_the_bag_duffel
+            - generic [ref=f30e41]:
+              - img [ref=f30e43]:
+                - generic [ref=f30e47]: P
+                - generic [ref=f30e48]: NEON
+              - generic [ref=f30e49]: perp_coin_neon
+  - navigation [ref=f29e61]:
+    - generic [ref=f29e65]:
+      - generic [ref=f29e66]:
+        - link "Skip to canvas" [ref=f29e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f29e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f29e70]
+        - button "Shortcuts" [ref=f29e76] [cursor=pointer]
+      - generic [ref=f29e80]: Search for components
+      - combobox [ref=f29e82]:
+        - searchbox "Search for components" [ref=f29e83]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f29e87] [cursor=pointer]
+      - generic [ref=f29e94]:
+        - generic [ref=f29e95]:
+          - button [expanded] [ref=f29e96] [cursor=pointer]
+          - button "Collapse" [ref=f29e100] [cursor=pointer]
+        - link [ref=f29e104] [cursor=pointer]:
+          - /url: /?path=/story/test-hello--hello
+        - generic [ref=f29e108]:
+          - button [expanded] [ref=f29e109] [cursor=pointer]
+          - button "Collapse" [ref=f29e113] [cursor=pointer]
+        - button [ref=f29e117] [cursor=pointer]
+        - generic [ref=f29e124]:
+          - button [expanded] [ref=f29e125] [cursor=pointer]
+          - button "Collapse" [ref=f29e129] [cursor=pointer]
+        - button [ref=f29e133] [cursor=pointer]
+        - generic [ref=f29e140]:
+          - button [expanded] [ref=f29e141] [cursor=pointer]
+          - button "Expand" [ref=f29e145] [cursor=pointer]
+        - button [expanded] [ref=f29e149] [cursor=pointer]
+        - link [ref=f29e157] [cursor=pointer]:
+          - /url: /?path=/docs/symbols-all-tiers--docs
+        - generic [ref=f29e161]:
+          - link [ref=f29e162] [cursor=pointer]:
+            - /url: /?path=/story/symbols-all-tiers--premium
+          - link "Skip to canvas" [ref=f29e166] [cursor=pointer]:
+            - /url: "#storybook-preview-wrapper"
+        - link [ref=f29e168] [cursor=pointer]:
+          - /url: /?path=/story/symbols-all-tiers--mid
+        - link [ref=f29e173] [cursor=pointer]:
+          - /url: /?path=/story/symbols-all-tiers--low
+        - generic [ref=f29e177]:
+          - button [expanded] [ref=f29e178] [cursor=pointer]
+          - button "Collapse" [ref=f29e182] [cursor=pointer]
+        - button [ref=f29e186] [cursor=pointer]
+  - generic [ref=f29e197]:
+    - tablist [ref=f29e199]:
+      - tab "Controls" [ref=f29e200] [cursor=pointer]
+      - tab "Actions" [ref=f29e204] [cursor=pointer]
+      - tab "Code" [ref=f29e208] [cursor=pointer]
+    - generic [ref=f29e211]:
+      - button "Change addon orientation [alt D]" [ref=f29e212] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f29e216] [cursor=pointer]

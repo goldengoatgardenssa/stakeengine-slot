@@ -1,0 +1,31 @@
+{
+  "bonusRounds": {
+    "scatter_3": {
+      "name": "Small Bag Secured",
+      "art": "images/bonus/rounds/scatter3.png",
+      "animation": "animations/bonus/scatter3.json"
+    },
+    "scatter_4": {
+      "name": "Medium Bag Secured",
+      "art": "images/bonus/rounds/scatter4.png",
+      "animation": "animations/bonus/scatter4.json"
+    },
+    "scatter_5": {
+      "name": "PERP Super Bag",
+      "art": "images/bonus/rounds/scatter5.png",
+      "animation": "animations/bonus/scatter5.json"
+    },
+    "super_bonus": {
+      "name": "Golden Goat Gardens Super Run",
+      "art": "images/bonus/rounds/super_bonus.png",
+      "animation": "animations/bonus/super_bonus.json"
+    }
+  },
+  "featureAnimations": {
+    "xWays": "animations/features/xways.json",
+    "xSplit": "animations/features/xsplit.json",
+    "xNudge": "animations/features/xnudge.json",
+    "stickyWild": "animations/features/sticky_wild.json",
+    "expandingMulti": "animations/features/expanding_multi.json"
+  }
+}

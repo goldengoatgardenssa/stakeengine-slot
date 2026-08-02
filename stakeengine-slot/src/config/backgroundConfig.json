@@ -1,0 +1,7 @@
+{
+  "backgrounds": {
+    "base": "images/backgrounds/base_neon_city.png",
+    "bonus": "images/backgrounds/bonus_neon_city.png",
+    "super_bonus": "images/backgrounds/super_bonus_city.png"
+  }
+}

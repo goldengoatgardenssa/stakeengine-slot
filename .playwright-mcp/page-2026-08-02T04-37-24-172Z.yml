@@ -1,0 +1,97 @@
+- generic [ref=f19e3]:
+  - main [ref=f19e5]:
+    - generic [ref=f19e7]:
+      - generic [ref=f19e8]:
+        - button "Remount component" [ref=f19e9] [cursor=pointer]
+        - button "Zoom in" [ref=f19e12] [cursor=pointer]
+        - button "Zoom out" [ref=f19e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f19e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f19e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f19e28] [cursor=pointer]
+        - button "Enable measure" [ref=f19e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f19e37] [cursor=pointer]
+      - generic [ref=f19e40]:
+        - button "Go full screen" [ref=f19e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f19e44] [cursor=pointer]:
+          - /url: iframe.html?id=game-base--reels
+        - button "Copy canvas link" [ref=f19e48] [cursor=pointer]
+    - generic [ref=f19e53]:
+      - progressbar "Content is loading..." [ref=f19e55]
+      - generic [ref=f19e56]:
+        - link "Skip to sidebar" [ref=f19e57] [cursor=pointer]:
+          - /url: "#game-base--reels"
+        - iframe [ref=f19e58]:
+          - generic [ref=f20e3]:
+            - generic [ref=f20e4]:
+              - generic [ref=f20e5]: A
+              - generic [ref=f20e6]: K
+              - generic [ref=f20e7]: Q
+              - generic [ref=f20e8]: J
+            - generic [ref=f20e9]:
+              - generic [ref=f20e10]: "10"
+              - generic [ref=f20e11]: "9"
+              - generic [ref=f20e12]: SKULL
+              - generic [ref=f20e13]: MASK
+            - generic [ref=f20e14]:
+              - generic [ref=f20e15]: GOLD_BAR
+              - generic [ref=f20e16]: WILD
+              - generic [ref=f20e17]: SCATTER
+              - generic [ref=f20e18]: A
+            - generic [ref=f20e19]:
+              - generic [ref=f20e20]: K
+              - generic [ref=f20e21]: Q
+              - generic [ref=f20e22]: J
+              - generic [ref=f20e23]: "10"
+            - generic [ref=f20e24]:
+              - generic [ref=f20e25]: "9"
+              - generic [ref=f20e26]: SKULL
+              - generic [ref=f20e27]: MASK
+              - generic [ref=f20e28]: GOLD_BAR
+            - generic [ref=f20e29]:
+              - generic [ref=f20e30]: WILD
+              - generic [ref=f20e31]: SCATTER
+              - generic [ref=f20e32]: A
+              - generic [ref=f20e33]: K
+  - navigation [ref=f19e61]:
+    - generic [ref=f19e65]:
+      - generic [ref=f19e66]:
+        - link "Skip to canvas" [ref=f19e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f19e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f19e70]
+        - button "Shortcuts" [ref=f19e76] [cursor=pointer]
+      - generic [ref=f19e80]: Search for components
+      - combobox [ref=f19e82]:
+        - searchbox "Search for components" [ref=f19e83]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f19e87] [cursor=pointer]
+      - generic [ref=f19e94]:
+        - generic [ref=f19e95]:
+          - button [expanded] [ref=f19e96] [cursor=pointer]
+          - button "Collapse" [ref=f19e100] [cursor=pointer]
+        - link [ref=f19e104] [cursor=pointer]:
+          - /url: /?path=/story/test-hello--hello
+        - generic [ref=f19e108]:
+          - button [expanded] [ref=f19e109] [cursor=pointer]
+          - button "Collapse" [ref=f19e113] [cursor=pointer]
+        - button [ref=f19e117] [cursor=pointer]
+        - generic [ref=f19e124]:
+          - button [expanded] [ref=f19e125] [cursor=pointer]
+          - button "Expand" [ref=f19e129] [cursor=pointer]
+        - button [expanded] [ref=f19e133] [cursor=pointer]
+        - link [ref=f19e141] [cursor=pointer]:
+          - /url: /?path=/docs/game-base--docs
+        - generic [ref=f19e145]:
+          - link [ref=f19e146] [cursor=pointer]:
+            - /url: /?path=/story/game-base--reels
+          - link "Skip to canvas" [ref=f19e150] [cursor=pointer]:
+            - /url: "#storybook-preview-wrapper"
+  - generic [ref=f19e155]:
+    - tablist [ref=f19e157]:
+      - tab "Controls" [ref=f19e158] [cursor=pointer]
+      - tab "Actions" [ref=f19e162] [cursor=pointer]
+      - tab "Code" [ref=f19e166] [cursor=pointer]
+    - generic [ref=f19e169]:
+      - button "Change addon orientation [alt D]" [ref=f19e170] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f19e174] [cursor=pointer]

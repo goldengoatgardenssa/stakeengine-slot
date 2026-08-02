@@ -1,0 +1,42 @@
+- generic [ref=f27e3]:
+  - main [ref=f27e6]:
+    - generic [ref=f27e10]:
+      - progressbar "Content is loading..." [ref=f27e12]
+      - iframe [ref=f27e14]:
+        - generic [ref=f28e1]: Hello Storybook
+  - navigation [ref=f27e17]:
+    - generic [ref=f27e21]:
+      - generic [ref=f27e22]:
+        - link "Skip to canvas" [ref=f27e23] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f27e25] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f27e26]
+        - button "Shortcuts" [ref=f27e32] [cursor=pointer]
+      - generic [ref=f27e36]: Search for components
+      - combobox [ref=f27e38]:
+        - searchbox "Search for components" [ref=f27e39]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f27e43] [cursor=pointer]
+      - generic [ref=f27e50]:
+        - generic [ref=f27e51]:
+          - button [expanded] [ref=f27e52] [cursor=pointer]
+          - button "Collapse" [ref=f27e56] [cursor=pointer]
+        - link [ref=f27e60] [cursor=pointer]:
+          - /url: /?path=/story/test-hello--hello
+        - generic [ref=f27e64]:
+          - button [expanded] [ref=f27e65] [cursor=pointer]
+          - button "Collapse" [ref=f27e69] [cursor=pointer]
+        - button [ref=f27e73] [cursor=pointer]
+        - generic [ref=f27e80]:
+          - button [expanded] [ref=f27e81] [cursor=pointer]
+          - button "Collapse" [ref=f27e85] [cursor=pointer]
+        - button [ref=f27e89] [cursor=pointer]
+        - generic [ref=f27e96]:
+          - button [expanded] [ref=f27e97] [cursor=pointer]
+          - button "Collapse" [ref=f27e101] [cursor=pointer]
+        - button [ref=f27e105] [cursor=pointer]
+        - generic [ref=f27e112]:
+          - button [expanded] [ref=f27e113] [cursor=pointer]
+          - button "Collapse" [ref=f27e117] [cursor=pointer]
+        - button [ref=f27e121] [cursor=pointer]

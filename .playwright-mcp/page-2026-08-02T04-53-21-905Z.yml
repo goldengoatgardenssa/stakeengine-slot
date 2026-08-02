@@ -1,0 +1,77 @@
+- generic [ref=f43e3]:
+  - main [ref=f43e5]:
+    - generic [ref=f43e7]:
+      - generic [ref=f43e8]:
+        - button "Remount component" [ref=f43e9] [cursor=pointer]
+        - button "Zoom in" [ref=f43e12] [cursor=pointer]
+        - button "Zoom out" [ref=f43e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f43e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f43e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f43e28] [cursor=pointer]
+        - button "Enable measure" [ref=f43e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f43e37] [cursor=pointer]
+      - generic [ref=f43e40]:
+        - button "Go full screen" [ref=f43e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f43e44] [cursor=pointer]:
+          - /url: iframe.html?id=bonus-entry--trigger
+        - button "Copy canvas link" [ref=f43e48] [cursor=pointer]
+    - generic [ref=f43e53]:
+      - progressbar "Content is loading..." [ref=f43e55]
+      - generic [ref=f43e56]:
+        - link "Skip to sidebar" [ref=f43e57] [cursor=pointer]:
+          - /url: "#bonus-entry--trigger"
+        - iframe [ref=f43e58]:
+          - generic [ref=f44e4]:
+            - heading "BONUS ACTIVATED" [level=1] [ref=f44e5]
+            - paragraph [ref=f44e6]: Preparing free spins...
+  - navigation [ref=f43e61]:
+    - generic [ref=f43e65]:
+      - generic [ref=f43e66]:
+        - link "Skip to canvas" [ref=f43e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f43e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f43e70]
+        - button "Shortcuts" [ref=f43e76] [cursor=pointer]
+      - generic [ref=f43e80]: Search for components
+      - combobox [ref=f43e82]:
+        - searchbox "Search for components" [ref=f43e83]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f43e87] [cursor=pointer]
+      - generic [ref=f43e94]:
+        - generic [ref=f43e95]:
+          - button [expanded] [ref=f43e96] [cursor=pointer]
+          - button "Collapse" [ref=f43e100] [cursor=pointer]
+        - link [ref=f43e104] [cursor=pointer]:
+          - /url: /?path=/story/test-hello--hello
+        - generic [ref=f43e108]:
+          - button [expanded] [ref=f43e109] [cursor=pointer]
+          - button "Expand" [ref=f43e113] [cursor=pointer]
+        - button [expanded] [ref=f43e117] [cursor=pointer]
+        - link [ref=f43e125] [cursor=pointer]:
+          - /url: /?path=/docs/bonus-entry--docs
+        - generic [ref=f43e129]:
+          - link [ref=f43e130] [cursor=pointer]:
+            - /url: /?path=/story/bonus-entry--trigger
+          - link "Skip to canvas" [ref=f43e134] [cursor=pointer]:
+            - /url: "#storybook-preview-wrapper"
+        - generic [ref=f43e135]:
+          - button [expanded] [ref=f43e136] [cursor=pointer]
+          - button "Collapse" [ref=f43e140] [cursor=pointer]
+        - button [ref=f43e144] [cursor=pointer]
+        - generic [ref=f43e151]:
+          - button [expanded] [ref=f43e152] [cursor=pointer]
+          - button "Collapse" [ref=f43e156] [cursor=pointer]
+        - button [ref=f43e160] [cursor=pointer]
+        - generic [ref=f43e167]:
+          - button [expanded] [ref=f43e168] [cursor=pointer]
+          - button "Collapse" [ref=f43e172] [cursor=pointer]
+        - button [ref=f43e176] [cursor=pointer]
+  - generic [ref=f43e187]:
+    - tablist [ref=f43e189]:
+      - tab "Controls" [ref=f43e190] [cursor=pointer]
+      - tab "Actions" [ref=f43e194] [cursor=pointer]
+      - tab "Code" [ref=f43e198] [cursor=pointer]
+    - generic [ref=f43e201]:
+      - button "Change addon orientation [alt D]" [ref=f43e202] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f43e206] [cursor=pointer]

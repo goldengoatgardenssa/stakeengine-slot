@@ -6,8 +6,8 @@ export const GAME_CONFIG = {
 
     baseBet: 1.0,
 
-    targetRtp: 0.93,
-    maxRtpAllowed: 0.945,
+    targetRtp: 0.98,
+    maxRtpAllowed: 0.985,
 
     symbols: {
         REGULAR: ["A","K","Q","J","10","9"],
@@ -26,7 +26,7 @@ export const GAME_CONFIG = {
 
     scattersRequired: {
         baseBonus: [3, 4, 5],
-        superBonus: 5
+        superBonus: 6
     },
 
     bonusBuy: {
@@ -41,8 +41,19 @@ export const GAME_CONFIG = {
     },
 
     rtpTuning: {
-        baseMultiplier: 0.96,
+        baseMultiplier: 1.0,
         premiumMultiplier: 1.0,
-        specialFrequencyBoost: 1.0
+        specialFrequencyBoost: 1.0,
+        // Per-mode trim to keep all modes within ±0.25% of 95.5% target
+        modeTrim: {
+            base:            1.0,
+            feature_spin:    1.0,
+            bonus_3:         1.0,
+            bonus_4:         1.0,
+            bonus_5:         1.0,
+            super_bonus:     1.0,
+            bonus_buy_base:  1.0,
+            bonus_buy_super: 1.0
+        }
     }
 };

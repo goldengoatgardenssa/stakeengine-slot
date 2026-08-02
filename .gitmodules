@@ -1,0 +1,3 @@
+[submodule "stakeengine-slot/engine/web-sdk"]
+	path = stakeengine-slot/engine/web-sdk
+	url = https://github.com/StakeEngine/web-sdk.git

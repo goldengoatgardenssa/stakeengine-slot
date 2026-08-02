@@ -1,0 +1,69 @@
+- generic [ref=f21e3]:
+  - main [ref=f21e5]:
+    - generic [ref=f21e7]:
+      - generic [ref=f21e8]:
+        - button "Remount component" [ref=f21e9] [cursor=pointer]
+        - button "Zoom in" [ref=f21e12] [cursor=pointer]
+        - button "Zoom out" [ref=f21e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f21e20] [cursor=pointer]
+        - button "Change the background of the preview" [ref=f21e25] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f21e29] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f21e33] [cursor=pointer]
+        - button "Enable measure" [ref=f21e38] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f21e42] [cursor=pointer]
+      - generic [ref=f21e45]:
+        - button "Go full screen" [ref=f21e46] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f21e49] [cursor=pointer]:
+          - /url: iframe.html?args=&globals=&id=test-hello--hello
+        - button "Copy canvas link" [ref=f21e53] [cursor=pointer]
+    - generic [ref=f21e59]:
+      - link "Skip to sidebar" [ref=f21e60] [cursor=pointer]:
+        - /url: "#test-hello--hello"
+      - iframe [ref=f21e61]:
+        - generic [ref=f22e1]: Hello Storybook
+  - navigation [ref=f21e64]:
+    - generic [ref=f21e68]:
+      - generic [ref=f21e69]:
+        - link "Skip to canvas" [ref=f21e70] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f21e72] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f21e73]
+        - button "Shortcuts" [ref=f21e79] [cursor=pointer]
+      - generic [ref=f21e83]: Search for components
+      - combobox [ref=f21e85]:
+        - searchbox "Search for components" [ref=f21e86]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f21e90] [cursor=pointer]
+      - generic [ref=f21e97]:
+        - generic [ref=f21e98]:
+          - button [expanded] [ref=f21e99] [cursor=pointer]
+          - button "Collapse" [ref=f21e103] [cursor=pointer]
+        - generic [ref=f21e106]:
+          - link [ref=f21e107] [cursor=pointer]:
+            - /url: /?path=/story/test-hello--hello
+          - link "Skip to canvas" [ref=f21e111] [cursor=pointer]:
+            - /url: "#storybook-preview-wrapper"
+        - generic [ref=f21e112]:
+          - button [expanded] [ref=f21e113] [cursor=pointer]
+          - button "Collapse" [ref=f21e117] [cursor=pointer]
+        - button [ref=f21e121] [cursor=pointer]
+        - generic [ref=f21e128]:
+          - button [expanded] [ref=f21e129] [cursor=pointer]
+          - button "Collapse" [ref=f21e133] [cursor=pointer]
+        - button [ref=f21e137] [cursor=pointer]
+        - generic [ref=f21e144]:
+          - button [expanded] [ref=f21e145] [cursor=pointer]
+          - button "Collapse" [ref=f21e149] [cursor=pointer]
+        - button [ref=f21e153] [cursor=pointer]
+        - generic [ref=f21e160]:
+          - button [expanded] [ref=f21e161] [cursor=pointer]
+          - button "Collapse" [ref=f21e165] [cursor=pointer]
+        - button [ref=f21e169] [cursor=pointer]
+  - generic [ref=f21e180]:
+    - tablist [ref=f21e182]:
+      - tab "Controls" [ref=f21e183] [cursor=pointer]
+      - tab "Actions" [ref=f21e187] [cursor=pointer]
+    - generic [ref=f21e193]:
+      - button "Change addon orientation [alt D]" [ref=f21e194] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f21e198] [cursor=pointer]

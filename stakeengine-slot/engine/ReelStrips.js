@@ -1,29 +1,30 @@
 import { GAME_CONFIG } from "./GameConfig.js";
 
-const { REGULAR, PREMIUM, SPECIAL } = GAME_CONFIG.symbols;
-
-// Weighted strip with advanced features - tuned for ~94% RTP
+// Strip tuned for 98% RTP target
+// Total: 72 symbols per reel
 const baseStrip = [
-    ...REGULAR,
-    ...REGULAR,
-    ...Array(8).fill("A"),
-    ...Array(7).fill("K"),
-    ...Array(5).fill("Q"),
-    ...Array(4).fill("J"),
-    ...Array(4).fill("10"),
-    ...Array(4).fill("9"),
+    // Regular symbols (low pay, high frequency)
+    ...Array(9).fill("A"),
+    ...Array(8).fill("K"),
+    ...Array(6).fill("Q"),
+    ...Array(5).fill("J"),
+    ...Array(5).fill("10"),
+    ...Array(5).fill("9"),
 
-    ...PREMIUM,
-    ...Array(5).fill("SKULL"),
-    ...Array(4).fill("MASK"),
-    ...Array(1).fill("GOLD_BAR"),
+    // Premium symbols (high pay, lower frequency)
+    ...Array(6).fill("SKULL"),
+    ...Array(5).fill("MASK"),
+    ...Array(2).fill("GOLD_BAR"),
 
-    "SCATTER","SCATTER","SCATTER",
-    "WILD","WILD","WILD",
-    "MULTI","MULTI",
-    "XNUDGE",
-    "STICKY_WILD",
-    "EXPANDING_MULTI"
+    // Special symbols
+    ...Array(5).fill("WILD"),
+    ...Array(2).fill("STICKY_WILD"),
+    ...Array(4).fill("SCATTER"),
+    ...Array(3).fill("MULTI"),
+    ...Array(2).fill("EXPANDING_MULTI"),
+    ...Array(2).fill("XWAYS"),
+    ...Array(1).fill("XSPLIT"),
+    ...Array(2).fill("XNUDGE"),
 ];
 
 export default [

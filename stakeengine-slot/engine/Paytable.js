@@ -1,42 +1,50 @@
-import { GAME_CONFIG } from "./GameConfig.js";
-
+// Payouts tuned for 96% base RTP target (within StakeEngine 90-96.70% range)
 const LINE_PAYOUTS = {
-    "A": 0.205,
-    "K": 0.154,
-    "Q": 0.103,
-    "J": 0.103,
-    "10": 0.077,
-    "9": 0.052,
-    "SKULL": 2.56,
-    "MASK": 2.04,
-    "GOLD_BAR": 5.00
+    "A":        0.1120,
+    "K":        0.0840,
+    "Q":        0.0560,
+    "J":        0.0560,
+    "10":       0.0420,
+    "9":        0.0280,
+    "SKULL":    1.400,
+    "MASK":     1.120,
+    "GOLD_BAR": 2.730
 };
 
-function countSymbol(result, symbol) {
-    return result.filter(s => s === symbol || s === "WILD" || s === "STICKY_WILD").length;
-}
+const SYMBOL_ORDER = Object.keys(LINE_PAYOUTS);
 
 function baseLineWin(result) {
-    let win = 0;
-    for (const symbol of Object.keys(LINE_PAYOUTS)) {
-        const count = countSymbol(result, symbol);
+    const wilds = result.filter(s => s === "WILD" || s === "STICKY_WILD").length;
+    let bestWin = 0;
+
+    for (const symbol of SYMBOL_ORDER) {
+        const symCount = result.filter(s => s === symbol).length;
+        const count = symCount + wilds;
         if (count >= 3) {
-            win += LINE_PAYOUTS[symbol] * count;
+            const win = LINE_PAYOUTS[symbol] * count;
+            if (win > bestWin) bestWin = win;
         }
     }
-    return win;
+
+    // Wilds alone (no matching symbol) — pay as lowest symbol
+    if (bestWin === 0 && wilds >= 3) {
+        bestWin = LINE_PAYOUTS["9"] * wilds;
+    }
+
+    return bestWin;
 }
 
 function applyMultipliers(result, win) {
     let multi = 1;
 
     const multis = result.filter(s => s === "MULTI").length;
-    multi += multis * 0.01;
+    multi += multis * 0.15;
 
     const expanding = result.filter(s => s === "EXPANDING_MULTI").length;
-    multi += expanding * 0.02;
+    multi += expanding * 0.3;
 
-    multi = Math.min(multi, 1.5);
+    // Cap at 3x on base spins
+    multi = Math.min(multi, 3.0);
 
     return win * multi;
 }

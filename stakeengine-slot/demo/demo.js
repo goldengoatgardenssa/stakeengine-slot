@@ -77,6 +77,11 @@ function createSymbolElement(sym) {
         img.style.height = "100%";
         img.style.objectFit = "contain";
         img.style.imageRendering = "pixelated";
+        img.onerror = () => {
+            div.removeChild(img);
+            div.style.background = "";
+            div.textContent = sym;
+        };
         div.appendChild(img);
         div.style.background = "none";
     } else {

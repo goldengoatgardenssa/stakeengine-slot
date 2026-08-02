@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "routes": [
+    { "src": "/", "dest": "/demo/index.html" },
     { "src": "/demo", "dest": "/demo/index.html" },
     { "src": "/demo/(.*)", "dest": "/demo/$1" },
     { "src": "/images/(.*)", "dest": "/public/images/$1", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },

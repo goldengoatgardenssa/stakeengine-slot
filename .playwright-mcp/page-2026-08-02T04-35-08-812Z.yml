@@ -1,0 +1,54 @@
+- generic [ref=f13e3]:
+  - main [ref=f13e6]:
+    - generic [ref=f13e10]:
+      - progressbar "Content is loading..." [ref=f13e12]
+      - iframe [ref=f13e14]:
+        - generic [ref=f14e2]:
+          - heading "Couldn't find any stories in your Storybook." [level=1] [ref=f14e3]
+          - paragraph [ref=f14e4]: "The component failed to render properly, likely due to a configuration issue in Storybook. Here are some common causes and how you can address them:"
+          - list [ref=f14e5]:
+            - listitem [ref=f14e6]:
+              - strong [ref=f14e7]: Missing Context/Providers
+              - text: ": You can use decorators to supply specific contexts or providers, which are sometimes necessary for components to render correctly. For detailed instructions on using decorators, please visit the"
+              - link "Decorators documentation" [ref=f14e8] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/writing-stories/decorators
+              - text: .
+            - listitem [ref=f14e9]:
+              - strong [ref=f14e10]: Misconfigured Webpack or Vite
+              - text: ": Verify that Storybook picks up all necessary settings for loaders, plugins, and other relevant parameters. You can find step-by-step guides for configuring"
+              - link "Webpack" [ref=f14e11] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/builders/webpack
+              - text: or
+              - link "Vite" [ref=f14e12] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/builders/vite
+              - text: with Storybook.
+            - listitem [ref=f14e13]:
+              - strong [ref=f14e14]: Missing Environment Variables
+              - text: ": Your Storybook may require specific environment variables to function as intended. You can set up custom environment variables as outlined in the"
+              - link "Environment Variables documentation" [ref=f14e15] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/configure/environment-variables
+              - text: .
+          - code [ref=f14e17]: "- Please check your stories field of your main.js config: does it match correctly? - Also check the browser console and terminal for error messages."
+  - navigation [ref=f13e17]:
+    - generic [ref=f13e21]:
+      - generic [ref=f13e22]:
+        - link "Skip to canvas" [ref=f13e23] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f13e25] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f13e26]
+        - button "Shortcuts" [ref=f13e32] [cursor=pointer]
+      - generic [ref=f13e36]: Search for components
+      - combobox [ref=f13e38]:
+        - searchbox "Search for components" [ref=f13e39]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f13e43] [cursor=pointer]
+      - generic [ref=f13e53]:
+        - text: "Oh no! Your Storybook is empty. Possible reasons why:"
+        - list [ref=f13e54]:
+          - listitem [ref=f13e55]:
+            - text: The glob specified in
+            - code [ref=f13e56]: main.js
+            - text: isn't correct.
+          - listitem [ref=f13e57]: No stories are defined in your story files.
+          - listitem [ref=f13e58]: You're using filter-functions, and all stories are filtered away.

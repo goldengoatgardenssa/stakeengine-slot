@@ -1,0 +1,99 @@
+- generic [ref=f35e3]:
+  - main [ref=f35e5]:
+    - generic [ref=f35e7]:
+      - generic [ref=f35e8]:
+        - button "Remount component" [ref=f35e9] [cursor=pointer]
+        - button "Zoom in" [ref=f35e12] [cursor=pointer]
+        - button "Zoom out" [ref=f35e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f35e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f35e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f35e28] [cursor=pointer]
+        - button "Enable measure" [ref=f35e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f35e37] [cursor=pointer]
+      - generic [ref=f35e40]:
+        - button "Go full screen" [ref=f35e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f35e44] [cursor=pointer]:
+          - /url: iframe.html?id=symbols-all-tiers--low
+        - button "Copy canvas link" [ref=f35e48] [cursor=pointer]
+    - generic [ref=f35e53]:
+      - progressbar "Content is loading..." [ref=f35e55]
+      - generic [ref=f35e56]:
+        - link "Skip to sidebar" [ref=f35e57] [cursor=pointer]:
+          - /url: "#symbols-all-tiers--low"
+        - iframe [ref=f35e58]:
+          - generic [ref=f36e3]:
+            - generic [ref=f36e4]:
+              - img [ref=f36e6]:
+                - generic [ref=f36e8]: "10"
+              - generic [ref=f36e9]: "10"
+            - generic [ref=f36e10]:
+              - img [ref=f36e12]:
+                - generic [ref=f36e14]: A
+              - generic [ref=f36e15]: A
+            - generic [ref=f36e16]:
+              - img [ref=f36e18]:
+                - generic [ref=f36e20]: K
+              - generic [ref=f36e21]: K
+            - generic [ref=f36e22]:
+              - img [ref=f36e24]:
+                - generic [ref=f36e26]: Q
+              - generic [ref=f36e27]: Q
+            - generic [ref=f36e28]:
+              - img [ref=f36e30]:
+                - generic [ref=f36e32]: J
+              - generic [ref=f36e33]: J
+  - navigation [ref=f35e61]:
+    - generic [ref=f35e65]:
+      - generic [ref=f35e66]:
+        - link "Skip to canvas" [ref=f35e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f35e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f35e70]
+        - button "Shortcuts" [ref=f35e76] [cursor=pointer]
+      - generic [ref=f35e80]: Search for components
+      - combobox [ref=f35e82]:
+        - searchbox "Search for components" [ref=f35e83]
+        - code: ⌃ K
+        - button "Tag filters" [ref=f35e87] [cursor=pointer]
+      - generic [ref=f35e94]:
+        - generic [ref=f35e95]:
+          - button [expanded] [ref=f35e96] [cursor=pointer]
+          - button "Collapse" [ref=f35e100] [cursor=pointer]
+        - link [ref=f35e104] [cursor=pointer]:
+          - /url: /?path=/story/test-hello--hello
+        - generic [ref=f35e108]:
+          - button [expanded] [ref=f35e109] [cursor=pointer]
+          - button "Collapse" [ref=f35e113] [cursor=pointer]
+        - button [ref=f35e117] [cursor=pointer]
+        - generic [ref=f35e124]:
+          - button [expanded] [ref=f35e125] [cursor=pointer]
+          - button "Collapse" [ref=f35e129] [cursor=pointer]
+        - button [ref=f35e133] [cursor=pointer]
+        - generic [ref=f35e140]:
+          - button [expanded] [ref=f35e141] [cursor=pointer]
+          - button "Expand" [ref=f35e145] [cursor=pointer]
+        - button [expanded] [ref=f35e149] [cursor=pointer]
+        - link [ref=f35e157] [cursor=pointer]:
+          - /url: /?path=/docs/symbols-all-tiers--docs
+        - link [ref=f35e162] [cursor=pointer]:
+          - /url: /?path=/story/symbols-all-tiers--premium
+        - link [ref=f35e167] [cursor=pointer]:
+          - /url: /?path=/story/symbols-all-tiers--mid
+        - generic [ref=f35e171]:
+          - link [ref=f35e172] [cursor=pointer]:
+            - /url: /?path=/story/symbols-all-tiers--low
+          - link "Skip to canvas" [ref=f35e176] [cursor=pointer]:
+            - /url: "#storybook-preview-wrapper"
+        - generic [ref=f35e177]:
+          - button [expanded] [ref=f35e178] [cursor=pointer]
+          - button "Collapse" [ref=f35e182] [cursor=pointer]
+        - button [ref=f35e186] [cursor=pointer]
+  - generic [ref=f35e197]:
+    - tablist [ref=f35e199]:
+      - tab "Controls" [ref=f35e200] [cursor=pointer]
+      - tab "Actions" [ref=f35e204] [cursor=pointer]
+      - tab "Code" [ref=f35e208] [cursor=pointer]
+    - generic [ref=f35e211]:
+      - button "Change addon orientation [alt D]" [ref=f35e212] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f35e216] [cursor=pointer]

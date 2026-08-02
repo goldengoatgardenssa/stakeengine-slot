@@ -1,0 +1,49 @@
+- generic [ref=f11e3]:
+  - main [ref=f11e6]:
+    - generic [ref=f11e10]:
+      - progressbar "Content is loading..." [ref=f11e12]
+      - iframe [ref=f11e14]:
+        - generic [ref=f12e2]:
+          - 'heading "Error fetching `/index.json`:" [level=1] [ref=f12e3]'
+          - paragraph [ref=f12e4]: "The component failed to render properly, likely due to a configuration issue in Storybook. Here are some common causes and how you can address them:"
+          - list [ref=f12e5]:
+            - listitem [ref=f12e6]:
+              - strong [ref=f12e7]: Missing Context/Providers
+              - text: ": You can use decorators to supply specific contexts or providers, which are sometimes necessary for components to render correctly. For detailed instructions on using decorators, please visit the"
+              - link "Decorators documentation" [ref=f12e8] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/writing-stories/decorators
+              - text: .
+            - listitem [ref=f12e9]:
+              - strong [ref=f12e10]: Misconfigured Webpack or Vite
+              - text: ": Verify that Storybook picks up all necessary settings for loaders, plugins, and other relevant parameters. You can find step-by-step guides for configuring"
+              - link "Webpack" [ref=f12e11] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/builders/webpack
+              - text: or
+              - link "Vite" [ref=f12e12] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/builders/vite
+              - text: with Storybook.
+            - listitem [ref=f12e13]:
+              - strong [ref=f12e14]: Missing Environment Variables
+              - text: ": Your Storybook may require specific environment variables to function as intended. You can set up custom environment variables as outlined in the"
+              - link "Environment Variables documentation" [ref=f12e15] [cursor=pointer]:
+                - /url: https://storybook.js.org/docs/configure/environment-variables
+              - text: .
+          - code [ref=f12e17]: "Unable to index ./src/utils/assetLoader.js: Error: Invariant failed: No matching indexer found for C:/Users/schaf/Documents/(STAKE ENGINE ) SMOKERZ EMBER SLOT/stakeengine-slot/src/utils/assetLoader.js at invariant (C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36053:11) at Mi.extractStories (C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36253:5) at C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36198:53 at C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36174:30 at Array.map (<anonymous>) at C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36171:26 at Array.map (<anonymous>) at Mi.updateExtracted (C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36163:23) at Mi.ensureExtracted (C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36197:16) at Mi.initialize (C:\\Users\\schaf\\Documents\\(STAKE ENGINE ) SMOKERZ EMBER SLOT\\stakeengine-slot\\node_modules\\@storybook\\core\\dist\\core-server\\index.cjs:36158:16) If you are in development, this likely indicates a problem with your Storybook process, check the terminal for errors. If you are in a deployed Storybook, there may have been an issue deploying the full Storybook build."
+  - navigation [ref=f11e17]:
+    - generic [ref=f11e21]:
+      - generic [ref=f11e22]:
+        - link "Skip to canvas" [ref=f11e23] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f11e25] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f11e26]
+        - button "Shortcuts" [ref=f11e32] [cursor=pointer]
+      - generic [ref=f11e36]: Search for components
+      - combobox [ref=f11e38]:
+        - searchbox "Search for components" [ref=f11e39]
+        - code: ⌃ K
+      - generic [ref=f11e46]:
+        - text: Oh no! Something went wrong loading this Storybook.
+        - generic [ref=f11e47] [cursor=pointer]: View error
+        - link [ref=f11e52] [cursor=pointer]:
+          - /url: https://storybook.js.org/docs

@@ -1,0 +1,64 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: 🐐
+      - generic [ref=e6]: Golden Goat Gardens
+    - generic [ref=e7]: Hybrid NoLimit x Hacksaw
+  - main [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - generic [ref=e12]: A
+          - generic [ref=e13]: XNUDGE
+          - generic [ref=e14]: K
+          - generic [ref=e15]: SKULL
+        - generic [ref=e16]:
+          - generic [ref=e17]: "10"
+          - generic [ref=e18]: Q
+          - generic [ref=e19]: A
+          - generic [ref=e20]: XNUDGE
+        - generic [ref=e21]:
+          - generic [ref=e22]: K
+          - generic [ref=e23]: SKULL
+          - generic [ref=e24]: "10"
+          - generic [ref=e25]: Q
+        - generic [ref=e26]:
+          - generic [ref=e27]: A
+          - generic [ref=e28]: XNUDGE
+          - generic [ref=e29]: K
+          - generic [ref=e30]: SKULL
+        - generic [ref=e31]:
+          - generic [ref=e32]: "10"
+          - generic [ref=e33]: Q
+          - generic [ref=e34]: A
+          - generic [ref=e35]: XNUDGE
+        - generic [ref=e36]:
+          - generic [ref=e37]: K
+          - generic [ref=e38]: SKULL
+          - generic [ref=e39]: "10"
+          - generic [ref=e40]: Q
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]: "Mode:"
+          - generic [ref=e44]: base
+        - generic [ref=e45]:
+          - generic [ref=e46]: "Bet:"
+          - generic [ref=e47]: "1.00"
+        - generic [ref=e48]:
+          - generic [ref=e49]: "Win:"
+          - generic [ref=e50]: "0.00"
+        - generic [ref=e51]:
+          - generic [ref=e52]: "Multiplier:"
+          - generic [ref=e53]: 1.00x
+    - generic [ref=e54]:
+      - button "Base Spin" [ref=e55] [cursor=pointer]
+      - button "Feature Spin" [ref=e56] [cursor=pointer]
+      - button "Bonus Buy (Base)" [ref=e57] [cursor=pointer]
+      - button "Bonus Buy (Super)" [ref=e58] [cursor=pointer]
+    - generic [ref=e59]:
+      - heading "Features" [level=2] [ref=e60]
+      - list [ref=e61]:
+        - listitem [ref=e62]: "NoLimit-style: xWays, xSplit, xNudge, persistent multis"
+        - listitem [ref=e63]: "Hacksaw-style: expanding multis, sticky wilds, super multis"
+        - listitem [ref=e64]: Scatter bonuses & super bonus
+  - contentinfo [ref=e65]: © Golden Goat Gardens Studio

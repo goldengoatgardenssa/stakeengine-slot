@@ -1,0 +1,23 @@
+[     413ms] [ERROR] SB_PREVIEW_API_0009 (NoStoryMatchError): Couldn't find story matching 'game-base--fullgrid'.
+
+- Are you sure a story with that id exists?
+- Please check your stories field of your main.js config.
+- Also check the browser console and terminal for error messages.
+    at ns.selectSpecifiedStory (http://localhost:6008/sb-preview/runtime.js:7217:9)
+    at ns.initializeWithStoryIndex (http://localhost:6008/sb-preview/runtime.js:7197:58) @ http://localhost:6008/sb-preview/runtime.js:2725
+[   27540ms] [ERROR] SB_PREVIEW_API_0009 (NoStoryMatchError): Couldn't find story matching 'game-base--fullgrid'.
+
+- Are you sure a story with that id exists?
+- Please check your stories field of your main.js config.
+- Also check the browser console and terminal for error messages.
+    at ns.selectSpecifiedStory (http://localhost:6008/sb-preview/runtime.js:7217:9)
+    at ns.onStoriesChanged (http://localhost:6008/sb-preview/runtime.js:7238:5)
+    at async ns.onStoryIndexChanged (http://localhost:6008/sb-preview/runtime.js:6733:9) @ http://localhost:6008/sb-preview/runtime.js:2725
+[   27587ms] [ERROR] SB_PREVIEW_API_0009 (NoStoryMatchError): Couldn't find story matching 'game-base--fullgrid'.
+
+- Are you sure a story with that id exists?
+- Please check your stories field of your main.js config.
+- Also check the browser console and terminal for error messages.
+    at ns.selectSpecifiedStory (http://localhost:6008/sb-preview/runtime.js:7217:9)
+    at ns.onStoriesChanged (http://localhost:6008/sb-preview/runtime.js:7238:5)
+    at async ns.onStoryIndexChanged (http://localhost:6008/sb-preview/runtime.js:6733:9) @ http://localhost:6008/sb-preview/runtime.js:2725

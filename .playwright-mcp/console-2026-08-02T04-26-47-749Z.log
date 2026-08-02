@@ -1,0 +1,8 @@
+[     458ms] [ERROR] SB_PREVIEW_API_0008 (EmptyIndexError): Couldn't find any stories in your Storybook.
+
+- Please check your stories field of your main.js config: does it match correctly?
+- Also check the browser console and terminal for error messages.
+    at ns.selectSpecifiedStory (http://localhost:6006/sb-preview/runtime.js:7215:55)
+    at ns.initializeWithStoryIndex (http://localhost:6006/sb-preview/runtime.js:7197:58) @ http://localhost:6006/sb-preview/runtime.js:2725
+[   33331ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:6006/__webpack_hmr:0
+[   55701ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:6006/__webpack_hmr:0

@@ -1,0 +1,2 @@
+[  110702ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:6006/__webpack_hmr:0
+[  133061ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:6006/__webpack_hmr:0

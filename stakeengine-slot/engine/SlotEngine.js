@@ -6,17 +6,17 @@ import { checkBonus, applyFeatureModifiers } from "./Features.js";
 import { runBonusRound } from "./BonusFlow.js";
 
 const BONUS_MODE_MAP = {
-    bonus_3: { type: "BONUS_3_SCATTER", freeSpins: 5, baseMulti: 1.0 },
-    bonus_4: { type: "BONUS_4_SCATTER", freeSpins: 7, baseMulti: 1.0 },
-    bonus_5: { type: "BONUS_5_SCATTER", freeSpins: 8, baseMulti: 1.0 },
-    super_bonus: { type: "SUPER_BONUS", freeSpins: 9, baseMulti: 1.0 },
-    bonus_buy_base: { type: "BONUS_3_SCATTER", freeSpins: 5, baseMulti: 1.0 },
-    bonus_buy_super: { type: "SUPER_BONUS", freeSpins: 9, baseMulti: 1.0 }
+    bonus_3: { type: "BONUS_3_SCATTER", freeSpins: 8,  baseMulti: 1.0, maxMulti: 2.0 },
+    bonus_4: { type: "BONUS_4_SCATTER", freeSpins: 10, baseMulti: 1.0, maxMulti: 2.5 },
+    bonus_5: { type: "BONUS_5_SCATTER", freeSpins: 12, baseMulti: 1.0, maxMulti: 3.0 },
+    super_bonus:     { type: "SUPER_BONUS",      freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 },
+    bonus_buy_base:  { type: "BONUS_3_SCATTER",  freeSpins: 8,  baseMulti: 1.0, maxMulti: 2.0 },
+    bonus_buy_super: { type: "SUPER_BONUS",      freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 }
 };
 
 export default class SlotEngine {
     constructor(config = {}) {
-        this.rng = new RNG();
+        this.rng = new RNG(config.seed !== undefined ? config.seed : 12345);
         this.state = {
             mode: "base",
             globalMulti: 1.0
@@ -33,11 +33,12 @@ export default class SlotEngine {
         });
     }
 
-    _spinBase(persistentMulti = 1.0) {
+    _spinBase(persistentMulti = 1.0, mode = null) {
         const result = this._rollReels();
         const tunedResult = applyFeatureModifiers(result);
         let win = this.paytable.calculate(tunedResult);
-        win *= this.state.globalMulti * persistentMulti * (this.config.rtpTuning?.baseMultiplier || 1.0);
+        const trim = mode && GAME_CONFIG.rtpTuning.modeTrim[mode] || 1.0;
+        win *= this.state.globalMulti * persistentMulti * trim;
         const bonus = checkBonus(tunedResult);
         return { result: tunedResult, win, bonus };
     }
@@ -45,7 +46,7 @@ export default class SlotEngine {
     _calculateWin(result, persistentMulti = 1.0) {
         const tunedResult = applyFeatureModifiers(result);
         let win = this.paytable.calculate(tunedResult);
-        win *= this.state.globalMulti * persistentMulti * (this.config.rtpTuning?.baseMultiplier || 1.0);
+        win *= this.state.globalMulti * persistentMulti;
         return win;
     }
 
@@ -65,14 +66,14 @@ export default class SlotEngine {
 
         const bonusConfig = BONUS_MODE_MAP[mode];
         if (bonusConfig) {
-            const bonusResult = runBonusRound(this, bonusConfig);
+            const bonusResult = runBonusRound(this, bonusConfig, mode);
             result = bonusResult.results.length > 0
                 ? bonusResult.results[bonusResult.results.length - 1].result
-                : [];
+                : this._rollReels();
             win = bonusResult.totalWin;
             bonus = { type: bonusConfig.type };
         } else {
-            const baseSpin = this._spinBase(persistentMulti);
+            const baseSpin = this._spinBase(persistentMulti, mode);
             result = baseSpin.result;
             win = baseSpin.win;
             bonus = baseSpin.bonus;

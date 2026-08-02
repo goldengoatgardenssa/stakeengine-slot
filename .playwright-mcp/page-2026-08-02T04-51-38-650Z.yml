@@ -1,0 +1,70 @@
+- generic [ref=f37e3]:
+  - main [ref=f37e5]:
+    - generic [ref=f37e7]:
+      - generic [ref=f37e8]:
+        - button "Remount component" [ref=f37e9] [cursor=pointer]
+        - button "Zoom in" [ref=f37e12] [cursor=pointer]
+        - button "Zoom out" [ref=f37e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f37e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f37e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f37e28] [cursor=pointer]
+        - button "Enable measure" [ref=f37e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f37e37] [cursor=pointer]
+      - generic [ref=f37e40]:
+        - button "Go full screen" [ref=f37e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f37e44] [cursor=pointer]:
+          - /url: iframe.html?id=game-base--fullgrid
+        - button "Copy canvas link" [ref=f37e48] [cursor=pointer]
+    - generic [ref=f37e53]:
+      - progressbar "Content is loading..." [ref=f37e55]
+      - generic [ref=f37e56]:
+        - link "Skip to sidebar" [ref=f37e57] [cursor=pointer]:
+          - /url: "#game-base--fullgrid"
+        - iframe [ref=f37e58]:
+          - generic [ref=f38e2]:
+            - heading "Couldn't find story matching 'game-base--fullgrid'." [level=1] [ref=f38e3]
+            - paragraph [ref=f38e4]: "The component failed to render properly, likely due to a configuration issue in Storybook. Here are some common causes and how you can address them:"
+            - list [ref=f38e5]:
+              - listitem [ref=f38e6]:
+                - strong [ref=f38e7]: Missing Context/Providers
+                - text: ": You can use decorators to supply specific contexts or providers, which are sometimes necessary for components to render correctly. For detailed instructions on using decorators, please visit the"
+                - link "Decorators documentation" [ref=f38e8] [cursor=pointer]:
+                  - /url: https://storybook.js.org/docs/writing-stories/decorators
+                - text: .
+              - listitem [ref=f38e9]:
+                - strong [ref=f38e10]: Misconfigured Webpack or Vite
+                - text: ": Verify that Storybook picks up all necessary settings for loaders, plugins, and other relevant parameters. You can find step-by-step guides for configuring"
+                - link "Webpack" [ref=f38e11] [cursor=pointer]:
+                  - /url: https://storybook.js.org/docs/builders/webpack
+                - text: or
+                - link "Vite" [ref=f38e12] [cursor=pointer]:
+                  - /url: https://storybook.js.org/docs/builders/vite
+                - text: with Storybook.
+              - listitem [ref=f38e13]:
+                - strong [ref=f38e14]: Missing Environment Variables
+                - text: ": Your Storybook may require specific environment variables to function as intended. You can set up custom environment variables as outlined in the"
+                - link "Environment Variables documentation" [ref=f38e15] [cursor=pointer]:
+                  - /url: https://storybook.js.org/docs/configure/environment-variables
+                - text: .
+            - code [ref=f38e17]: "- Are you sure a story with that id exists? - Please check your stories field of your main.js config. - Also check the browser console and terminal for error messages."
+  - navigation [ref=f37e61]:
+    - generic [ref=f37e65]:
+      - generic [ref=f37e66]:
+        - link "Skip to canvas" [ref=f37e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f37e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f37e70]
+        - button "Shortcuts" [ref=f37e76] [cursor=pointer]
+      - generic [ref=f37e80]: Search for components
+      - combobox [ref=f37e82]:
+        - searchbox "Search for components" [ref=f37e83]
+        - code: ⌃ K
+  - generic [ref=f37e110]:
+    - tablist [ref=f37e112]:
+      - tab "Controls" [ref=f37e113] [cursor=pointer]
+      - tab "Actions" [ref=f37e117] [cursor=pointer]
+      - tab "Code" [ref=f37e121] [cursor=pointer]
+    - generic [ref=f37e124]:
+      - button "Change addon orientation [alt D]" [ref=f37e125] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f37e129] [cursor=pointer]

@@ -1,0 +1,92 @@
+[     615ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:6006/index.json:0
+[     730ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:6006/index.json:0
+[     731ms] [ERROR] Error loading story index: @ http://localhost:6006/sb-preview/runtime.js:2725
+[     731ms] [ERROR] SB_PREVIEW_API_0006 (StoryIndexFetchError): Error fetching `/index.json`:
+
+Unable to index ./src/utils/assetLoader.js:
+  Error: Invariant failed: No matching indexer found for C:/Users/schaf/Documents/(STAKE ENGINE ) SMOKERZ EMBER SLOT/stakeengine-slot/src/utils/assetLoader.js
+    at invariant (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36053:11)
+    at Mi.extractStories (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36253:5)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36198:53
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36174:30
+    at Array.map (<anonymous>)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36171:26
+    at Array.map (<anonymous>)
+    at Mi.updateExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36163:23)
+    at Mi.ensureExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36197:16)
+    at Mi.initialize (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36158:16)
+
+If you are in development, this likely indicates a problem with your Storybook process,
+check the terminal for errors.
+
+If you are in a deployed Storybook, there may have been an issue deploying the full Storybook
+build.
+    at invariant (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36053:11)
+    at Mi.extractStories (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36253:5)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36198:53
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36174:30
+    at Array.map (<anonymous>)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36171:26
+    at Array.map (<anonymous>)
+    at Mi.updateExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36163:23)
+    at Mi.ensureExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36197:16)
+    at Mi.initialize (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36158:16)
+
+If you are in development, this likely indicates a problem with your Storybook process,
+check the terminal for errors.
+
+If you are in a deployed Storybook, there may have been an issue deploying the full Storybook
+build.
+    at ns.getStoryIndexFromServer (http://localhost:6006/sb-preview/runtime.js:6688:11)
+    at async ns.initializeWithProjectAnnotations (http://localhost:6006/sb-preview/runtime.js:6671:15)
+    at async ns.initialize (http://localhost:6006/sb-preview/runtime.js:6644:39) @ http://localhost:6006/sb-preview/runtime.js:2725
+[     759ms] SB_PREVIEW_API_0006 (StoryIndexFetchError): Error fetching `/index.json`:
+
+Unable to index ./src/utils/assetLoader.js:
+  Error: Invariant failed: No matching indexer found for C:/Users/schaf/Documents/(STAKE ENGINE ) SMOKERZ EMBER SLOT/stakeengine-slot/src/utils/assetLoader.js
+    at invariant (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36053:11)
+    at Mi.extractStories (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36253:5)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36198:53
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36174:30
+    at Array.map (<anonymous>)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36171:26
+    at Array.map (<anonymous>)
+    at Mi.updateExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36163:23)
+    at Mi.ensureExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36197:16)
+    at Mi.initialize (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36158:16)
+
+If you are in development, this likely indicates a problem with your Storybook process,
+check the terminal for errors.
+
+If you are in a deployed Storybook, there may have been an issue deploying the full Storybook
+build.
+    at invariant (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36053:11)
+    at Mi.extractStories (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36253:5)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36198:53
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36174:30
+    at Array.map (<anonymous>)
+    at C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36171:26
+    at Array.map (<anonymous>)
+    at Mi.updateExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36163:23)
+    at Mi.ensureExtracted (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36197:16)
+    at Mi.initialize (C:\Users\schaf\Documents\(STAKE ENGINE ) SMOKERZ EMBER SLOT\stakeengine-slot\node_modules\@storybook\core\dist\core-server\index.cjs:36158:16)
+
+If you are in development, this likely indicates a problem with your Storybook process,
+check the terminal for errors.
+
+If you are in a deployed Storybook, there may have been an issue deploying the full Storybook
+build.
+    at ns.getStoryIndexFromServer (http://localhost:6006/sb-preview/runtime.js:6688:11)
+    at async ns.initializeWithProjectAnnotations (http://localhost:6006/sb-preview/runtime.js:6671:15)
+    at async ns.initialize (http://localhost:6006/sb-preview/runtime.js:6644:39)
+[   32991ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:6006/__webpack_hmr:0
+[   53687ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:6006/runtime_main.cbb5e3aecd80599d07d6.hot-update.json:0
+[   53687ms] [WARNING] [HMR] Cannot find update (Full reload needed) @ http://localhost:6006/vendors-node_modules_storybook_addon-essentials_dist_actions_preview_mjs-node_modules_storybo-52b905.iframe.bundle.js:6028
+[   53687ms] [WARNING] [HMR] (Probably because of restarting the server) @ http://localhost:6006/vendors-node_modules_storybook_addon-essentials_dist_actions_preview_mjs-node_modules_storybo-52b905.iframe.bundle.js:6029
+[   53688ms] [WARNING] [HMR] Reloading page @ http://localhost:6006/vendors-node_modules_storybook_addon-essentials_dist_actions_preview_mjs-node_modules_storybo-52b905.iframe.bundle.js:6120
+[   54184ms] [ERROR] SB_PREVIEW_API_0008 (EmptyIndexError): Couldn't find any stories in your Storybook.
+
+- Please check your stories field of your main.js config: does it match correctly?
+- Also check the browser console and terminal for error messages.
+    at ns.selectSpecifiedStory (http://localhost:6006/sb-preview/runtime.js:7215:55)
+    at ns.initializeWithStoryIndex (http://localhost:6006/sb-preview/runtime.js:7197:58) @ http://localhost:6006/sb-preview/runtime.js:2725

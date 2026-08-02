@@ -1,0 +1,50 @@
+- generic [ref=f17e3]:
+  - main [ref=f17e5]:
+    - generic [ref=f17e7]:
+      - generic [ref=f17e8]:
+        - button "Remount component" [ref=f17e9] [cursor=pointer]
+        - button "Zoom in" [ref=f17e12] [cursor=pointer]
+        - button "Zoom out" [ref=f17e16] [cursor=pointer]
+        - button "Reset zoom" [ref=f17e20] [cursor=pointer]
+        - button "Apply a grid to the preview" [ref=f17e24] [cursor=pointer]
+        - button "Change the size of the preview" [ref=f17e28] [cursor=pointer]
+        - button "Enable measure" [ref=f17e33] [cursor=pointer]
+        - button "Apply outlines to the preview" [ref=f17e37] [cursor=pointer]
+      - generic [ref=f17e40]:
+        - button "Go full screen" [ref=f17e41] [cursor=pointer]
+        - link "Open canvas in new tab" [ref=f17e44] [cursor=pointer]:
+          - /url: iframe.html?id=symbols-premium--grid
+        - button "Copy canvas link" [ref=f17e48] [cursor=pointer]
+    - generic [ref=f17e53]:
+      - progressbar "Content is loading..." [ref=f17e55]
+      - generic [ref=f17e56]:
+        - link "Skip to sidebar" [ref=f17e57] [cursor=pointer]:
+          - /url: "#symbols-premium--grid"
+        - iframe [ref=f17e58]:
+          - generic [ref=f18e3]:
+            - generic [ref=f18e4]: traystrees50_goat_hybrid
+            - generic [ref=f18e5]: perpertium_goat_hybrid
+            - generic [ref=f18e6]: golden_goat_chrome
+            - generic [ref=f18e7]: secure_the_bag_duffel
+            - generic [ref=f18e8]: perp_coin_neon
+  - navigation [ref=f17e61]:
+    - generic [ref=f17e65]:
+      - generic [ref=f17e66]:
+        - link "Skip to canvas" [ref=f17e67] [cursor=pointer]:
+          - /url: "#storybook-preview-wrapper"
+        - link "Storybook" [ref=f17e69] [cursor=pointer]:
+          - /url: ./
+          - img "Storybook" [ref=f17e70]
+        - button "Shortcuts" [ref=f17e76] [cursor=pointer]
+      - generic [ref=f17e80]: Search for components
+      - combobox [ref=f17e82]:
+        - searchbox "Search for components" [ref=f17e83]
+        - code: ⌃ K
+  - generic [ref=f17e110]:
+    - tablist [ref=f17e112]:
+      - tab "Controls" [ref=f17e113] [cursor=pointer]
+      - tab "Actions" [ref=f17e117] [cursor=pointer]
+      - tab "Code" [ref=f17e121] [cursor=pointer]
+    - generic [ref=f17e124]:
+      - button "Change addon orientation [alt D]" [ref=f17e125] [cursor=pointer]
+      - button "Hide addons [alt A]" [ref=f17e129] [cursor=pointer]
