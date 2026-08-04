@@ -27,10 +27,14 @@ export default class SlotEngine {
     }
 
     _rollReels() {
-        return this.reels.map(strip => {
-            const index = this.rng.randomIndex(strip.length);
-            return strip[index];
-        });
+        const result = [];
+        for (const strip of this.reels) {
+            const startIndex = this.rng.randomIndex(strip.length);
+            for (let row = 0; row < 4; row++) {
+                result.push(strip[(startIndex + row) % strip.length]);
+            }
+        }
+        return result;
     }
 
     _spinBase(persistentMulti = 1.0, mode = null) {

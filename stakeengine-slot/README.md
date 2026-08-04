@@ -147,7 +147,9 @@ The demo is deployed via Vercel. `vercel.json` configures the demo root with cle
 - **Loading animation**: A spinner overlay is shown while spins resolve.
 - **Bonus intro animation**: An animated branded overlay appears when a bonus triggers.
 - **Sound pack**: Triggers for spin, win, bonus, and big win are wired via `public/sounds/config.json`.
-- **Symbol atlas**: Symbol visuals are loaded from an atlas image using mappings in `public/images/config.json`.
+- **Symbol visuals**: Individual SVG files loaded directly as `<img>` elements with fallback text labels, defined in `public/images/config.json`.
+- **Bet controls**: Sidebar buttons to increase/decrease bet size across RGS-provided levels.
+- **StakeEngine RGS**: Full wallet integration (authenticate, play, end-round, balance) with jurisdiction-based feature disabling.
 
 ## Assets & Branding
 

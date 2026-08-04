@@ -26,6 +26,7 @@ let currentMode = "base";
 let isSpinning = false;
 let turboMode = false;
 let autoPlayCount = 0;
+let currentBetIndex = 0;
 
 function playSound(name) {
     soundEngine.resume();
@@ -227,7 +228,7 @@ function findBestWin(result) {
 
 function getCurrentBet(mode) {
     const baseBet = stakeEngineClient.betLevels && stakeEngineClient.betLevels.length > 0
-        ? stakeEngineClient.betLevels[0]
+        ? stakeEngineClient.betLevels[currentBetIndex]
         : 1.0;
 
     switch (mode) {
@@ -236,6 +237,14 @@ function getCurrentBet(mode) {
         case "bonus_buy_super": return baseBet * 300;
         default: return baseBet;
     }
+}
+
+function changeBet(delta) {
+    const levels = stakeEngineClient.betLevels && stakeEngineClient.betLevels.length > 0
+        ? stakeEngineClient.betLevels
+        : [1.0];
+    currentBetIndex = Math.max(0, Math.min(levels.length - 1, currentBetIndex + delta));
+    betLabel.textContent = formatCurrency(getCurrentBet(currentMode));
 }
 
 async function handleSpin(mode) {
@@ -377,6 +386,16 @@ function initControls() {
         }
     });
 
+    document.getElementById("betDown").addEventListener("click", () => {
+        playSound("click");
+        changeBet(-1);
+    });
+
+    document.getElementById("betUp").addEventListener("click", () => {
+        playSound("click");
+        changeBet(1);
+    });
+
     document.getElementById("paytableBtn").addEventListener("click", () => {
         playSound("click");
         showOverlay(paytableOverlay, true);
@@ -429,6 +448,7 @@ async function initStakeEngine() {
             statusEl.classList.add("connected");
             balance = stakeEngineClient.balance.amount;
             balanceLabel.textContent = formatCurrency(balance);
+            currentBetIndex = 0;
 
             if (stakeEngineClient.betLevels && stakeEngineClient.betLevels.length > 0) {
                 betLabel.textContent = formatCurrency(stakeEngineClient.betLevels[0]);
