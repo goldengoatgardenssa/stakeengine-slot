@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Secure The Bag PERP Edition</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,55 +10,95 @@
 <div class="app">
     <header class="header">
         <div class="branding">
-            <span class="logo">🐐</span>
+            <span class="logo">&#x1F410;</span>
             <div class="brand-text">
                 <span class="brand-name">Golden Goat Gardens Studio</span>
             </div>
         </div>
-        <div class="game-title">Secure The Bag PERP Edition</div>
+        <div class="header-actions">
+            <button id="paytableBtn" class="icon-btn" title="Paytable">&#x1F4CB;</button>
+            <button id="gameInfoBtn" class="icon-btn" title="Game Info">&#x2139;&#xFE0F;</button>
+        </div>
     </header>
 
     <div class="provider-branding">Golden Goat Gardens Studio</div>
 
     <main class="main">
         <section class="slot">
+            <div class="game-header">
+                <div class="game-title">Secure The Bag PERP Edition</div>
+                <div id="stakeengineStatus" class="status-badge">Demo Mode</div>
+            </div>
+
             <div id="reels" class="reels"></div>
+
             <div class="hud">
                 <div class="hud-row">
-                    <span>Mode:</span><span id="modeLabel">base</span>
+                    <span class="hud-label">Mode</span>
+                    <span id="modeLabel" class="hud-value">base</span>
                 </div>
                 <div class="hud-row">
-                    <span>Bet:</span><span id="betLabel">1.00</span>
+                    <span class="hud-label">Bet</span>
+                    <span id="betLabel" class="hud-value">1.00</span>
                 </div>
                 <div class="hud-row">
-                    <span>Win:</span><span id="winLabel">0.00</span>
+                    <span class="hud-label">Win</span>
+                    <span id="winLabel" class="hud-value win">0.00</span>
                 </div>
                 <div class="hud-row">
-                    <span>Multiplier:</span><span id="multiLabel">1x</span>
+                    <span class="hud-label">Multi</span>
+                    <span id="multiLabel" class="hud-value multi">1.00x</span>
                 </div>
             </div>
         </section>
 
-        <section class="controls">
-            <button data-mode="base">Base Spin</button>
-            <button data-mode="feature_spin">Feature Spin</button>
-            <button data-mode="bonus_buy_base">Bonus Buy (Base)</button>
-            <button data-mode="bonus_buy_super">Bonus Buy (Super)</button>
-        </section>
+        <section class="sidebar">
+            <div class="balance-card">
+                <div class="balance-label">Balance</div>
+                <div id="balanceLabel" class="balance-value">1000.00</div>
+            </div>
 
-        <section class="features">
-            <h2>Features</h2>
-            <ul>
-                <li>NoLimit-style: xWays, xSplit, xNudge, persistent multis</li>
-                <li>Hacksaw-style: expanding multis, sticky wilds, super multis</li>
-                <li>Scatter bonuses &amp; super bonus</li>
-            </ul>
+            <div class="controls">
+                <button id="spinBtn" data-mode="base" class="spin-button">SPIN</button>
+                <button data-mode="feature_spin" class="feature-button">FEATURE SPIN (2x)</button>
+                <div class="bonus-buy-group">
+                    <button data-mode="bonus_buy_base" class="buy-button base">BONUS BUY (100x)</button>
+                    <button data-mode="bonus_buy_super" class="buy-button super">SUPER BONUS BUY (300x)</button>
+                </div>
+            </section>
+
+            <div class="action-buttons">
+                <button id="turboBtn" class="action-btn">TURBO</button>
+                <button id="autoPlayBtn" class="action-btn">AUTO</button>
+            </div>
+
+            <section class="features">
+                <h2>Features</h2>
+                <ul>
+                    <li><strong>6x4 Reels</strong> - Bidirectional wins</li>
+                    <li><strong>xWays</strong> - Expand symbols for more wins</li>
+                    <li><strong>xSplit</strong> - Duplicate premium symbols</li>
+                    <li><strong>xNudge</strong> - Convert WILD to STICKY_WILD</li>
+                    <li><strong>Multipliers</strong> - Persistent MULTI growth</li>
+                    <li><strong>Scatter Bonuses</strong> - 3/4/5/6 scatters trigger free spins</li>
+                    <li><strong>Super Bonus</strong> - 6 scatters for the ultimate bonus</li>
+                </ul>
+            </section>
         </section>
     </main>
 
     <footer class="footer">
-        <span>© Golden Goat Gardens Studio</span>
+        <span>&copy; Golden Goat Gardens Studio</span>
+        <span class="footer-version">v1.1.0</span>
     </footer>
+</div>
+
+<div id="errorOverlay" class="overlay error-overlay hidden">
+    <div class="error-card">
+        <h1>Error</h1>
+        <p id="errorText"></p>
+        <button id="closeError" class="close-btn">OK</button>
+    </div>
 </div>
 
 <div id="loadingOverlay" class="overlay loading-overlay hidden">
@@ -68,16 +108,83 @@
 
 <div id="bonusOverlay" class="overlay bonus-overlay hidden">
     <div class="bonus-card">
-        <h1>🎰 BONUS ACTIVATED 🎰</h1>
+        <h1>BONUS ACTIVATED</h1>
         <p id="bonusText">Preparing free spins...</p>
+        <button id="closeBonus" class="close-btn">Continue</button>
+    </div>
+</div>
+
+<div id="bigWinOverlay" class="overlay bigwin-overlay hidden">
+    <div class="bigwin-card">
+        <h1 id="bigWinText">BIG WIN</h1>
+        <button id="closeBigWin" class="close-btn">Continue</button>
+    </div>
+</div>
+
+<div id="paytableOverlay" class="overlay modal-overlay hidden">
+    <div class="modal paytable-modal">
+        <div class="modal-header">
+            <h2>Paytable</h2>
+            <button id="closePaytable" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <table class="paytable">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>3x</th>
+                        <th>4x</th>
+                        <th>5x</th>
+                        <th>6x</th>
+                    </tr>
+                </thead>
+                <tbody id="paytableBody"></tbody>
+            </table>
+            <div class="paytable-note">
+                <p>Wins pay left to right and right to left.</p>
+                <p>WILD substitutes for all regular and premium symbols.</p>
+                <p>Maximum win per line is capped at 15x bet for premium symbols.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="gameInfoOverlay" class="overlay modal-overlay hidden">
+    <div class="modal gameinfo-modal">
+        <div class="modal-header">
+            <h2>Game Information</h2>
+            <button id="closeGameInfo" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="info-section">
+                <h3>Game Details</h3>
+                <p><strong>Name:</strong> Secure The Bag PERP Edition</p>
+                <p><strong>Provider:</strong> Golden Goat Gardens Studio</p>
+                <p><strong>Reels:</strong> 6x4</p>
+                <p><strong>Win Lines:</strong> Bidirectional (Left-to-Right, Right-to-Left)</p>
+                <p><strong>RTP:</strong> 96.44%</p>
+                <p><strong>Min Bet:</strong> 1.00</p>
+            </div>
+            <div class="info-section">
+                <h3>Bonus Rules</h3>
+                <p><strong>3 Scatters:</strong> 3 Free Spins, 1.0x Multi (max 1.5x)</p>
+                <p><strong>4 Scatters:</strong> 3 Free Spins, 1.0x Multi (max 1.5x)</p>
+                <p><strong>5 Scatters:</strong> 3 Free Spins, 1.0x Multi (max 1.5x)</p>
+                <p><strong>6 Scatters:</strong> 4 Free Spins, 1.0x Multi (max 2.0x) - SUPER BONUS</p>
+                <p>During bonus rounds, MULTI and EXPANDING_MULTI symbols increase the persistent multiplier. Max multiplier caps at mode-specific limit.</p>
+            </div>
+            <div class="info-section">
+                <h3>Special Features</h3>
+                <p><strong>xWays:</strong> Expands one symbol into two of the same type.</p>
+                <p><strong>xSplit:</strong> Duplicates a premium symbol on the reels.</p>
+                <p><strong>xNudge:</strong> Converts a WILD into a STICKY_WILD.</p>
+                <p><strong>MULTI:</strong> Adds +0.15x to round multiplier (max 3x base).</p>
+                <p><strong>EXPANDING_MULTI:</strong> Adds +0.30x to round multiplier (max 3x base).</p>
+            </div>
+        </div>
     </div>
 </div>
 
 <script type="module" src="demo.js"></script>
-
-<audio id="sndSpin" src="/sounds/spin.mp3" preload="auto"></audio>
-<audio id="sndWin" src="/sounds/win.mp3" preload="auto"></audio>
-<audio id="sndBonus" src="/sounds/bonus.mp3" preload="auto"></audio>
-<audio id="sndBigWin" src="/sounds/bigwin.mp3" preload="auto"></audio>
 </body>
 </html>

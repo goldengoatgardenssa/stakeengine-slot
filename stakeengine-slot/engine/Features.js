@@ -8,16 +8,16 @@ export function checkBonus(result) {
     const scatters = countScatters(result);
 
     if (scatters >= GAME_CONFIG.scattersRequired.superBonus) {
-        return { type: "SUPER_BONUS", freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 };
+        return { type: "SUPER_BONUS", freeSpins: 4, baseMulti: 1.0, maxMulti: 2.0 };
     }
     if (scatters >= 5) {
-        return { type: "BONUS_5_SCATTER", freeSpins: 12, baseMulti: 1.0, maxMulti: 3.0 };
+        return { type: "BONUS_5_SCATTER", freeSpins: 3, baseMulti: 1.0, maxMulti: 1.5 };
     }
     if (scatters >= 4) {
-        return { type: "BONUS_4_SCATTER", freeSpins: 10, baseMulti: 1.0, maxMulti: 2.5 };
+        return { type: "BONUS_4_SCATTER", freeSpins: 3, baseMulti: 1.0, maxMulti: 1.5 };
     }
     if (scatters >= 3) {
-        return { type: "BONUS_3_SCATTER", freeSpins: 8, baseMulti: 1.0, maxMulti: 2.0 };
+        return { type: "BONUS_3_SCATTER", freeSpins: 3, baseMulti: 1.0, maxMulti: 1.5 };
     }
     return null;
 }

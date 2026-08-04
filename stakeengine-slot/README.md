@@ -110,15 +110,15 @@ This game includes both NoLimit and Hacksaw-style mechanics:
 - **Persistent Multipliers**: MULTI and EXPANDING_MULTI symbols grow the multiplier across bonus rounds
 
 ### Hacksaw-Style Features
-- **Expanding Multipliers**: EXPANDING_MULTI adds +3x to the total multiplier
-- **Sticky Wilds**: STICKY_WILD symbols remain in place for bonus rounds
-- **Super Multis**: SUPER_BONUS mode with a base 5x multiplier and growing persistent multi
+- **Sticky Wilds**: STICKY_WILD symbols persist during bonus rounds
+- **Expanding Multipliers**: EXPANDING_MULTI adds +0.30x to the round multiplier
+- **Super Bonus**: SUPER_BONUS mode with 4 free spins and 2.0x max multiplier
 
 ### Bonus Triggers
-- **3 Scatters** → BONUS_3_SCATTER (8 free spins, 1.5x base multi)
-- **4 Scatters** → BONUS_4_SCATTER (10 free spins, 2x base multi)
-- **5 Scatters** → BONUS_5_SCATTER (12 free spins, 3x base multi)
-- **5+ Scatters** → SUPER_BONUS (15 free spins, 5x base multi)
+- **3 Scatters** → BONUS_3_SCATTER (3 free spins, 1.0x base multi, 1.5x max multi)
+- **4 Scatters** → BONUS_4_SCATTER (3 free spins, 1.0x base multi, 1.5x max multi)
+- **5 Scatters** → BONUS_5_SCATTER (3 free spins, 1.0x base multi, 1.5x max multi)
+- **6 Scatters** → SUPER_BONUS (4 free spins, 1.0x base multi, 2.0x max multi)
 
 ## Math Tuning (RTP & Volatility)
 
@@ -171,72 +171,39 @@ You'll have a feature-rich, branded, production-ready slot ready for StakeEngine
 
 ## Production UI & Graphics
 
-### Symbol Atlas Usage
+### Symbol Assets
 
-The `public/images/config.json` file defines a `symbolAtlas` and `mapping` for rendering symbols from a single sprite sheet image:
-
-- `symbolAtlas`: Path to the atlas image (e.g., `/images/symbol-atlas.png`)
-- `mapping`: Object mapping each symbol name to its `"row,col"` coordinates in the atlas grid
-
-The demo loader (`demo/demo.js`) fetches this config at startup and renders each symbol as an `<img>` element positioned using the atlas coordinates, replacing the previous colored-square placeholder approach.
+Symbol visuals are individual SVG files stored in `demo/images/symbols/`. The demo loads them directly as `<img>` elements with a fallback to text labels if an image fails to load. This ensures a static-only build with no external asset dependencies.
 
 ### Bonus Intro Animation
 
 When a bonus trigger occurs, a branded overlay appears with an animated entrance:
-
 - Overlay element: `.bonus-overlay` with a CSS scale+opacity animation
-- Bonus intro duration: 800ms with an ease-out curve
-- The overlay displays the bonus type (e.g., "FREE SPINS", "SUPER BONUS") and a close button
-- After the intro, the bonus round UI fades in beneath the overlay
+- Bonus intro duration: 2500ms
+- The overlay displays the bonus type and a close button
 
 ### Loading Overlay
 
-A loading spinner overlay is displayed during spin resolution to provide visual feedback:
-
+A loading spinner overlay is displayed during spin resolution:
 - Overlay element: `.loading-overlay` with a CSS spinning circle animation
 - Shown when a spin is initiated, hidden when results are ready
-- Uses a semi-transparent dark backdrop with a centered spinner icon
 - Prevents user interaction during spin resolution
 
-### Sound Pack
+### Sound Engine
 
-Sound effects are wired through `public/sounds/config.json` and triggered in `demo/demo.js`:
+Sound effects are generated procedurally using the Web Audio API in `demo/SoundEngine.js`:
+- **Spin**: Short noise burst on reel start
+- **Win**: Ascending tone sequence on win
+- **Big Win**: Extended celebratory tone sequence
+- **Bonus**: Rising arpeggio on bonus trigger
+- **Click**: Short tone for button interactions
 
-- **Spin**: Played on each reel start
-- **Win**: Played when a winning combination lands
-- **Bonus**: Played when a bonus round triggers
-- **Big Win**: Played for wins exceeding the big-win threshold
+No external audio files are required.
 
-Each sound is mapped to a file path and loaded via the Web Audio API or `<audio>` elements.
+## Assets & Branding
 
-### Vercel Deployment
+All game assets are self-contained:
+- Symbol SVGs: `demo/images/symbols/`
+- Sound engine: `demo/SoundEngine.js` (procedural Web Audio)
 
-The project includes a `vercel.json` configuration for production deployment:
-
-```json
-{
-  "cleanUrls": true,
-  "routes": [
-    { "src": "/demo", "dest": "/demo/index.html" },
-    { "src": "/(.*)", "dest": "/demo/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/images/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-    },
-    {
-      "source": "/sounds/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-    }
-  ]
-}
-```
-
-Deploy with:
-
-```bash
-vercel
-```
-
-After deployment, update `stakeengine/game.json` `"demoUrl"` to the Vercel URL.
+After deployment, update `stakeengine/game.json` `"demoUrl"` to the deployed frontend URL.

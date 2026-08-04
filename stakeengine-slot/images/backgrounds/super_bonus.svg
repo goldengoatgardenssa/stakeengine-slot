@@ -1,0 +1,47 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#451a03"/>
+      <stop offset="50%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </linearGradient>
+    <linearGradient id="neon5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fef3c7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg3)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <rect x="0" y="0" width="1920" height="500" fill="url(#neon5)"/>
+  <rect x="0" y="580" width="1920" height="500" fill="url(#neon5)"/>
+  <rect x="150" y="80" width="350" height="950" rx="16" fill="#451a03" opacity="0.8" stroke="#fbbf24" stroke-width="1"/>
+  <rect x="580" y="120" width="320" height="910" rx="16" fill="#451a03" opacity="0.7" stroke="#fbbf24" stroke-width="1"/>
+  <rect x="980" y="60" width="380" height="970" rx="16" fill="#451a03" opacity="0.9" stroke="#fbbf24" stroke-width="1"/>
+  <rect x="1440" y="100" width="340" height="930" rx="16" fill="#451a03" opacity="0.8" stroke="#fbbf24" stroke-width="1"/>
+  <circle cx="960" cy="160" r="100" fill="#fef3c7" opacity="0.9"/>
+  <circle cx="960" cy="160" r="140" fill="#fef3c7" opacity="0.3"/>
+  <circle cx="960" cy="160" r="180" fill="#fef3c7" opacity="0.15"/>
+  <circle cx="960" cy="160" r="220" fill="#fef3c7" opacity="0.05"/>
+  <rect x="220" y="140" width="20" height="220" rx="10" fill="#fbbf24" opacity="0.8"/>
+  <rect x="220" y="380" width="20" height="160" rx="10" fill="#f59e0b" opacity="0.8"/>
+  <rect x="660" y="180" width="20" height="200" rx="10" fill="#f59e0b" opacity="0.8"/>
+  <rect x="660" y="400" width="20" height="180" rx="10" fill="#fbbf24" opacity="0.8"/>
+  <rect x="1070" y="120" width="20" height="240" rx="10" fill="#fbbf24" opacity="0.8"/>
+  <rect x="1070" y="380" width="20" height="200" rx="10" fill="#f59e0b" opacity="0.8"/>
+  <rect x="1510" y="160" width="20" height="220" rx="10" fill="#f59e0b" opacity="0.8"/>
+  <rect x="1510" y="400" width="20" height="160" rx="10" fill="#fbbf24" opacity="0.8"/>
+  <ellipse cx="960" cy="1040" rx="700" ry="60" fill="#1c0f02" opacity="0.5"/>
+  <circle cx="200" cy="200" r="4" fill="#fef3c7" opacity="0.6"/>
+  <circle cx="400" cy="300" r="3" fill="#fef3c7" opacity="0.5"/>
+  <circle cx="700" cy="150" r="5" fill="#fef3c7" opacity="0.7"/>
+  <circle cx="1200" cy="250" r="4" fill="#fef3c7" opacity="0.6"/>
+  <circle cx="1500" cy="180" r="3" fill="#fef3c7" opacity="0.5"/>
+  <circle cx="1700" cy="320" r="5" fill="#fef3c7" opacity="0.7"/>
+  <circle cx="300" cy="600" r="3" fill="#fef3c7" opacity="0.4"/>
+  <circle cx="800" cy="700" r="4" fill="#fef3c7" opacity="0.5"/>
+  <circle cx="1300" cy="650" r="3" fill="#fef3c7" opacity="0.4"/>
+</svg>

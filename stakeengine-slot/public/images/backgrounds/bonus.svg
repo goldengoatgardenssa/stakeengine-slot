@@ -1,0 +1,36 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c2d12"/>
+      <stop offset="50%" stop-color="#431407"/>
+      <stop offset="100%" stop-color="#7c2d12"/>
+    </linearGradient>
+    <linearGradient id="neon3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fb923c" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="neon4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg2)"/>
+  <rect x="0" y="0" width="1920" height="400" fill="url(#neon3)"/>
+  <rect x="0" y="680" width="1920" height="400" fill="url(#neon4)"/>
+  <rect x="200" y="100" width="300" height="900" rx="12" fill="#292524" opacity="0.6"/>
+  <rect x="600" y="150" width="280" height="850" rx="12" fill="#292524" opacity="0.5"/>
+  <rect x="1000" y="80" width="320" height="920" rx="12" fill="#292524" opacity="0.7"/>
+  <rect x="1400" y="140" width="300" height="860" rx="12" fill="#292524" opacity="0.6"/>
+  <circle cx="960" cy="180" r="80" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="960" cy="180" r="110" fill="#fbbf24" opacity="0.2"/>
+  <circle cx="960" cy="180" r="140" fill="#fbbf24" opacity="0.1"/>
+  <rect x="240" y="160" width="16" height="180" rx="8" fill="#fb923c" opacity="0.7"/>
+  <rect x="240" y="360" width="16" height="120" rx="8" fill="#fbbf24" opacity="0.7"/>
+  <rect x="640" y="200" width="16" height="160" rx="8" fill="#fbbf24" opacity="0.7"/>
+  <rect x="640" y="380" width="16" height="140" rx="8" fill="#fb923c" opacity="0.7"/>
+  <rect x="1040" y="120" width="16" height="200" rx="8" fill="#fb923c" opacity="0.7"/>
+  <rect x="1040" y="340" width="16" height="160" rx="8" fill="#fbbf24" opacity="0.7"/>
+  <rect x="1440" y="180" width="16" height="180" rx="8" fill="#fbbf24" opacity="0.7"/>
+  <rect x="1440" y="380" width="16" height="140" rx="8" fill="#fb923c" opacity="0.7"/>
+  <ellipse cx="960" cy="1000" rx="600" ry="80" fill="#0c0a09" opacity="0.4"/>
+</svg>

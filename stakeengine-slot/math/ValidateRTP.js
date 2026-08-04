@@ -19,18 +19,19 @@ function parseCsv(path) {
         const [id, probability, payoutMultiplier] = line.split(",");
         return {
             id: Number(id),
-            probability: BigInt(probability),
+            probability: Number(probability),
             payoutMultiplier: Number(payoutMultiplier)
         };
     });
 }
 
 function calculateRTP(rows) {
-    let rtp = 0n;
+    const totalWeight = rows.reduce((acc, r) => acc + r.probability, 0);
+    let rtp = 0;
     for (const r of rows) {
-        rtp += r.probability * BigInt(r.payoutMultiplier);
+        rtp += (r.probability / totalWeight) * (r.payoutMultiplier / 100);
     }
-    return Number(rtp) / Number(UINT64_MAX) / 100;
+    return rtp;
 }
 
 function calculateVolatility(rows) {

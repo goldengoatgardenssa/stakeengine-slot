@@ -46,11 +46,11 @@ export const GAME_CONFIG = {
         specialFrequencyBoost: 1.0,
         modeTrim: {
             base:            1.017,
-            feature_spin:    1.017,
-            bonus_3:         1.017,
-            bonus_4:         1.017,
-            bonus_5:         1.017,
-            super_bonus:     1.017,
+            feature_spin:    1.8,
+            bonus_3:         0.30,
+            bonus_4:         0.25,
+            bonus_5:         0.20,
+            super_bonus:     0.15,
             bonus_buy_base:  7.000,
             bonus_buy_super: 8.500
         }

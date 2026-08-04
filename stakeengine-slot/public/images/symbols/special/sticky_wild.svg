@@ -1,0 +1,16 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="12" fill="url(#g7)"/>
+  <path d="M50 28c-8 10-16 18-16 28 0 8 5 12 16 12s16-4 16-12c0-10-8-18-16-28z" fill="#fff7ed" stroke="#7c2d12" stroke-width="2"/>
+  <path d="M44 50c0-8 3-14 6-14s6 6 6 14" fill="#fbbf24" opacity="0.9"/>
+  <circle cx="46" cy="42" r="3" fill="#7c2d12"/>
+  <circle cx="54" cy="42" r="3" fill="#7c2d12"/>
+  <path d="M48 30l-2 4h4z" fill="#dc2626"/>
+  <rect x="48" y="68" width="4" height="8" rx="1" fill="#7c2d12"/>
+  <text x="50" y="86" text-anchor="middle" fill="#fff7ed" font-size="9" font-weight="bold" font-family="system-ui">STICKY</text>
+</svg>

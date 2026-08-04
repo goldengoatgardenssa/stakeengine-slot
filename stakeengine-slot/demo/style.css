@@ -1,27 +1,43 @@
 * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --bg-dark: #0a0a0f;
+    --bg-card: rgba(20, 20, 30, 0.9);
+    --gold: #ffd700;
+    --gold-dark: #b8960f;
+    --purple: #7c3aed;
+    --pink: #db2777;
+    --green: #10b981;
+    --red: #ef4444;
+    --text: #f5f5f5;
+    --text-muted: #9ca3af;
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #222 0%, #050505 60%);
-    color: #f5f5f5;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
 }
 
 .app {
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 16px;
+    padding: 12px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
     gap: 8px;
 }
@@ -29,11 +45,12 @@ body {
 .branding {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 32px;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
 }
 
 .brand-text {
@@ -43,43 +60,101 @@ body {
 
 .brand-name {
     font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #ffd700;
-}
-
-.game-title {
-    font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #ccc;
+    color: var(--gold);
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .provider-branding {
     text-align: center;
-    font-size: 11px;
-    letter-spacing: 0.15em;
+    font-size: 10px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #888;
-    margin-bottom: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
     padding: 4px 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 .main {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
 }
 
 .slot {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
+    background: var(--bg-card);
+    border-radius: 16px;
     padding: 16px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.game-title {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--gold), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.status-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--green);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    letter-spacing: 0.05em;
+}
+
+.status-badge.connected {
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--purple);
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+.status-badge.error {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--red);
+    border-color: rgba(239, 68, 68, 0.3);
 }
 
 .reels {
@@ -87,22 +162,25 @@ body {
     grid-template-columns: repeat(6, 1fr);
     gap: 6px;
     margin-bottom: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 10px;
 }
 
 .reel-column {
     background: #111;
     border-radius: 8px;
-    padding: 6px;
+    padding: 4px;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
-    gap: 4px;
+    gap: 3px;
     overflow: hidden;
     aspect-ratio: 1 / 4;
     position: relative;
 }
 
 .reel-column.spinning {
-    animation: reelSpin 0.6s ease-in-out infinite alternate;
+    animation: reelSpin 0.5s ease-in-out infinite alternate;
 }
 
 .reel-column.bounce {
@@ -111,12 +189,12 @@ body {
 
 @keyframes reelSpin {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-4px); }
+    100% { transform: translateY(-3px); }
 }
 
 @keyframes reelBounce {
-    0% { transform: scaleY(1.06); }
-    50% { transform: scaleY(0.94); }
+    0% { transform: scaleY(1.04); }
+    50% { transform: scaleY(0.96); }
     100% { transform: scaleY(1); }
 }
 
@@ -125,15 +203,16 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    background: #222;
-    font-size: 12px;
+    background: #1a1a24;
+    font-size: 10px;
     color: #eee;
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
+    aspect-ratio: 1;
 }
 
 .symbol img {
@@ -145,41 +224,100 @@ body {
 
 .symbol.premium {
     background: linear-gradient(135deg, #5b3bff, #ff3b7b);
+    box-shadow: 0 0 8px rgba(255, 59, 123, 0.3);
 }
 
 .symbol.special {
     background: linear-gradient(135deg, #ffd700, #ff8c00);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
 }
 
 .symbol.sticky {
-    outline: 2px solid #0f0;
+    outline: 2px solid var(--green);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
 }
 
 .symbol.expanding {
-    outline: 2px solid #ff0;
+    outline: 2px solid #fbbf24;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
 }
 
 .symbol.win {
-    box-shadow: 0 0 12px #0f0;
-    transform: scale(1.05);
+    box-shadow: 0 0 16px var(--green);
+    transform: scale(1.08);
     animation: winGlow 0.6s ease-in-out infinite alternate;
+    z-index: 2;
 }
 
 @keyframes winGlow {
-    0% { box-shadow: 0 0 8px #0f0; }
-    100% { box-shadow: 0 0 20px #0f0, 0 0 40px rgba(0,255,0,0.3); }
+    0% { box-shadow: 0 0 8px var(--green); }
+    100% { box-shadow: 0 0 24px var(--green), 0 0 40px rgba(0, 255, 0, 0.3); }
 }
 
 .hud {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 8px;
     font-size: 13px;
 }
 
 .hud-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.hud-label {
+    color: var(--text-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.hud-value {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.hud-value.win {
+    color: var(--gold);
+}
+
+.hud-value.multi {
+    color: var(--green);
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.balance-card {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(219, 39, 119, 0.2));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+.balance-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.balance-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
 }
 
 .controls {
@@ -188,57 +326,158 @@ body {
     gap: 8px;
 }
 
-.controls button {
-    padding: 12px 14px;
-    border-radius: 6px;
+.spin-button {
+    padding: 16px;
+    border-radius: 10px;
     border: none;
-    background: #333;
-    color: #f5f5f5;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: #fff;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(219, 39, 119, 0.3);
 }
 
-.controls button:hover {
-    background: #555;
-    transform: translateY(-1px);
+.spin-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(219, 39, 123, 0.4);
 }
 
-.controls button:active {
+.spin-button:active {
     transform: translateY(1px);
 }
 
-.controls button:disabled {
-    opacity: 0.6;
+.spin-button:disabled {
+    opacity: 0.5;
     cursor: not-allowed;
     transform: none;
 }
 
+.feature-button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    background: rgba(124, 58, 237, 0.15);
+    color: #c4b5fd;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.2s;
+}
+
+.feature-button:hover {
+    background: rgba(124, 58, 237, 0.25);
+}
+
+.bonus-buy-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.buy-button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.2s;
+}
+
+.buy-button.base {
+    background: linear-gradient(135deg, #fbbf24, #d97706);
+    color: #1f2937;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.buy-button.super {
+    background: linear-gradient(135deg, #ef4444, #991b1b);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.buy-button:hover {
+    transform: translateY(-1px);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.action-btn.active {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: var(--green);
+    color: var(--green);
+}
+
 .features {
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--bg-card);
     border-radius: 10px;
     padding: 12px;
-    font-size: 13px;
+    font-size: 12px;
+    border: 1px solid var(--border);
 }
 
 .features h2 {
-    margin: 0 0 8px 0;
-    font-size: 16px;
-    color: #ffd700;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .features ul {
     margin: 0;
-    padding-left: 18px;
+    padding-left: 16px;
+    line-height: 1.8;
+}
+
+.features li {
+    color: var(--text-muted);
 }
 
 .footer {
-    margin-top: 24px;
-    font-size: 12px;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 11px;
     text-align: center;
-    color: #999;
+    color: #666;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.footer-version {
+    color: #555;
 }
 
 .overlay {
@@ -250,6 +489,7 @@ body {
     z-index: 1000;
     background: rgba(0, 0, 0, 0.85);
     transition: opacity 0.3s ease;
+    padding: 16px;
 }
 
 .overlay.hidden {
@@ -257,61 +497,241 @@ body {
     opacity: 0;
 }
 
+.error-overlay .error-card {
+    background: linear-gradient(135deg, #2a0a0a, #5b3bff);
+    border: 2px solid var(--red);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 60px rgba(239, 68, 68, 0.4);
+    max-width: 90vw;
+}
+
+.error-overlay h1 {
+    margin: 0 0 16px 0;
+    font-size: 32px;
+    letter-spacing: 0.12em;
+    color: var(--red);
+    text-shadow: 0 0 16px rgba(239, 68, 68, 0.6);
+}
+
+.error-overlay p {
+    margin: 0 0 24px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
 .loading-overlay p {
     margin-top: 16px;
-    font-size: 16px;
-    letter-spacing: 0.12em;
+    font-size: 14px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #ffd700;
+    color: var(--gold);
 }
 
 .spinner {
     width: 48px;
     height: 48px;
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    border-top-color: #ffd700;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    border-top-color: var(--gold);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    to { transform: rotate(360deg); }
 }
 
 .bonus-overlay .bonus-card {
-    background: linear-gradient(135deg, #2a1a00, #5b3bff);
-    border: 2px solid #ffd700;
-    border-radius: 16px;
-    padding: 32px;
+    background: linear-gradient(135deg, #1a0a00, #5b3bff);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 40px;
     text-align: center;
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
     animation: bonusPulse 1.5s ease-in-out infinite;
     max-width: 90vw;
 }
 
 .bonus-overlay h1 {
-    margin: 0 0 12px 0;
-    font-size: 28px;
-    letter-spacing: 0.1em;
-    color: #ffd700;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    margin: 0 0 16px 0;
+    font-size: 32px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
 }
 
 .bonus-overlay p {
-    margin: 0;
+    margin: 0 0 24px 0;
     font-size: 16px;
     color: #fff;
 }
 
+.close-btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 @keyframes bonusPulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.04);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+.bigwin-overlay .bigwin-card {
+    background: linear-gradient(135deg, #2a1a00, #5b3bff);
+    border: 3px solid var(--gold);
+    border-radius: 24px;
+    padding: 48px;
+    text-align: center;
+    box-shadow: 0 0 80px rgba(255, 215, 0, 0.5);
+    animation: bigWinPulse 0.8s ease-in-out infinite alternate;
+    max-width: 90vw;
+}
+
+.bigwin-overlay h1 {
+    margin: 0;
+    font-size: 48px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+@keyframes bigWinPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.modal-overlay {
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 40px;
+    overflow-y: auto;
+}
+
+.modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg-card);
+    z-index: 1;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.paytable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.paytable th {
+    text-align: center;
+    padding: 8px;
+    color: var(--text-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border);
+}
+
+.paytable td {
+    text-align: center;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+.paytable td:first-child {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.paytable-symbol {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+}
+
+.paytable tr:last-child td {
+    border-bottom: none;
+}
+
+.paytable-note {
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.paytable-note p {
+    margin: 4px 0;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-section h3 {
+    font-size: 13px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 10px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-section p {
+    margin: 6px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.info-section strong {
+    color: var(--text);
 }
 
 @media (min-width: 720px) {
@@ -324,19 +744,28 @@ body {
     }
 
     .game-title {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .brand-name {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .reels {
         gap: 8px;
+        padding: 12px;
     }
 
     .symbol {
+        font-size: 12px;
+    }
+
+    .hud {
         font-size: 14px;
+    }
+
+    .modal {
+        max-width: 700px;
     }
 }
 
@@ -346,23 +775,23 @@ body {
     }
 
     .reels {
-        gap: 3px;
-        padding: 4px;
+        gap: 4px;
+        padding: 6px;
     }
 
     .reel-column {
-        padding: 3px;
+        padding: 2px;
         gap: 2px;
-        border-radius: 4px;
+        border-radius: 6px;
     }
 
     .symbol {
-        font-size: 10px;
-        border-radius: 3px;
+        font-size: 8px;
+        border-radius: 4px;
     }
 
     .controls button {
-        padding: 10px 12px;
+        padding: 12px;
         font-size: 12px;
     }
 
@@ -370,17 +799,23 @@ body {
         font-size: 11px;
     }
 
+    .balance-value {
+        font-size: 22px;
+    }
+
     .bonus-overlay .bonus-card {
-        padding: 20px;
+        padding: 24px;
     }
 
     .bonus-overlay h1 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
-    .spinner {
-        width: 36px;
-        height: 36px;
-        border-width: 3px;
+    .bigwin-overlay .bigwin-card {
+        padding: 32px;
+    }
+
+    .bigwin-overlay h1 {
+        font-size: 32px;
     }
 }

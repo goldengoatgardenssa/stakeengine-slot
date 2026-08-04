@@ -20,15 +20,14 @@ const MODE_COSTS = {
 };
 
 const ROUNDS_PER_MODE = 10000;
-const UINT64_MAX = 2n ** 64n;
 
 const BONUS_MODE_MAP = {
-    bonus_3: { type: "BONUS_3_SCATTER", freeSpins: 8,  baseMulti: 1.0, maxMulti: 2.0 },
-    bonus_4: { type: "BONUS_4_SCATTER", freeSpins: 10, baseMulti: 1.0, maxMulti: 2.5 },
-    bonus_5: { type: "BONUS_5_SCATTER", freeSpins: 12, baseMulti: 1.0, maxMulti: 3.0 },
-    super_bonus: { type: "SUPER_BONUS", freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 },
-    bonus_buy_base: { type: "BONUS_3_SCATTER", freeSpins: 8, baseMulti: 1.0, maxMulti: 2.0 },
-    bonus_buy_super: { type: "SUPER_BONUS", freeSpins: 15, baseMulti: 1.0, maxMulti: 4.0 }
+    bonus_3: { type: "BONUS_3_SCATTER", freeSpins: 3,  baseMulti: 1.0, maxMulti: 1.5 },
+    bonus_4: { type: "BONUS_4_SCATTER", freeSpins: 3,  baseMulti: 1.0, maxMulti: 1.5 },
+    bonus_5: { type: "BONUS_5_SCATTER", freeSpins: 3,  baseMulti: 1.0, maxMulti: 1.5 },
+    super_bonus: { type: "SUPER_BONUS", freeSpins: 4,  baseMulti: 1.0, maxMulti: 2.0 },
+    bonus_buy_base: { type: "BONUS_3_SCATTER", freeSpins: 3,  baseMulti: 1.0, maxMulti: 1.5 },
+    bonus_buy_super: { type: "SUPER_BONUS", freeSpins: 4,  baseMulti: 1.0, maxMulti: 2.0 }
 };
 
 function findBestWin(result) {
@@ -280,13 +279,9 @@ function writeJsonl(path, rounds) {
 }
 
 function writeCsv(path, rounds) {
-    const n = BigInt(rounds.length);
-    const baseProb = UINT64_MAX / n;
-    const remainder = UINT64_MAX % n;
     const fd = fs.openSync(path, 'w');
     for (let i = 0; i < rounds.length; i++) {
-        const prob = baseProb + (i < Number(remainder) ? 1n : 0n);
-        fs.writeSync(fd, `${rounds[i].id},${prob.toString()},${rounds[i].payoutMultiplier}\n`);
+        fs.writeSync(fd, `${rounds[i].id},1,${rounds[i].payoutMultiplier}\n`);
     }
     fs.closeSync(fd);
 }
