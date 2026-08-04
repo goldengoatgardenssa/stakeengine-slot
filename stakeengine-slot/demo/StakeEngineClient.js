@@ -134,7 +134,7 @@ export class StakeEngineClient {
                     sessionID: this.sessionID,
                     amount: apiAmount,
                     currency: this.currency,
-                    mode: mode.toUpperCase(),
+                    mode: mode,
                 }),
             });
 

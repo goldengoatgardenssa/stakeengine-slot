@@ -483,6 +483,17 @@ async function init() {
     initControls();
     await initStakeEngine();
     balanceLabel.textContent = formatCurrency(balance);
+
+    if (stakeEngineClient.connected && stakeEngineClient.round) {
+        const round = stakeEngineClient.round;
+        const isActive = round.state && round.state !== "completed" && round.state !== "cancelled";
+        if (isActive) {
+            modeLabel.textContent = round.mode ? round.mode.toLowerCase() : "base";
+            showLoading(false);
+            return;
+        }
+    }
+
     handleSpin("base");
 }
 
