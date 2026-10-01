@@ -177,24 +177,26 @@ body {
     overflow: hidden;
     aspect-ratio: 1 / 4;
     position: relative;
+    will-change: transform;
 }
 
 .reel-column.spinning {
-    animation: reelSpin 0.5s ease-in-out infinite alternate;
+    animation: reelSpin 0.6s cubic-bezier(0.36, 0, 0.66, -0.56) infinite;
 }
 
 .reel-column.bounce {
-    animation: reelBounce 0.3s ease-out;
+    animation: reelBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @keyframes reelSpin {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-3px); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes reelBounce {
-    0% { transform: scaleY(1.04); }
-    50% { transform: scaleY(0.96); }
+    0% { transform: scaleY(1.08); }
+    50% { transform: scaleY(0.92); }
     100% { transform: scaleY(1); }
 }
 
@@ -206,13 +208,14 @@ body {
     background: #1a1a24;
     font-size: 10px;
     color: #eee;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: none;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
     aspect-ratio: 1;
+    will-change: transform, box-shadow;
 }
 
 .symbol img {
@@ -243,15 +246,21 @@ body {
 }
 
 .symbol.win {
-    box-shadow: 0 0 16px var(--green);
-    transform: scale(1.08);
-    animation: winGlow 0.6s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px var(--green);
+    transform: scale(1.1);
+    animation: winGlow 0.4s ease-in-out infinite alternate;
     z-index: 2;
 }
 
 @keyframes winGlow {
-    0% { box-shadow: 0 0 8px var(--green); }
-    100% { box-shadow: 0 0 24px var(--green), 0 0 40px rgba(0, 255, 0, 0.3); }
+    0% { 
+        box-shadow: 0 0 12px var(--green);
+        transform: scale(1.08);
+    }
+    100% { 
+        box-shadow: 0 0 28px var(--green), 0 0 50px rgba(16, 185, 129, 0.5);
+        transform: scale(1.12);
+    }
 }
 
 .hud {
@@ -299,7 +308,7 @@ body {
 
 .balance-card {
     background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(219, 39, 119, 0.2));
-    border: 1px solid var(--border);
+    border: 2px solid rgba(124, 58, 237, 0.5);
     border-radius: 12px;
     padding: 16px;
     text-align: center;
@@ -320,36 +329,44 @@ body {
     text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
 }
 
+/* BET CONTROLS - CRITICAL FIX */
 .bet-controls {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(219, 39, 119, 0.1));
+    border: 2px solid var(--gold);
     border-radius: 12px;
-    padding: 12px;
+    padding: 14px 16px;
+    visibility: visible;
+    z-index: 100;
+    min-height: 55px;
+    width: 100%;
 }
 
 .bet-btn {
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text);
+    border: 2px solid var(--gold);
+    background: rgba(255, 215, 0, 0.15);
+    color: var(--gold);
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
+    transition: all 0.15s;
+    flex-shrink: 0;
 }
 
 .bet-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 215, 0, 0.25);
+    border-color: #ffd700;
+    transform: scale(1.05);
 }
 
 .bet-btn:active {
@@ -360,7 +377,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 80px;
+    min-width: 90px;
 }
 
 .bet-label {
@@ -368,13 +385,14 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-muted);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .bet-value {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
-    color: var(--text);
+    color: var(--gold);
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
 
 .controls {
@@ -396,11 +414,12 @@ body {
     letter-spacing: 0.1em;
     transition: all 0.2s;
     box-shadow: 0 4px 16px rgba(219, 39, 119, 0.3);
+    will-change: transform;
 }
 
 .spin-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(219, 39, 123, 0.4);
+    box-shadow: 0 6px 20px rgba(219, 39, 119, 0.4);
 }
 
 .spin-button:active {
@@ -562,6 +581,7 @@ body {
     text-align: center;
     box-shadow: 0 0 60px rgba(239, 68, 68, 0.4);
     max-width: 90vw;
+    animation: cardPop 0.3s ease-out;
 }
 
 .error-overlay h1 {
@@ -593,6 +613,7 @@ body {
     border-top-color: var(--gold);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
+    will-change: transform;
 }
 
 @keyframes spin {
@@ -606,7 +627,7 @@ body {
     padding: 40px;
     text-align: center;
     box-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
-    animation: bonusPulse 1.5s ease-in-out infinite;
+    animation: bonusPulse 0.6s ease-in-out;
     max-width: 90vw;
 }
 
@@ -643,8 +664,13 @@ body {
 }
 
 @keyframes bonusPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.03); }
+    0% { transform: scale(0.9) rotateZ(-1deg); opacity: 0; }
+    100% { transform: scale(1) rotateZ(0); opacity: 1; }
+}
+
+@keyframes cardPop {
+    0% { transform: scale(0.8) rotateZ(-2deg); opacity: 0; }
+    100% { transform: scale(1) rotateZ(0); opacity: 1; }
 }
 
 .bigwin-overlay .bigwin-card {
@@ -654,7 +680,7 @@ body {
     padding: 48px;
     text-align: center;
     box-shadow: 0 0 80px rgba(255, 215, 0, 0.5);
-    animation: bigWinPulse 0.8s ease-in-out infinite alternate;
+    animation: bigWinPulse 0.5s ease-in-out infinite alternate;
     max-width: 90vw;
 }
 
@@ -668,7 +694,7 @@ body {
 
 @keyframes bigWinPulse {
     0% { transform: scale(1); }
-    100% { transform: scale(1.05); }
+    100% { transform: scale(1.08); }
 }
 
 .modal-overlay {
@@ -824,6 +850,10 @@ body {
     .modal {
         max-width: 700px;
     }
+
+    .bet-controls {
+        min-height: 60px;
+    }
 }
 
 @media (max-width: 719px) {
@@ -874,5 +904,21 @@ body {
 
     .bigwin-overlay h1 {
         font-size: 32px;
+    }
+
+    .bet-controls {
+        min-height: 50px;
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .bet-value {
+        font-size: 20px;
+    }
+
+    .bet-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
     }
 }
