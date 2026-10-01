@@ -12,6 +12,9 @@ class GameConfig:
         self.rtp_target = 0.9620
         self.max_win_multiplier = 220.77
 
+        # Game modes - only base mode (no bonus/buy features)
+        self.game_modes = ["base"]
+
         # Grid dimensions
         self.rows, self.cols = 3, 5
 

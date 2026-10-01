@@ -15,5 +15,11 @@
     "L4",
     "WILD",
     "SCATTER"
-  ]
+  ],
+  "game_modes": [
+    "base"
+  ],
+  "mode_rtp": {
+    "base": 96.2006
+  }
 }

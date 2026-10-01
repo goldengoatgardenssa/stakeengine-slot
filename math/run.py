@@ -49,6 +49,8 @@ def create_books(num_simulations=1000000, verify_simulations=1000000):
             "rtp": round(rtp, 4),
             "paylines_evaluated": config.num_paylines,
             "symbols": config.symbols,
+            "game_modes": config.game_modes,
+            "mode_rtp": {"base": round(rtp, 4)},
         }
         json.dump(book, f, indent=2)
 
@@ -63,6 +65,8 @@ def create_books(num_simulations=1000000, verify_simulations=1000000):
             "total_bet": config.base_bet,
             "paytable_multiplier": config.paytable_multiplier,
             "num_paylines": config.num_paylines,
+            "game_modes": config.game_modes,
+            "mode_rtp": {"base": round(rtp, 4)},
         }
         json.dump(forces, f, indent=2)
 
@@ -86,7 +90,7 @@ def create_books(num_simulations=1000000, verify_simulations=1000000):
         match = "MATCH" if abs(v_rtp - rtp) < 0.001 else "DIFF"
         print(f"  Bet level {level:>3}x: RTP = {v_rtp:.4f}%  [{match}]")
 
-    # Write frontend configuration
+# Write frontend configuration
     config_fe = {
         "gameName": config.game_name,
         "currency": config.currency,
@@ -96,8 +100,11 @@ def create_books(num_simulations=1000000, verify_simulations=1000000):
         "baseBet": config.base_bet,
         "rtp": round(rtp_by_level.get(1, 0), 2),
         "rtpTarget": round(config.rtp_target * 100, 2),
-        "maxWin": config.max_win_multiplier,
+        "maxWin": round(config.max_win_multiplier, 2),
         "symbols": config.symbols,
+        "gameModes": config.game_modes,
+        "paytable": config.paytable,
+        "paytableMultiplier": config.paytable_multiplier,
     }
 
     with open("library/configs/config_fe.json", "w") as f:
