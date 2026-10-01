@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="20" fill="#1A241B" stroke="#D4AF37" stroke-width="4"/>
+  <circle cx="100" cy="100" r="75" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M60,80 C50,40 30,30 20,40 C15,45 25,60 45,75 Z" fill="#D4AF37"/>
+  <path d="M140,80 C150,40 170,30 180,40 C185,45 175,60 155,75 Z" fill="#D4AF37"/>
+  <path d="M70,75 L130,75 L120,130 L100,155 L80,130 Z" fill="#FFDF00"/>
+  <circle cx="85" cy="95" r="6" fill="#1A241B"/>
+  <circle cx="115" cy="95" r="6" fill="#1A241B"/>
+  <text x="100" y="185" font-family="Arial" font-size="12" font-weight="bold" fill="#D4AF37" text-anchor="middle">GOLDEN GOAT</text>
+</svg>

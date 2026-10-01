@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect x="5" y="5" width="190" height="190" rx="24" fill="#14231a" stroke="#c8a850" stroke-width="4"/>
+  <rect x="35" y="22" width="130" height="146" rx="16" fill="#e7ead7" stroke="#9db47b" stroke-width="3"/>
+  <text x="51" y="83" fill="#344d38" font-family="Georgia,serif" font-size="48" font-weight="bold" text-anchor="middle">J</text>
+  <path d="M100 69c-17 0-26 14-26 29 0 14 10 22 22 22 4 0 8-1 12-4-2 12-9 20-20 24 15 4 36-8 36-31 0-22-10-40-24-40z" fill="#76935d" stroke="#35563a" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M93 117l-8 20m8-20 15 6" stroke="#f1cf67" stroke-width="4" stroke-linecap="round"/>
+  <text x="100" y="188" fill="#f1cf67" font-family="Georgia,serif" font-size="12" font-weight="bold" letter-spacing="2" text-anchor="middle">JACK</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect x="5" y="5" width="190" height="190" rx="24" fill="#14231a" stroke="#c8a850" stroke-width="4"/>
+  <rect x="35" y="22" width="130" height="146" rx="16" fill="#e8e2c8" stroke="#f1cf67" stroke-width="3"/>
+  <text x="51" y="83" fill="#294b34" font-family="Georgia,serif" font-size="48" font-weight="bold" text-anchor="middle">K</text>
+  <path d="M69 111l8-35 23 20 23-20 8 35z" fill="#c99b43" stroke="#755d31" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M77 112h46v11H77z" fill="#dfbf6a" stroke="#755d31" stroke-width="3"/>
+  <circle cx="77" cy="75" r="5" fill="#f5e5a5"/><circle cx="100" cy="96" r="5" fill="#f5e5a5"/><circle cx="123" cy="75" r="5" fill="#f5e5a5"/>
+  <text x="100" y="188" fill="#f1cf67" font-family="Georgia,serif" font-size="12" font-weight="bold" letter-spacing="2" text-anchor="middle">KING</text>
+</svg>

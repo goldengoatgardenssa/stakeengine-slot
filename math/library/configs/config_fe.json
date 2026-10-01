@@ -1,0 +1,35 @@
+{
+  "gameName": "GoldenGoatGardenSSA",
+  "currency": "USD",
+  "grid": {
+    "rows": 3,
+    "cols": 5
+  },
+  "paylines": 5,
+  "betLevels": [
+    1,
+    2,
+    3,
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
+  "baseBet": 10,
+  "rtp": 96.2,
+  "rtpTarget": 96.2,
+  "maxWin": 220.77,
+  "symbols": [
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "WILD",
+    "SCATTER"
+  ]
+}

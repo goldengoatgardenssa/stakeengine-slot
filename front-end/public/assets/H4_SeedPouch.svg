@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect x="5" y="5" width="190" height="190" rx="24" fill="#14231a" stroke="#c8a850" stroke-width="4"/>
+  <circle cx="100" cy="91" r="63" fill="#1d3325" stroke="#426243" stroke-width="2"/>
+  <path d="M70 73c8-7 52-7 60 0l-6 14 13 54c2 8-4 14-12 14H75c-8 0-14-6-12-14l13-54z" fill="#bd824b" stroke="#f1cf67" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M72 73c5 15 51 15 56 0M78 101h44" fill="none" stroke="#f7df9a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M87 124c-4-10 2-17 12-22 10 6 15 13 11 22-5 10-18 10-23 0z" fill="#d9b568" stroke="#fff0b4" stroke-width="3"/>
+  <path d="M100 108v23" stroke="#8f6336" stroke-width="3"/>
+  <text x="100" y="183" fill="#f1cf67" font-family="Georgia,serif" font-size="13" font-weight="bold" letter-spacing="2" text-anchor="middle">SEED POUCH</text>
+</svg>

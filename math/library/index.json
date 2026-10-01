@@ -1,0 +1,20 @@
+{
+  "gameName": "GoldenGoatGardenSSA",
+  "version": "1.0.0",
+  "description": "Golden Goat Garden SSA - Math Library Index",
+  "library": {
+    "configs": {
+      "config_fe": "configs/config_fe.json"
+    },
+    "forces": {
+      "ev_forces": "forces/ev_forces.json"
+    },
+    "books": {
+      "simulations_book": "books/simulations_book.json",
+      "simulations_book_compressed": "books_compressed/simulations_book.json.gz"
+    },
+    "lookup_tables": {
+      "lookup": "lookup_tables/lookup.csv"
+    }
+  }
+}
