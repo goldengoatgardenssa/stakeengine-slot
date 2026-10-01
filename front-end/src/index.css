@@ -85,8 +85,8 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 1200px;
-  gap: 20px;
-  padding: 20px;
+  gap: 12px;
+  padding: 12px;
 }
 
 /* Slot grid */
@@ -211,6 +211,7 @@ body {
   padding: 10px 16px;
   background: rgba(10, 15, 11, 0.8);
   border-top: 2px solid #d4af37;
+  z-index: 10;
 }
 
 .bet-bar {
@@ -221,6 +222,7 @@ body {
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: thin;
+  align-items: center;
 }
 
 .bet-level-button {
