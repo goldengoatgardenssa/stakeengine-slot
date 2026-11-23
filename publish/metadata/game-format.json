@@ -1,0 +1,18 @@
+{
+  "formatVersion": "1.0",
+  "reels": 5,
+  "rows": 3,
+  "lines": 20,
+  "directions": ["left-to-right"],
+  "symbols": {
+    "wild": ["W"],
+    "scatter": ["S"],
+    "high": ["H1", "H2", "H3", "H4"],
+    "low": ["L1", "L2", "L3", "L4"]
+  },
+  "mathFiles": {
+    "index": "index.json",
+    "events": "books_<mode>.jsonl.zst",
+    "weights": "lookup_<mode>.csv"
+  }
+}

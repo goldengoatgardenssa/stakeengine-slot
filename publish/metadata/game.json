@@ -1,0 +1,9 @@
+{
+  "gameId": "copperbell-orchard",
+  "gameName": "Copperbell Orchard",
+  "providerId": "goldengoatgardenssa",
+  "version": "1.0.0",
+  "supportedModes": ["base", "lantern"],
+  "maxWinX": 5000,
+  "description": "A 5x3, 20-line orchard slot. Lanterns open a bloom-multiplier free-spin watch. Two modes, both priced to 96.3% return."
+}

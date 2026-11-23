@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#f4e6c8" />
+    <title>Copperbell Orchard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="#f4e6c8" stroke="#2a2118" stroke-width="3"/>
+            <path d="M32 10c8 10 8 18 0 24-8-6-8-14 0-24z" fill="#7eaf63" stroke="#2a2118"/>
+            <path d="M32 28c10 2 14 12 8 20-8-2-16-8-8-20z" fill="#c56a32" stroke="#2a2118"/>
+            <circle cx="32" cy="50" r="3" fill="#e7b256" stroke="#2a2118"/>
+          </svg>
+          <div>
+            <h1>Copperbell Orchard</h1>
+            <p>Twenty lines under the apple boughs</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="turbo" class="text-btn" type="button" aria-pressed="false">Fast</button>
+          <button id="sound" class="icon-btn" type="button" aria-pressed="true" aria-label="Sound on">♪</button>
+          <button id="info" class="icon-btn" type="button" aria-label="Game info">i</button>
+        </div>
+      </header>
+      <main class="stage" id="stage">
+        <svg class="orchard" viewBox="0 0 800 240" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 180c80-40 140-20 220-50 70 30 120 10 180-20 80 20 140 0 220 30 60 20 120 10 180-10v110H0z" fill="#6ea35a"/>
+          <path d="M40 150c30-50 70-70 70-70s10 30-10 70" fill="#2f6a45"/>
+          <path d="M180 140c40-70 90-80 90-80s20 40-16 90" fill="#24563a"/>
+          <path d="M420 150c36-60 80-74 80-74s16 36-10 80" fill="#2f6a45"/>
+          <path d="M640 130c40-64 86-70 86-70s18 34-8 78" fill="#24563a"/>
+          <circle cx="110" cy="78" r="8" fill="#e7b256"/>
+          <circle cx="250" cy="60" r="7" fill="#c56a32"/>
+          <circle cx="500" cy="70" r="8" fill="#e7b256"/>
+          <circle cx="700" cy="58" r="7" fill="#8d3a55"/>
+        </svg>
+        <div class="hud" id="hud"></div>
+        <div class="reels" id="reels"></div>
+        <canvas class="fx" id="fx"></canvas>
+        <div class="banner" id="banner"></div>
+        <div class="veil hidden" id="veil"></div>
+        <div class="replay-controls hidden" id="replay-controls">
+          <button id="replay-play" class="text-btn" type="button">Play</button>
+        </div>
+      </main>
+      <footer class="betbar" id="betbar">
+        <div class="meter">
+          <small id="balance-label">Balance</small>
+          <strong id="balance">—</strong>
+        </div>
+        <div class="meter">
+          <small id="win-label">Win</small>
+          <strong id="win">—</strong>
+        </div>
+        <div class="stepper" id="stepper">
+          <button id="bet-dec" class="step" type="button" aria-label="Decrease">−</button>
+          <div class="meter">
+            <small id="bet-label">Bet</small>
+            <strong id="bet">—</strong>
+          </div>
+          <button id="bet-inc" class="step" type="button" aria-label="Increase">+</button>
+        </div>
+        <div class="actions" id="mode-actions">
+          <button id="auto" class="text-btn" type="button">Auto</button>
+          <button id="lantern" class="text-btn" type="button">Lantern</button>
+        </div>
+        <button id="spin" class="spin" type="button">Spin</button>
+      </footer>
+    </div>
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true"></div>
+    <div id="error" class="error hidden" role="alert"></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

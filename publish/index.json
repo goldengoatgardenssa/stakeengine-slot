@@ -1,0 +1,16 @@
+{
+  "modes": [
+    {
+      "name": "base",
+      "cost": 1,
+      "events": "books_base.jsonl.zst",
+      "weights": "lookup_base.csv"
+    },
+    {
+      "name": "lantern",
+      "cost": 17.8,
+      "events": "books_lantern.jsonl.zst",
+      "weights": "lookup_lantern.csv"
+    }
+  ]
+}
