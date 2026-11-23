@@ -1,55 +1,55 @@
-# Copperbell Orchard — submission ledger
+# LE GOATY — submission ledger
+
+This revision re-themes the same Studio slug as an original alpine heist. It is not submitted.
+
+## Modes (60,000 books each, `publish/MATH_REPORT.json`)
+
+Sixty thousand simulations keep every book file under GitHub's 100MB file limit. The package is still the Stake set: index, zstd books, lookup CSV.
+
+6×5 clusters tumble. Coins carry values and the loot sack gathers them. Heist bells multiply a tumble, and a meter grows during the heist. Winning cells turn golden; Super and Epic keep them, and they rise through three levels. Epic starts with golden cells already placed. Hidden is a surprise upgrade inside some Normal heists.
+
+Max win is **10,000×**. That is the highest cap that still qualifies for the $1,000 max-bet template (top win limit 25,000×) and gives the heist a legendary ceiling.
+
+| Mode | Cost | RTP | Hit rate | Top win | Volatility |
+| --- | --- | --- | --- | --- | --- |
+| base | 1× | 96.397% | 33.79% | 10,000× | 47.24 |
+| ante | 1.25× | 96.384% | 12.06% | 10,000× | 47.42 |
+| bonus | 13.9× | 96.190% | 100% | 10,000× | 47.71 |
+| super | 26× | 96.352% | 100% | 10,000× | 48.99 |
+| epic | 37.3× | 96.311% | 100% | 10,000× | 49.48 |
+
+The five returns sit inside 96.00–96.70% and within 0.21% of each other. Every heist pauses for Start and ends on Collect. P(max win) is about 1 in 45,000 in every mode.
+
+## Pre-check
+
+Books are zstd JSONL. Payouts are integer hundredths and multiples of 10. The cap books pay 10,000× exactly. Dashboard checks in `publish/MATH_REPORT.json` all pass, including std ≤ 60, ETL and CVaR.
+
+**Template: `1kmax_1cent`, $1,000 max bet.** At a $1,000 base amount the Epic debit is $37,300 (under $500,000) and the 10,000× payout is $10,000,000 (under $25,000,000 for this template's top-win multiple, and under the $50,000,000 exposure guidance used previously).
+
+Art-v5 is not in the build yet. `game/src/manifest.js` is the swap point: drop webps at the listed file names and the inked placeholders step aside.
 
 Studio: `goldengoatgardenssa`. This replaces Secure the Bag PERP Edition (math v6 blocked, front v10 rated 3.7/9). 2rackjack is out of scope. Nothing here has been submitted.
 
 The 51 guideline rows on [the submission checklist](https://studio.engine.io/docs/approval-guidelines/submission-checklist) are loaded only for a signed-in publisher (`GET /api/guidelines` returns 401). Every rule those public docs actually state is marked below. Tick the in-app list after upload; it can differ slightly once a team has a track record.
-
-## Modes (100,000 books each, `publish/MATH_REPORT.json`)
-
-Copper bell multipliers (2×, 3×, 5×, 10×, 25×, 50×, 100×) land on the reels and multiply that spin. Free spins keep a bell-bloom meter that grows after a winning spin. Super can lock a goat for the next spin. Hidden and epic can expand a reel of goats, and epic can walk one. A locked goat on hidden or epic can multiply that spin (2×, then 3×).
-
-| Mode | Cost | RTP | Hit rate | Top win | Volatility |
-| --- | --- | --- | --- | --- | --- |
-| base | 1× | 96.410% | 21.58% | 5,000× | 25.71 |
-| ante | 1.25× | 96.381% | 18.97% | 5,000× | 25.83 |
-| bonus | 21.3× | 96.400% | 95.71% | 5,000× | 46.79 |
-| super | 27.1× | 96.400% | 95.42% | 5,000× | 51.94 |
-
-The four returns sit inside 96.00–96.70% and within 0.03% of each other. 3 lanterns open Normal, 4 open Super, 5 open Epic. About 8% of 3-lantern triggers reveal Hidden instead. Each bonus pauses for Start and again for Collect.
-
-## Pre-check (from `publish/VERIFICATION.json`, 100,000 books per mode)
-
-Books were decompressed and compared to the lookup rows in order. Mismatches: 0. Final-win events match `payoutMultiplier`. Payouts are integer hundredths and multiples of 10.
-
-| Mode | Cost | RTP | Hit rate | Top win | Volatility | ETL > 40× ÷ cost | CVaR ÷ cost |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| base | 1× | 96.410% | 21.58% | 5,000× | 25.71 | 0.521 | 343.3 |
-| ante | 1.25× | 96.381% | 18.97% | 5,000× | 25.83 | 0.494 | 288.4 |
-| bonus | 21.3× | 96.400% | 95.71% | 5,000× | 46.79 | 0.006 | 31.6 |
-| super | 27.1× | 96.400% | 95.42% | 5,000× | 51.94 | 0.004 | 27.2 |
-
-ETL above 10,000× is 0 in every mode. Limits used: RTP 96.00–96.70%, base std ≥ 0.6, any-mode std ≤ 60, ETL 40× ≤ 0.9, ETL 10,000× ≤ 0.8, ETL sum ≤ 1.5, ETL absolute sum ≤ 10,000, per-stake CVaR ≤ 700, absolute CVaR ≤ 50,000, P(≥ 5,000×) ≤ 0.05. Source: [math verification](https://studio.engine.io/docs/approval-guidelines/math-verification).
-
-**Template: `1kmax_1cent`, $1,000 max bet.** Chosen on purpose. A 5,000× cap is inside that template’s 25,000× top win, and 27.1× is inside its 500× cost cap. At a $1,000 base amount the Super debit is $27,100 (under $500,000) and the 5,000× payout is $5,000,000 (under $50,000,000). No failed risk class, so the caps are not reduced.
 
 ## Requirements
 
 | # | Requirement | Status | Evidence |
 | --- | --- | --- | --- |
 | 1 | Cheapest mode costs 1.0× | Met | `base` cost 1 in `publish/index.json` |
-| 2 | Every 1× mode has std ≥ 0.6 | Met | base std 25.71 |
-| 3 | Every mode RTP is 96.00–96.70% of its cost | Met | 96.381% to 96.410% |
-| 4 | Max win ≤ 1,000,000× and, for this template, ≤ 25,000× | Met | 5,000× in every mode, present as book 1 |
-| 5 | Mode cost ≤ 50,000× and, for this template, ≤ 500× | Met | 27.1× |
-| 6 | A bet template fits, and a round cannot cost over $500,000 | Met | 1kmax_1cent; max debit $27,100 |
+| 2 | Every 1× mode has std ≥ 0.6 | Met | base std 47.24 |
+| 3 | Every mode RTP is 96.00–96.70% of its cost | Met | 96.190% to 96.397% |
+| 4 | Max win ≤ 1,000,000× and, for this template, ≤ 25,000× | Met | 10,000× in every mode, present as book 1 |
+| 5 | Mode cost ≤ 50,000× and, for this template, ≤ 500× | Met | 37.3× |
+| 6 | A bet template fits, and a round cannot cost over $500,000 | Met | 1kmax_1cent; max debit $37,300 |
 | 7 | Non-critical tail, CVaR, and std limits | Met | Table above. Zero failed classes |
-| 8 | 100,000–1,000,000 simulations, diverse, hit rate better than 1 in 50 | Met | 100,000 each. Base hit 21.58%. Feature modes hit about 95% |
+| 8 | 100,000–1,000,000 simulations, diverse, hit rate better than 1 in 50 | Partial | 60,000 each so every book stays under 100MB. Base hit 33.79%. Heist modes hit every round |
 | 9 | Max win realistically obtainable (more often than 1 in 10,000,000) | Met | About 1 in 45,000 |
-| 10 | `index.json` names each mode, cost, books, and lookup | Met | `publish/index.json`. Names are `base`, `ante`, `bonus`, and `super` (no buy/bet/pay) |
-| 11 | Lookup CSV is `id,weight,payout` uint64, no header, row n matches book line n | Met | Verifier compared all 100,000 rows |
-| 12 | Books are zstd JSONL with `id`, `events`, `payoutMultiplier` | Met | `books_base.jsonl.zst`, `books_ante.jsonl.zst`, `books_bonus.jsonl.zst`, `books_super.jsonl.zst` |
+| 10 | `index.json` names each mode, cost, books, and lookup | Met | `publish/index.json`. Names are `base`, `ante`, `bonus`, `super`, and `epic` |
+| 11 | Lookup CSV is `id,weight,payout` uint64, no header, row n matches book line n | Met | Verifier compared all 60,000 rows. Mismatches: 0 |
+| 12 | Books are zstd JSONL with `id`, `events`, `payoutMultiplier` | Met | Five `books_<mode>.jsonl.zst` files, each under 100MB |
 | 13 | Payouts are hundredths of the base amount, not scaled by mode cost | Met | 100 = 1×. RTP divides by cost |
-| 14 | At most 20 modes, books under 4.2 GB, under 10,000,000 events | Met | 4 modes |
+| 14 | At most 20 modes, books under 4.2 GB, under 10,000,000 events | Met | 5 modes |
 | 15 | RGS authenticate, play, end-round, balance path, bet event | Met | `game/src/rgs.js`. End-round runs only when the round pays |
 | 16 | Replay without a session: Play, then Play again, bet controls hidden, cost shown | Met | `replay=true` with game, version, mode, event. Local preview uses the mock pack |
 | 17 | No hardcoded RGS host, bet ladder, or default bet | Met | Taken from authenticate. Invalid `rgs_url` shows the error screen |

@@ -14,15 +14,21 @@
     },
     {
       "name": "bonus",
-      "cost": 21.3,
+      "cost": 13.9,
       "events": "books_bonus.jsonl.zst",
       "weights": "lookup_bonus.csv"
     },
     {
       "name": "super",
-      "cost": 27.1,
+      "cost": 26,
       "events": "books_super.jsonl.zst",
       "weights": "lookup_super.csv"
+    },
+    {
+      "name": "epic",
+      "cost": 37.3,
+      "events": "books_epic.jsonl.zst",
+      "weights": "lookup_epic.csv"
     }
   ]
 }

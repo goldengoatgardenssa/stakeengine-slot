@@ -2,7 +2,7 @@
 
 Publish-ready Stake Engine slot for studio `goldengoatgardenssa`. It replaces the rejected **Secure the Bag PERP Edition** (front v10, math v6, rated 3.7/9).
 
-The new game keeps a pastoral theme and drops the PERP branding, the drug-adjacent symbols, and the NoLimit-style feature names. Math is four modes (base, ante, bonus, super), each inside the 96.00–96.70% band, with a 5,000× cap. Free spins can land copper-bell multipliers and sticky, expanding, or walking goat wilds.
+LE GOATY is an original alpine-heist cluster game: a 6×5 tumbling grid, coin values, a loot sack, heist bells, and golden cells. Modes are base, ante, bonus, super and epic. Each stays inside the 96.00–96.70% band. The maximum win is 10,000×, which still fits the $1,000 max-bet template. Art-v5 drops in through `game/src/manifest.js` by file name; until those files arrive the reels use inked placeholders.
 
 ## Play locally
 

@@ -7,6 +7,7 @@ import {
   GAME_ID,
   GAME_NAME,
   MAX_WIN_H,
+  ANTE_COST,
   MAX_WIN_X,
   PAYTABLE,
   PAY_STEP,
@@ -71,14 +72,10 @@ function streamBooks(mode, count) {
         payouts[index] = book.payoutMultiplier;
         const kind = classify(book);
         if (!scenarios[kind]) scenarios[kind] = book;
-        if (!scenarios.orb && book.events.some((event) => event.type === "multiplierLand")) scenarios.orb = book;
-        if (!scenarios.sticky && book.events.some((event) => event.type === "wildSticky" && event.positions?.length)) {
-          scenarios.sticky = book;
-        }
-        if (!scenarios.expand && book.events.some((event) => event.type === "wildExpand" && event.reels?.length)) {
-          scenarios.expand = book;
-        }
-        if (!scenarios.applied && book.events.some((event) => event.type === "multiplierApply")) scenarios.applied = book;
+        if (!scenarios.tumble && book.events.some((event) => event.type === "tumbleBoard")) scenarios.tumble = book;
+        if (!scenarios.collector && book.events.some((event) => event.type === "collector")) scenarios.collector = book;
+        if (!scenarios.golden && book.events.some((event) => event.type === "goldenSet")) scenarios.golden = book;
+        if (!scenarios.bell && book.events.some((event) => event.type === "multiplierLand")) scenarios.bell = book;
         if (pool.length < 80) pool.push(book);
         else if (rng() < 80 / (index + 1)) pool[Math.floor(rng() * pool.length)] = book;
         const line = `${JSON.stringify(book)}\n`;
@@ -99,7 +96,7 @@ function streamBooks(mode, count) {
 
 function compress(jsonlPath, zstPath) {
   return new Promise((resolve, reject) => {
-    const child = spawn("zstd", ["-10", "-f", "-q", jsonlPath, "-o", zstPath], { stdio: "inherit" });
+    const child = spawn("zstd", ["-12", "-f", "-q", jsonlPath, "-o", zstPath], { stdio: "inherit" });
     child.on("exit", (code) => {
       if (code === 0) resolve();
       else reject(new Error(`zstd exited ${code}`));
@@ -147,7 +144,7 @@ async function buildMode(mode, cost) {
   const optimized = optimizeWeights(payouts, cost);
   let usedCost = cost;
   let row = optimized.row;
-  if ((mode === "bonus" || mode === "super") && (row.rtp < 0.9605 || row.rtp > 0.9665)) {
+  if ((mode === "bonus" || mode === "super" || mode === "epic") && (row.rtp < 0.9605 || row.rtp > 0.9665)) {
     usedCost = chooseCost(row.meanX);
     row = analyzeMode(payouts, optimized.weights, usedCost);
     console.log(`retarget ${mode} cost ${usedCost} rtp ${(row.rtp * 100).toFixed(3)}%`);
@@ -164,10 +161,10 @@ async function buildMode(mode, cost) {
     big: scenarios.big?.id ?? null,
     feature: scenarios.feature?.id ?? null,
     max: scenarios.max?.id ?? null,
-    orb: scenarios.orb?.id ?? null,
-    sticky: scenarios.sticky?.id ?? null,
-    expand: scenarios.expand?.id ?? null,
-    applied: scenarios.applied?.id ?? null,
+    tumble: scenarios.tumble?.id ?? null,
+    collector: scenarios.collector?.id ?? null,
+    golden: scenarios.golden?.id ?? null,
+    bell: scenarios.bell?.id ?? null,
   };
   const kept = [];
   for (const book of Object.values(scenarios)) {
@@ -207,11 +204,13 @@ async function main() {
   await mkdir(mockDir, { recursive: true });
   const bonusMean = sampleMean("bonus");
   const superMean = sampleMean("super");
+  const epicMean = sampleMean("epic");
   const bonusCost = chooseCost(bonusMean);
   const superCost = chooseCost(superMean);
-  console.log(`bonus mean ${bonusMean.toFixed(2)} cost ${bonusCost}; super mean ${superMean.toFixed(2)} cost ${superCost}`);
+  const epicCost = chooseCost(epicMean);
+  console.log(`bonus mean ${bonusMean.toFixed(2)} cost ${bonusCost}; super mean ${superMean.toFixed(2)} cost ${superCost}; epic mean ${epicMean.toFixed(2)} cost ${epicCost}`);
   const built = [];
-  for (const [name, cost] of [["base", 1], ["ante", 1.25], ["bonus", bonusCost], ["super", superCost]]) {
+  for (const [name, cost] of [["base", 1], ["ante", ANTE_COST], ["bonus", bonusCost], ["super", superCost], ["epic", epicCost]]) {
     built.push(await buildMode(name, cost));
   }
   const modes = built;
@@ -238,13 +237,6 @@ async function main() {
         topWinX: mode.report.view.topWinX,
         volatility: Number(mode.report.view.volatility.toFixed(4)),
       }]),
-      ["lantern", {
-        cost: modes.find((mode) => mode.modeEntry.name === "bonus")?.report.cost ?? 17.1,
-        rtp: 0.964,
-        hitRate: 0.91,
-        topWinX: 5000,
-        volatility: 40,
-      }],
     ]),
   };
   await writeFile(

@@ -1,0 +1,7 @@
+{
+  "game": "le-goaty",
+  "frame": "frame/frame_6x5.webp",
+  "frameWindow": "frame/frame_6x5.json",
+  "symbols": ["W", "S", "C1", "C2", "C3", "M", "K", "H1", "H2", "H3", "H4", "H5", "L1", "L2", "L3", "L4"],
+  "note": "Place each webp at assets/art/symbols/<id>.webp. The game probes W.webp and switches off the inked placeholders."
+}
