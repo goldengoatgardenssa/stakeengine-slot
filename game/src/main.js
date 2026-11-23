@@ -102,9 +102,14 @@ async function spinReel(index, finalNames, anticipation) {
   const leadCount = slam ? 3 : 12 + anticipation * 8;
   const lead = Array.from({ length: leadCount }, randomId);
   paint(strip, [...lead, ...finalNames]);
-  if (anticipation > 0) reelNodes[index].classList.add("hot");
-  const duration = (turbo ? 320 : 760) + index * (turbo ? 50 : 130) + anticipation * (turbo ? 180 : 520);
+  strip.classList.add("moving");
+  if (anticipation > 0) {
+    reelNodes[index].classList.add("hot");
+    audio.anticipate();
+  }
+  const duration = (turbo ? 320 : 780) + index * (turbo ? 50 : 140) + anticipation * (turbo ? 180 : 560);
   await animateTransform(strip, leadCount * cellH, duration);
+  strip.classList.remove("moving");
   paint(strip, finalNames);
   strip.style.transform = "translateY(0)";
   reelNodes[index].classList.remove("hot");
@@ -227,6 +232,7 @@ function countTo(next) {
       const t = Math.min(1, (now - start) / duration);
       winShown = from + (next - from) * (1 - (1 - t) ** 3);
       ui.win.textContent = money(winShown);
+      if (Math.floor(t * 8) !== Math.floor(((now - start - 16) / duration) * 8)) audio.tick?.();
       if (t < 1 && !slam) requestAnimationFrame(step);
       else {
         winShown = next;
@@ -258,12 +264,19 @@ function showBanner(text) {
 
 function celebrate(hundredths) {
   const x = hundredths / 100;
+  const stage = document.querySelector("#stage");
   if (x >= MATH.maxWinX) showBanner(copy.strings.max);
   else if (x >= 100) showBanner(copy.strings.epic);
   else if (x >= 40) showBanner(copy.strings.mega);
   else if (x >= 15) showBanner(copy.strings.big);
+  else if (x >= 5) showBanner("Nice win");
+  if (x >= 15) {
+    stage.classList.add("shake");
+    setTimeout(() => stage.classList.remove("shake"), 500);
+    coins();
+    audio.bell?.();
+  }
   if (x > 0) audio.win(x >= 40 ? 6 : 3);
-  if (x >= 15) coins();
 }
 
 function wait(ms) {
@@ -470,12 +483,6 @@ function bind() {
     turbo = !turbo;
     renderMeters();
   });
-  ui.sound.addEventListener("click", () => {
-    soundOn = !soundOn;
-    audio.unlock();
-    audio.setMuted(!soundOn);
-    renderMeters();
-  });
   ui.info.addEventListener("click", () => openModal(infoHtml()));
   ui.auto.addEventListener("click", () => {
     if (autoLeft > 0) {
@@ -496,11 +503,44 @@ function bind() {
   });
   ui.lantern.addEventListener("click", () => {
     openModal(
-      `<div class="sheet"><h2>${copy.strings.featureTitle}</h2><p>${copy.strings.featureBody}</p>
+      `<div class="sheet"><h2>${copy.strings.featureTitle}</h2>
+        <div class="card"><div>Lantern Watch</div><b>${MATH.modes.lantern.cost}×</b><p>${copy.strings.featureBody}</p></div>
         <button class="text-btn" type="button" data-ok>${copy.strings.confirm}</button>
         <button class="text-btn" type="button" data-cancel>${copy.strings.cancel}</button></div>`,
       () => doSpin("lantern"),
     );
+  });
+  ui.bet.addEventListener("click", () => {
+    const buttons = (session.betLevels || [])
+      .map((level, index) => `<button class="text-btn" type="button" data-bet="${index}">${money(level)}</button>`)
+      .join("");
+    openModal(`<div class="sheet"><h2>${copy.strings.bet}</h2><div class="gridbets">${buttons}</div><button class="text-btn" type="button" data-cancel>${copy.strings.close}</button></div>`);
+    ui.modal.querySelectorAll("[data-bet]").forEach((button) => {
+      button.addEventListener("click", () => {
+        betIndex = Number(button.dataset.bet);
+        renderMeters();
+        closeModal();
+      });
+    });
+  });
+  ui.sound.addEventListener("click", () => {
+    openModal(`<div class="sheet"><h2>${copy.strings.soundOn}</h2>
+      <p><button class="text-btn" type="button" id="tog-sound">${soundOn ? copy.strings.soundOn : copy.strings.soundOff}</button>
+      <button class="text-btn" type="button" id="tog-turbo">${copy.strings.turbo}</button></p>
+      <p>Space bar starts a round when no panel is open.</p>
+      <button class="text-btn" type="button" data-cancel>${copy.strings.close}</button></div>`);
+    ui.modal.querySelector("#tog-sound")?.addEventListener("click", () => {
+      soundOn = !soundOn;
+      audio.unlock();
+      audio.setMuted(!soundOn);
+      renderMeters();
+      closeModal();
+    });
+    ui.modal.querySelector("#tog-turbo")?.addEventListener("click", () => {
+      turbo = !turbo;
+      renderMeters();
+      closeModal();
+    });
   });
   ui.replayPlay.addEventListener("click", async () => {
     if (spinning) return;

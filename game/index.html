@@ -29,16 +29,21 @@
         </div>
       </header>
       <main class="stage" id="stage">
-        <svg class="orchard" viewBox="0 0 800 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 180c80-40 140-20 220-50 70 30 120 10 180-20 80 20 140 0 220 30 60 20 120 10 180-10v110H0z" fill="#6ea35a"/>
-          <path d="M40 150c30-50 70-70 70-70s10 30-10 70" fill="#2f6a45"/>
-          <path d="M180 140c40-70 90-80 90-80s20 40-16 90" fill="#24563a"/>
-          <path d="M420 150c36-60 80-74 80-74s16 36-10 80" fill="#2f6a45"/>
-          <path d="M640 130c40-64 86-70 86-70s18 34-8 78" fill="#24563a"/>
-          <circle cx="110" cy="78" r="8" fill="#e7b256"/>
-          <circle cx="250" cy="60" r="7" fill="#c56a32"/>
-          <circle cx="500" cy="70" r="8" fill="#e7b256"/>
-          <circle cx="700" cy="58" r="7" fill="#8d3a55"/>
+        <svg class="layer sky" viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true">
+          <rect width="800" height="300" fill="#b7d6e0"/>
+          <circle cx="640" cy="70" r="36" fill="#fff3cf" stroke="#1a120e" stroke-width="4"/>
+          <path d="M40 80h70M130 60h40M200 90h80" stroke="#fff" stroke-width="6" opacity="0.5"/>
+        </svg>
+        <svg class="layer far" viewBox="0 0 900 220" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 160c80-50 120-30 180-70 70 30 90 10 160-30 80 40 120 10 180-20 90 30 140 0 200 20v90H0z" fill="#6e9a68"/>
+          <path d="M40 150c20-60 70-80 70-80s8 30-8 70M220 140c30-70 80-90 80-90s16 40-10 80M520 150c28-64 74-80 74-80s14 36-8 74" fill="#2d5c3c" stroke="#1a120e" stroke-width="3"/>
+        </svg>
+        <svg class="layer near" viewBox="0 0 800 200" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 120h800v80H0z" fill="#c4a15a"/>
+          <path d="M0 130c40-20 60 10 100-8 40 16 50-12 90 4 50-20 70 8 120-6 40 18 60-10 100 6 50-16 80 10 120-4 40 14 70-8 110 8v70H0z" fill="#3f6b3a"/>
+          <circle cx="120" cy="70" r="7" fill="#e2b15a" stroke="#1a120e"/>
+          <circle cx="300" cy="54" r="6" fill="#c4622d" stroke="#1a120e"/>
+          <circle cx="560" cy="64" r="7" fill="#8a3450" stroke="#1a120e"/>
         </svg>
         <div class="hud" id="hud"></div>
         <div class="reels" id="reels"></div>

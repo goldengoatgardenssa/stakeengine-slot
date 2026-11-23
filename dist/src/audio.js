@@ -64,8 +64,19 @@ export function createAudio() {
     anticipate() {
       if (muted) return;
       const audio = context();
-      tone(520, audio.currentTime, 0.25, "sine", 0.03);
-      tone(780, audio.currentTime + 0.08, 0.3, "triangle", 0.02);
+      tone(196, audio.currentTime, 0.18, "sine", 0.05);
+      tone(247, audio.currentTime + 0.16, 0.18, "sine", 0.06);
+      tone(311, audio.currentTime + 0.32, 0.22, "triangle", 0.05);
+    },
+    tick() {
+      if (muted) return;
+      tone(880, context().currentTime, 0.04, "square", 0.015);
+    },
+    bell() {
+      if (muted) return;
+      const audio = context();
+      tone(784, audio.currentTime, 0.35, "sine", 0.05);
+      tone(1175, audio.currentTime + 0.02, 0.4, "triangle", 0.03);
     },
     win(level) {
       if (muted) return;
