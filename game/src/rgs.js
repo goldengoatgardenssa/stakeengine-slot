@@ -21,10 +21,36 @@ function jurisdiction(social) {
   };
 }
 
+const LOCAL_HOST = /^(localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/i;
+
+/** Stake sends rgs_url as a host, not an absolute URL. */
+export function normalizeRgsUrl(raw) {
+  if (typeof raw !== "string" || raw.trim() === "" || /\s/.test(raw)) {
+    throw new Error("network");
+  }
+  const trimmed = raw.trim().replace(/\/+$/, "");
+  const hasScheme = /^https?:\/\//i.test(trimmed);
+  const candidate = hasScheme
+    ? trimmed
+    : `${LOCAL_HOST.test(trimmed) ? "http" : "https"}://${trimmed}`;
+  let url;
+  try {
+    url = new URL(candidate);
+  } catch {
+    throw new Error("network");
+  }
+  if (url.protocol !== "http:" && url.protocol !== "https:") throw new Error("network");
+  if (!url.hostname || url.username || url.password) throw new Error("network");
+  if (url.pathname !== "/" && url.pathname !== "") throw new Error("network");
+  if (url.search || url.hash) throw new Error("network");
+  return url.origin;
+}
+
 async function post(rgsUrl, pathname, body) {
+  const endpoint = `${normalizeRgsUrl(rgsUrl)}${pathname}`;
   let response;
   try {
-    response = await fetch(`${rgsUrl.replace(/\/$/, "")}${pathname}`, {
+    response = await fetch(endpoint, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(body),
@@ -146,7 +172,7 @@ function createMock(params) {
 }
 
 function createRemote(params) {
-  const rgsUrl = params.get("rgs_url");
+  const rgsUrl = normalizeRgsUrl(params.get("rgs_url"));
   const sessionID = params.get("sessionID") || "";
   const language = params.get("lang") || "en";
   return {
@@ -157,41 +183,57 @@ function createRemote(params) {
     endRound: () => post(rgsUrl, "/wallet/end-round", { sessionID }),
     event: (eventIndex) => post(rgsUrl, "/bet/event", { sessionID, event: String(eventIndex) }),
     async replay({ game, version, mode, event }) {
-      const url = `https://${rgsUrl.replace(/^https?:\/\//, "")}/bet/replay/${game}/${version}/${mode}/${event}`;
-      const response = await fetch(url);
+      const url = `${rgsUrl}/bet/replay/${game}/${version}/${mode}/${event}`;
+      let response;
+      try {
+        response = await fetch(url);
+      } catch (error) {
+        const failure = new Error("network");
+        failure.cause = error;
+        throw failure;
+      }
       if (!response.ok) throw new Error("replay");
       return response.json();
     },
   };
 }
 
+function mockRequested(params) {
+  return params.get("mock") === "1";
+}
+
 export async function connect(params) {
   const replay = params.get("replay") === "true";
-  const rgsUrl = params.get("rgs_url");
-  if (replay) {
-    if (!rgsUrl && params.get("mock") !== "1") {
-      const local = createMock(params);
-      const data = await local.replay({
+  const rgsRaw = params.get("rgs_url");
+  if (!rgsRaw) {
+    if (!mockRequested(params)) throw new Error("network");
+    const client = createMock(params);
+    if (replay) {
+      const data = await client.replay({
         mode: params.get("mode") || "base",
         event: params.get("event"),
       });
-      return { replay: true, mock: true, client: local, replayData: data, currency: params.get("currency") || "USD" };
+      return {
+        replay: true,
+        mock: true,
+        client,
+        replayData: data,
+        currency: params.get("currency") || "USD",
+      };
     }
-    const remote = createRemote(params);
-    const data = await remote.replay({
+    const auth = await client.authenticate();
+    return normalizeAuth(auth, client, true);
+  }
+  const client = createRemote(params);
+  if (replay) {
+    const data = await client.replay({
       game: params.get("game"),
       version: params.get("version"),
       mode: params.get("mode") || "base",
       event: params.get("event"),
     });
-    return { replay: true, mock: false, client: remote, replayData: data, currency: params.get("currency") || "USD" };
+    return { replay: true, mock: false, client, replayData: data, currency: params.get("currency") || "USD" };
   }
-  if (!rgsUrl) {
-    const client = createMock(params);
-    const auth = await client.authenticate();
-    return normalizeAuth(auth, client, true);
-  }
-  const client = createRemote(params);
   const auth = await client.authenticate();
   return normalizeAuth(auth, client, false);
 }

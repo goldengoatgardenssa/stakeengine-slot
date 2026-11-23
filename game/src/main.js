@@ -200,7 +200,7 @@ function money(amount) {
 }
 
 function betAmount() {
-  return session.betLevels[betIndex];
+  return session.betLevels?.[betIndex] ?? 0;
 }
 
 function renderMeters() {
@@ -549,7 +549,7 @@ async function boot() {
   }
   currency = session.currency || params.get("currency") || "USD";
   balance = session.balance || 0;
-  betIndex = Math.max(0, session.betLevels.findIndex((level) => level === session.defaultBet));
+  betIndex = Math.max(0, (session.betLevels || []).findIndex((level) => level === session.defaultBet));
   applyJurisdiction();
   renderMeters();
   bind();
