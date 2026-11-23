@@ -1,9 +1,13 @@
 # Node modules
 node_modules/
 
-# Build artifacts
-dist/
+# Incidental archives. The two Studio upload packages are tracked.
 *.zip
+!upload/copperbell-orchard-frontend.zip
+!upload/copperbell-orchard-frontend-v3.zip
+!upload/copperbell-orchard-frontend-v4.zip
+!upload/copperbell-orchard-math.zip
+!upload/copperbell-orchard-math-v2.zip
 
 # IDE
 .vscode/
