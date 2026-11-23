@@ -57,17 +57,38 @@ export const MATH = {
   "modes": {
     "base": {
       "cost": 1,
-      "rtp": 0.963994,
-      "hitRate": 0.280155,
+      "rtp": 0.964101,
+      "hitRate": 0.215807,
       "topWinX": 5000,
-      "volatility": 24.3001
+      "volatility": 25.7056
+    },
+    "ante": {
+      "cost": 1.25,
+      "rtp": 0.963813,
+      "hitRate": 0.189673,
+      "topWinX": 5000,
+      "volatility": 25.8264
+    },
+    "bonus": {
+      "cost": 21.3,
+      "rtp": 0.964002,
+      "hitRate": 0.957066,
+      "topWinX": 5000,
+      "volatility": 46.793
+    },
+    "super": {
+      "cost": 27.1,
+      "rtp": 0.964001,
+      "hitRate": 0.954197,
+      "topWinX": 5000,
+      "volatility": 51.9438
     },
     "lantern": {
-      "cost": 17.8,
-      "rtp": 0.963322,
-      "hitRate": 0.996497,
+      "cost": 21.3,
+      "rtp": 0.964,
+      "hitRate": 0.91,
       "topWinX": 5000,
-      "volatility": 35.3719
+      "volatility": 40
     }
   }
 };

@@ -1,0 +1,2207 @@
+{
+ "set": "Copperbell Orchard art v4",
+ "generated": "2026-11-23",
+ "palette": {
+  "ink": "#120d16",
+  "navy": "#161c34",
+  "copper": "#b86234",
+  "moss": "#3e5c36",
+  "ember": "#e86c24",
+  "bone": "#f0e4c8",
+  "gold": "#ecba5c"
+ },
+ "fonts": {
+  "display": "Cinzel (OFL, Google Fonts) Black/Bold",
+  "hud": "Oswald (OFL)"
+ },
+ "symbol_map": {
+  "W": {
+   "name": "wild_goat",
+   "file": "symbols/W_wild_goat.png",
+   "source": "W_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/W_wild_goat_base.png",
+    "glow": "symbols/layers/W_wild_goat_glow.png",
+    "highlight": "symbols/layers/W_wild_goat_highlight.png"
+   }
+  },
+  "S": {
+   "name": "scatter_lantern",
+   "file": "symbols/S_scatter_lantern.png",
+   "source": "S_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/S_scatter_lantern_base.png",
+    "glow": "symbols/layers/S_scatter_lantern_glow.png",
+    "highlight": "symbols/layers/S_scatter_lantern_highlight.png"
+   }
+  },
+  "H1": {
+   "name": "h1_honey_hive",
+   "file": "symbols/H1_h1_honey_hive.png",
+   "source": "H1_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/H1_h1_honey_hive_base.png",
+    "glow": "symbols/layers/H1_h1_honey_hive_glow.png",
+    "highlight": "symbols/layers/H1_h1_honey_hive_highlight.png"
+   }
+  },
+  "H2": {
+   "name": "h2_copper_can",
+   "file": "symbols/H2_h2_copper_can.png",
+   "source": "H2_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/H2_h2_copper_can_base.png",
+    "glow": "symbols/layers/H2_h2_copper_can_glow.png",
+    "highlight": "symbols/layers/H2_h2_copper_can_highlight.png"
+   }
+  },
+  "H3": {
+   "name": "h3_coin_pouch",
+   "file": "symbols/H3_h3_coin_pouch.png",
+   "source": "H3_v2.jpg",
+   "layers": {
+    "base": "symbols/layers/H3_h3_coin_pouch_base.png",
+    "glow": "symbols/layers/H3_h3_coin_pouch_glow.png",
+    "highlight": "symbols/layers/H3_h3_coin_pouch_highlight.png"
+   }
+  },
+  "H4": {
+   "name": "h4_jam_crock",
+   "file": "symbols/H4_h4_jam_crock.png",
+   "source": "H4_v2.jpg",
+   "layers": {
+    "base": "symbols/layers/H4_h4_jam_crock_base.png",
+    "glow": "symbols/layers/H4_h4_jam_crock_glow.png",
+    "highlight": "symbols/layers/H4_h4_jam_crock_highlight.png"
+   }
+  },
+  "L1": {
+   "name": "l1_apple",
+   "file": "symbols/L1_l1_apple.png",
+   "source": "L1_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/L1_l1_apple_base.png",
+    "glow": "symbols/layers/L1_l1_apple_glow.png",
+    "highlight": "symbols/layers/L1_l1_apple_highlight.png"
+   }
+  },
+  "L2": {
+   "name": "l2_pear",
+   "file": "symbols/L2_l2_pear.png",
+   "source": "L2_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/L2_l2_pear_base.png",
+    "glow": "symbols/layers/L2_l2_pear_glow.png",
+    "highlight": "symbols/layers/L2_l2_pear_highlight.png"
+   }
+  },
+  "L3": {
+   "name": "l3_plums",
+   "file": "symbols/L3_l3_plums.png",
+   "source": "L3_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/L3_l3_plums_base.png",
+    "glow": "symbols/layers/L3_l3_plums_glow.png",
+    "highlight": "symbols/layers/L3_l3_plums_highlight.png"
+   }
+  },
+  "L4": {
+   "name": "l4_cherries",
+   "file": "symbols/L4_l4_cherries.png",
+   "source": "L4_v1.jpg",
+   "layers": {
+    "base": "symbols/layers/L4_l4_cherries_base.png",
+    "glow": "symbols/layers/L4_l4_cherries_glow.png",
+    "highlight": "symbols/layers/L4_l4_cherries_highlight.png"
+   }
+  }
+ },
+ "file_count": 213,
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 1782,
+   "role": "readme: mapping, structure, notes"
+  },
+  {
+   "path": "_src/H1_v1.jpg",
+   "bytes": 419797,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/H2_v1.jpg",
+   "bytes": 324940,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/H3_v1_rejected.jpg",
+   "bytes": 388877,
+   "role": "raw generator output (pre-processing source, kept for re-runs) \u2014 REJECTED",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/H3_v2.jpg",
+   "bytes": 413789,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/H4_v1_rejected.jpg",
+   "bytes": 301831,
+   "role": "raw generator output (pre-processing source, kept for re-runs) \u2014 REJECTED",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/H4_v2.jpg",
+   "bytes": 348922,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/L1_v1.jpg",
+   "bytes": 268144,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/L2_v1.jpg",
+   "bytes": 238483,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/L3_v1.jpg",
+   "bytes": 262701,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/L4_v1.jpg",
+   "bytes": 205750,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/S_v1.jpg",
+   "bytes": 233249,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/W_v1.jpg",
+   "bytes": 463927,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/bg_far_v1.jpg",
+   "bytes": 223890,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/bg_fore_v1.jpg",
+   "bytes": 324106,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/bg_full_v1.jpg",
+   "bytes": 473456,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/bg_near_v1.jpg",
+   "bytes": 519861,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/bg_portrait_v1.jpg",
+   "bytes": 455237,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    720,
+    1280
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/bg_sky_v1.jpg",
+   "bytes": 231476,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/bg_sky_v2.jpg",
+   "bytes": 237173,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/cover_v1.jpg",
+   "bytes": 444588,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/frame_v1.jpg",
+   "bytes": 273705,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/logo_orn_v1.jpg",
+   "bytes": 334697,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/particles_v1.jpg",
+   "bytes": 329014,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1152,
+    864
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/tile_v1.jpg",
+   "bytes": 587030,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    864,
+    1152
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/ui_banner_v1.jpg",
+   "bytes": 359703,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/ui_bonuscard_v1.jpg",
+   "bytes": 395860,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    864,
+    1152
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/ui_fsintro_v1.jpg",
+   "bytes": 522081,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1280,
+    720
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_src/ui_spin_v1.jpg",
+   "bytes": 506189,
+   "role": "raw generator output (pre-processing source, kept for re-runs)",
+   "px": [
+    1024,
+    1024
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "_tools/final.py",
+   "bytes": 8449,
+   "role": "PIL post-processing script"
+  },
+  {
+   "path": "_tools/lib.py",
+   "bytes": 10095,
+   "role": "PIL post-processing script"
+  },
+  {
+   "path": "_tools/manifest.py",
+   "bytes": 3915,
+   "role": "PIL post-processing script"
+  },
+  {
+   "path": "_tools/scenes.py",
+   "bytes": 13689,
+   "role": "PIL post-processing script"
+  },
+  {
+   "path": "_tools/sheet.py",
+   "bytes": 4191,
+   "role": "PIL post-processing script"
+  },
+  {
+   "path": "_tools/symbols.py",
+   "bytes": 2909,
+   "role": "PIL post-processing script"
+  },
+  {
+   "path": "background/landscape/bg_1_sky_moon.png",
+   "bytes": 2899137,
+   "role": "landscape 1920x1080 parallax layer 1: sky + moon (opaque)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_1_sky_moon.webp",
+   "bytes": 245044,
+   "role": "landscape 1920x1080 parallax layer 1: sky + moon (opaque)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "background/landscape/bg_2_far_treeline.png",
+   "bytes": 2268082,
+   "role": "landscape 1920x1080 parallax layer 2: far tree line (transparent)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_2_far_treeline.webp",
+   "bytes": 262590,
+   "role": "landscape 1920x1080 parallax layer 2: far tree line (transparent)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_3_near_orchard_lanterns.png",
+   "bytes": 4008130,
+   "role": "landscape 1920x1080 parallax layer 3: near orchard with hanging lanterns (transparent)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_3_near_orchard_lanterns.webp",
+   "bytes": 928710,
+   "role": "landscape 1920x1080 parallax layer 3: near orchard with hanging lanterns (transparent)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_4_foreground_branches.png",
+   "bytes": 2884614,
+   "role": "landscape 1920x1080 parallax layer 4: foreground framing branches (transparent)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_4_foreground_branches.webp",
+   "bytes": 483734,
+   "role": "landscape 1920x1080 parallax layer 4: foreground framing branches (transparent)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_flattened_reference.png",
+   "bytes": 4171234,
+   "role": "landscape 1920x1080 flattened single-image background (fallback/reference)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_flattened_reference.webp",
+   "bytes": 629786,
+   "role": "landscape 1920x1080 flattened single-image background (fallback/reference)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "background/landscape/bg_layers_stacked_preview.png",
+   "bytes": 4695790,
+   "role": "landscape 1920x1080 all parallax layers stacked (preview)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/landscape/bg_layers_stacked_preview.webp",
+   "bytes": 778366,
+   "role": "landscape 1920x1080 all parallax layers stacked (preview)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "background/portrait/bg_1_sky_moon.png",
+   "bytes": 2684612,
+   "role": "portrait 1080x1920 parallax layer 1: sky + moon (opaque)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_1_sky_moon.webp",
+   "bytes": 210680,
+   "role": "portrait 1080x1920 parallax layer 1: sky + moon (opaque)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "background/portrait/bg_2_far_treeline.png",
+   "bytes": 1013887,
+   "role": "portrait 1080x1920 parallax layer 2: far tree line (transparent)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_2_far_treeline.webp",
+   "bytes": 150938,
+   "role": "portrait 1080x1920 parallax layer 2: far tree line (transparent)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_3_near_orchard_lanterns.png",
+   "bytes": 2778505,
+   "role": "portrait 1080x1920 parallax layer 3: near orchard with hanging lanterns (transparent)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_3_near_orchard_lanterns.webp",
+   "bytes": 743122,
+   "role": "portrait 1080x1920 parallax layer 3: near orchard with hanging lanterns (transparent)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_4_foreground_branches.png",
+   "bytes": 2604690,
+   "role": "portrait 1080x1920 parallax layer 4: foreground framing branches (transparent)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_4_foreground_branches.webp",
+   "bytes": 376702,
+   "role": "portrait 1080x1920 parallax layer 4: foreground framing branches (transparent)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_flattened_reference.png",
+   "bytes": 4134540,
+   "role": "portrait 1080x1920 flattened single-image background (fallback/reference)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_flattened_reference.webp",
+   "bytes": 628146,
+   "role": "portrait 1080x1920 flattened single-image background (fallback/reference)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "background/portrait/bg_layers_stacked_preview.png",
+   "bytes": 4408858,
+   "role": "portrait 1080x1920 all parallax layers stacked (preview)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "background/portrait/bg_layers_stacked_preview.webp",
+   "bytes": 689806,
+   "role": "portrait 1080x1920 all parallax layers stacked (preview)",
+   "px": [
+    1080,
+    1920
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "contact-sheet.png",
+   "bytes": 6782307,
+   "role": "contact sheet of the full set",
+   "px": [
+    2400,
+    4830
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "frame/reel_frame_5x3.json",
+   "bytes": 186,
+   "role": "reel frame metadata: reel window rect + cell size in px"
+  },
+  {
+   "path": "frame/reel_frame_5x3.png",
+   "bytes": 2020276,
+   "role": "reel frame 5x3, transparent centre",
+   "px": [
+    1600,
+    1000
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "frame/reel_frame_5x3.webp",
+   "bytes": 273100,
+   "role": "reel frame 5x3, transparent centre",
+   "px": [
+    1600,
+    1000
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "launch/banner_3x1_1920x640_title.png",
+   "bytes": 2501675,
+   "role": "launch banner 3:1 with title",
+   "px": [
+    1920,
+    640
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "launch/banner_3x1_1920x640_title.webp",
+   "bytes": 370328,
+   "role": "launch banner 3:1 with title",
+   "px": [
+    1920,
+    640
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "launch/cover_16x9_1920x1080_clean.png",
+   "bytes": 4098400,
+   "role": "launch cover 16:9 clean (no title)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "launch/cover_16x9_1920x1080_clean.webp",
+   "bytes": 606596,
+   "role": "launch cover 16:9 clean (no title)",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "launch/cover_16x9_1920x1080_title.png",
+   "bytes": 4256687,
+   "role": "launch cover 16:9 with title",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "launch/cover_16x9_1920x1080_title.webp",
+   "bytes": 654008,
+   "role": "launch cover 16:9 with title",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "launch/tile_3x4_1224x1638_no_text.png",
+   "bytes": 4484090,
+   "role": "launch tile 3:4, no lettering (for Stake tile editor)",
+   "px": [
+    1224,
+    1638
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "launch/tile_3x4_1224x1638_no_text.webp",
+   "bytes": 752282,
+   "role": "launch tile 3:4, no lettering (for Stake tile editor)",
+   "px": [
+    1224,
+    1638
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "launch/tile_3x4_408x546_no_text.png",
+   "bytes": 554796,
+   "role": "launch tile 3:4, no lettering (for Stake tile editor)",
+   "px": [
+    408,
+    546
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "launch/tile_3x4_408x546_no_text.webp",
+   "bytes": 108750,
+   "role": "launch tile 3:4, no lettering (for Stake tile editor)",
+   "px": [
+    408,
+    546
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "logo/logo_copperbell_orchard.png",
+   "bytes": 1442495,
+   "role": "logo lockup COPPERBELL ORCHARD (transparent)",
+   "px": [
+    1106,
+    681
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "logo/logo_copperbell_orchard.webp",
+   "bytes": 240030,
+   "role": "logo lockup COPPERBELL ORCHARD (transparent)",
+   "px": [
+    1106,
+    681
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "logo/logo_copperbell_orchard_800.png",
+   "bytes": 709268,
+   "role": "logo lockup COPPERBELL ORCHARD (transparent)",
+   "px": [
+    800,
+    492
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "logo/logo_copperbell_orchard_800.webp",
+   "bytes": 157102,
+   "role": "logo lockup COPPERBELL ORCHARD (transparent)",
+   "px": [
+    800,
+    492
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "mock-composite.png",
+   "bytes": 3845221,
+   "role": "mock in-game screenshot: bg + frame + 5x3 symbols + Hacksaw-style HUD",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "symbols/H1_h1_honey_hive.png",
+   "bytes": 258729,
+   "role": "reel symbol H1 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/H1_h1_honey_hive.webp",
+   "bytes": 55470,
+   "role": "reel symbol H1 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/H2_h2_copper_can.png",
+   "bytes": 240049,
+   "role": "reel symbol H2 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/H2_h2_copper_can.webp",
+   "bytes": 52602,
+   "role": "reel symbol H2 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/H3_h3_coin_pouch.png",
+   "bytes": 318979,
+   "role": "reel symbol H3 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/H3_h3_coin_pouch.webp",
+   "bytes": 60462,
+   "role": "reel symbol H3 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/H4_h4_jam_crock.png",
+   "bytes": 251465,
+   "role": "reel symbol H4 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/H4_h4_jam_crock.webp",
+   "bytes": 50046,
+   "role": "reel symbol H4 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L1_l1_apple.png",
+   "bytes": 218667,
+   "role": "reel symbol L1 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L1_l1_apple.webp",
+   "bytes": 32658,
+   "role": "reel symbol L1 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L2_l2_pear.png",
+   "bytes": 169311,
+   "role": "reel symbol L2 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L2_l2_pear.webp",
+   "bytes": 31760,
+   "role": "reel symbol L2 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L3_l3_plums.png",
+   "bytes": 233071,
+   "role": "reel symbol L3 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L3_l3_plums.webp",
+   "bytes": 42404,
+   "role": "reel symbol L3 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L4_l4_cherries.png",
+   "bytes": 179136,
+   "role": "reel symbol L4 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/L4_l4_cherries.webp",
+   "bytes": 34920,
+   "role": "reel symbol L4 (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/S_scatter_lantern.png",
+   "bytes": 179669,
+   "role": "reel symbol S (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/S_scatter_lantern.webp",
+   "bytes": 40880,
+   "role": "reel symbol S (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/W_wild_goat.png",
+   "bytes": 348592,
+   "role": "reel symbol W (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/W_wild_goat.webp",
+   "bytes": 70708,
+   "role": "reel symbol W (512x512 transparent)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H1_h1_honey_hive_base.png",
+   "bytes": 258729,
+   "role": "symbol H1 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H1_h1_honey_hive_base.webp",
+   "bytes": 55470,
+   "role": "symbol H1 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H1_h1_honey_hive_glow.png",
+   "bytes": 24017,
+   "role": "symbol H1 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H1_h1_honey_hive_glow.webp",
+   "bytes": 13050,
+   "role": "symbol H1 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H1_h1_honey_hive_highlight.png",
+   "bytes": 26634,
+   "role": "symbol H1 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H1_h1_honey_hive_highlight.webp",
+   "bytes": 11610,
+   "role": "symbol H1 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H2_h2_copper_can_base.png",
+   "bytes": 240049,
+   "role": "symbol H2 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H2_h2_copper_can_base.webp",
+   "bytes": 52602,
+   "role": "symbol H2 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H2_h2_copper_can_glow.png",
+   "bytes": 30933,
+   "role": "symbol H2 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H2_h2_copper_can_glow.webp",
+   "bytes": 16794,
+   "role": "symbol H2 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H2_h2_copper_can_highlight.png",
+   "bytes": 18872,
+   "role": "symbol H2 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H2_h2_copper_can_highlight.webp",
+   "bytes": 8608,
+   "role": "symbol H2 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H3_h3_coin_pouch_base.png",
+   "bytes": 318979,
+   "role": "symbol H3 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H3_h3_coin_pouch_base.webp",
+   "bytes": 60462,
+   "role": "symbol H3 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H3_h3_coin_pouch_glow.png",
+   "bytes": 25048,
+   "role": "symbol H3 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H3_h3_coin_pouch_glow.webp",
+   "bytes": 14264,
+   "role": "symbol H3 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H3_h3_coin_pouch_highlight.png",
+   "bytes": 22266,
+   "role": "symbol H3 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H3_h3_coin_pouch_highlight.webp",
+   "bytes": 10162,
+   "role": "symbol H3 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H4_h4_jam_crock_base.png",
+   "bytes": 251465,
+   "role": "symbol H4 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H4_h4_jam_crock_base.webp",
+   "bytes": 50046,
+   "role": "symbol H4 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H4_h4_jam_crock_glow.png",
+   "bytes": 21981,
+   "role": "symbol H4 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H4_h4_jam_crock_glow.webp",
+   "bytes": 12718,
+   "role": "symbol H4 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H4_h4_jam_crock_highlight.png",
+   "bytes": 21257,
+   "role": "symbol H4 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/H4_h4_jam_crock_highlight.webp",
+   "bytes": 10096,
+   "role": "symbol H4 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L1_l1_apple_base.png",
+   "bytes": 218667,
+   "role": "symbol L1 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L1_l1_apple_base.webp",
+   "bytes": 32658,
+   "role": "symbol L1 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L1_l1_apple_glow.png",
+   "bytes": 23471,
+   "role": "symbol L1 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L1_l1_apple_glow.webp",
+   "bytes": 13134,
+   "role": "symbol L1 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L1_l1_apple_highlight.png",
+   "bytes": 5929,
+   "role": "symbol L1 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L1_l1_apple_highlight.webp",
+   "bytes": 2444,
+   "role": "symbol L1 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L2_l2_pear_base.png",
+   "bytes": 169311,
+   "role": "symbol L2 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L2_l2_pear_base.webp",
+   "bytes": 31760,
+   "role": "symbol L2 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L2_l2_pear_glow.png",
+   "bytes": 23498,
+   "role": "symbol L2 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L2_l2_pear_glow.webp",
+   "bytes": 12536,
+   "role": "symbol L2 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L2_l2_pear_highlight.png",
+   "bytes": 10691,
+   "role": "symbol L2 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L2_l2_pear_highlight.webp",
+   "bytes": 3978,
+   "role": "symbol L2 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L3_l3_plums_base.png",
+   "bytes": 233071,
+   "role": "symbol L3 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L3_l3_plums_base.webp",
+   "bytes": 42404,
+   "role": "symbol L3 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L3_l3_plums_glow.png",
+   "bytes": 28798,
+   "role": "symbol L3 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L3_l3_plums_glow.webp",
+   "bytes": 15082,
+   "role": "symbol L3 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L3_l3_plums_highlight.png",
+   "bytes": 10906,
+   "role": "symbol L3 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L3_l3_plums_highlight.webp",
+   "bytes": 4636,
+   "role": "symbol L3 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L4_l4_cherries_base.png",
+   "bytes": 179136,
+   "role": "symbol L4 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L4_l4_cherries_base.webp",
+   "bytes": 34920,
+   "role": "symbol L4 animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L4_l4_cherries_glow.png",
+   "bytes": 31428,
+   "role": "symbol L4 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L4_l4_cherries_glow.webp",
+   "bytes": 17262,
+   "role": "symbol L4 animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L4_l4_cherries_highlight.png",
+   "bytes": 10109,
+   "role": "symbol L4 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/L4_l4_cherries_highlight.webp",
+   "bytes": 4318,
+   "role": "symbol L4 animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/S_scatter_lantern_base.png",
+   "bytes": 179669,
+   "role": "symbol S animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/S_scatter_lantern_base.webp",
+   "bytes": 40880,
+   "role": "symbol S animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/S_scatter_lantern_glow.png",
+   "bytes": 23753,
+   "role": "symbol S animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/S_scatter_lantern_glow.webp",
+   "bytes": 12164,
+   "role": "symbol S animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/S_scatter_lantern_highlight.png",
+   "bytes": 14946,
+   "role": "symbol S animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/S_scatter_lantern_highlight.webp",
+   "bytes": 6626,
+   "role": "symbol S animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/W_wild_goat_base.png",
+   "bytes": 348592,
+   "role": "symbol W animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/W_wild_goat_base.webp",
+   "bytes": 70708,
+   "role": "symbol W animation layer: base",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/W_wild_goat_glow.png",
+   "bytes": 27044,
+   "role": "symbol W animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/W_wild_goat_glow.webp",
+   "bytes": 14830,
+   "role": "symbol W animation layer: glow",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/W_wild_goat_highlight.png",
+   "bytes": 29260,
+   "role": "symbol W animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/layers/W_wild_goat_highlight.webp",
+   "bytes": 13318,
+   "role": "symbol W animation layer: highlight",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "symbols/symbol-map.json",
+   "bytes": 3085,
+   "role": "symbol id \u2192 asset mapping"
+  },
+  {
+   "path": "ui/bonus_buy_card_bg.png",
+   "bytes": 1073173,
+   "role": "bonus-buy card background (blank plaque for live text)",
+   "px": [
+    600,
+    953
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/bonus_buy_card_bg.webp",
+   "bytes": 169112,
+   "role": "bonus-buy card background (blank plaque for live text)",
+   "px": [
+    600,
+    953
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/bonus_buy_card_lettered_example.png",
+   "bytes": 1101517,
+   "role": "bonus-buy card with example lettering (reference)",
+   "px": [
+    600,
+    953
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/bonus_buy_card_lettered_example.webp",
+   "bytes": 180340,
+   "role": "bonus-buy card with example lettering (reference)",
+   "px": [
+    600,
+    953
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/free_spins_intro_art.png",
+   "bytes": 4387606,
+   "role": "free-spins (Lantern Watch) intro panel art, clean",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/free_spins_intro_art.webp",
+   "bytes": 693388,
+   "role": "free-spins (Lantern Watch) intro panel art, clean",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "ui/free_spins_intro_lettered.png",
+   "bytes": 4062616,
+   "role": "free-spins intro panel with LANTERN WATCH / FREE SPINS lettering",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/free_spins_intro_lettered.webp",
+   "bytes": 615042,
+   "role": "free-spins intro panel with LANTERN WATCH / FREE SPINS lettering",
+   "px": [
+    1920,
+    1080
+   ],
+   "mode": "RGB"
+  },
+  {
+   "path": "ui/particles/coin_edge.png",
+   "bytes": 23996,
+   "role": "particle sprite: coin_edge",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/coin_edge.webp",
+   "bytes": 6232,
+   "role": "particle sprite: coin_edge",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/coin_front.png",
+   "bytes": 32985,
+   "role": "particle sprite: coin_front",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/coin_front.webp",
+   "bytes": 8344,
+   "role": "particle sprite: coin_front",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/coin_threequarter.png",
+   "bytes": 29784,
+   "role": "particle sprite: coin_threequarter",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/coin_threequarter.webp",
+   "bytes": 7518,
+   "role": "particle sprite: coin_threequarter",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/coin_tilt.png",
+   "bytes": 30311,
+   "role": "particle sprite: coin_tilt",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/coin_tilt.webp",
+   "bytes": 7866,
+   "role": "particle sprite: coin_tilt",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_dot.png",
+   "bytes": 1931,
+   "role": "particle sprite: ember_dot",
+   "px": [
+    64,
+    64
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_dot.webp",
+   "bytes": 778,
+   "role": "particle sprite: ember_dot",
+   "px": [
+    64,
+    64
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_a.png",
+   "bytes": 15727,
+   "role": "particle sprite: ember_wisp_a",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_a.webp",
+   "bytes": 6428,
+   "role": "particle sprite: ember_wisp_a",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_b.png",
+   "bytes": 15805,
+   "role": "particle sprite: ember_wisp_b",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_b.webp",
+   "bytes": 6242,
+   "role": "particle sprite: ember_wisp_b",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_c.png",
+   "bytes": 15359,
+   "role": "particle sprite: ember_wisp_c",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_c.webp",
+   "bytes": 6236,
+   "role": "particle sprite: ember_wisp_c",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_d.png",
+   "bytes": 17349,
+   "role": "particle sprite: ember_wisp_d",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/ember_wisp_d.webp",
+   "bytes": 6598,
+   "role": "particle sprite: ember_wisp_d",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/glint_star.png",
+   "bytes": 1167,
+   "role": "particle sprite: glint_star",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/glint_star.webp",
+   "bytes": 674,
+   "role": "particle sprite: glint_star",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_dark.png",
+   "bytes": 19754,
+   "role": "particle sprite: leaf_dark",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_dark.webp",
+   "bytes": 4926,
+   "role": "particle sprite: leaf_dark",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_dry.png",
+   "bytes": 23327,
+   "role": "particle sprite: leaf_dry",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_dry.webp",
+   "bytes": 6244,
+   "role": "particle sprite: leaf_dry",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_ember.png",
+   "bytes": 22980,
+   "role": "particle sprite: leaf_ember",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_ember.webp",
+   "bytes": 6224,
+   "role": "particle sprite: leaf_ember",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_moss.png",
+   "bytes": 23036,
+   "role": "particle sprite: leaf_moss",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/leaf_moss.webp",
+   "bytes": 5988,
+   "role": "particle sprite: leaf_moss",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/soft_glow.png",
+   "bytes": 3405,
+   "role": "particle sprite: soft_glow",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/particles/soft_glow.webp",
+   "bytes": 1296,
+   "role": "particle sprite: soft_glow",
+   "px": [
+    128,
+    128
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button.png",
+   "bytes": 422523,
+   "role": "spin button (idle)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button.webp",
+   "bytes": 82894,
+   "role": "spin button (idle)",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button_disabled.png",
+   "bytes": 283054,
+   "role": "spin button disabled state",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button_disabled.webp",
+   "bytes": 51592,
+   "role": "spin button disabled state",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button_glow.png",
+   "bytes": 23494,
+   "role": "spin button glow layer",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button_glow.webp",
+   "bytes": 12670,
+   "role": "spin button glow layer",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button_pressed.png",
+   "bytes": 397444,
+   "role": "spin button pressed state",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/spin_button_pressed.webp",
+   "bytes": 74106,
+   "role": "spin button pressed state",
+   "px": [
+    512,
+    512
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_big_win.png",
+   "bytes": 1443197,
+   "role": "win banner BIG WIN",
+   "px": [
+    1199,
+    659
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_big_win.webp",
+   "bytes": 303546,
+   "role": "win banner BIG WIN",
+   "px": [
+    1199,
+    659
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_epic_win.png",
+   "bytes": 1257767,
+   "role": "win banner EPIC WIN",
+   "px": [
+    1265,
+    694
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_epic_win.webp",
+   "bytes": 307156,
+   "role": "win banner EPIC WIN",
+   "px": [
+    1265,
+    694
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_mega_win.png",
+   "bytes": 1270608,
+   "role": "win banner MEGA WIN",
+   "px": [
+    1252,
+    689
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_mega_win.webp",
+   "bytes": 317842,
+   "role": "win banner MEGA WIN",
+   "px": [
+    1252,
+    689
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_plate_blank.png",
+   "bytes": 1412451,
+   "role": "win banner plate, blank",
+   "px": [
+    1199,
+    659
+   ],
+   "mode": "RGBA"
+  },
+  {
+   "path": "ui/win_banner_plate_blank.webp",
+   "bytes": 294238,
+   "role": "win banner plate, blank",
+   "px": [
+    1199,
+    659
+   ],
+   "mode": "RGBA"
+  }
+ ]
+}

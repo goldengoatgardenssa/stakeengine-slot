@@ -7,10 +7,22 @@
       "weights": "lookup_base.csv"
     },
     {
-      "name": "lantern",
-      "cost": 17.8,
-      "events": "books_lantern.jsonl.zst",
-      "weights": "lookup_lantern.csv"
+      "name": "ante",
+      "cost": 1.25,
+      "events": "books_ante.jsonl.zst",
+      "weights": "lookup_ante.csv"
+    },
+    {
+      "name": "bonus",
+      "cost": 21.3,
+      "events": "books_bonus.jsonl.zst",
+      "weights": "lookup_bonus.csv"
+    },
+    {
+      "name": "super",
+      "cost": 27.1,
+      "events": "books_super.jsonl.zst",
+      "weights": "lookup_super.csv"
     }
   ]
 }

@@ -28,6 +28,8 @@ const ui = {
   spin: document.querySelector("#spin"),
   auto: document.querySelector("#auto"),
   lantern: document.querySelector("#lantern"),
+  ante: document.querySelector("#ante"),
+  history: document.querySelector("#history"),
   turbo: document.querySelector("#turbo"),
   sound: document.querySelector("#sound"),
   info: document.querySelector("#info"),
@@ -54,6 +56,14 @@ let slam = false;
 let turbo = false;
 let soundOn = true;
 let autoLeft = 0;
+let anteOn = false;
+let stopOnFeature = true;
+let autoLoss = 0;
+let autoWin = 0;
+let sessionLoss = 0;
+let lastFeature = false;
+const HISTORY_KEY = "copperbell-history";
+const AUDIO_KEY = "copperbell-audio";
 let cellH = 80;
 let roundToken = 0;
 const particles = [];
@@ -248,11 +258,86 @@ function winValue(hundredths) {
   return (hundredths / 100) * wagered;
 }
 
+function waitGate(html) {
+  veilEl.classList.remove("hidden");
+  veilEl.innerHTML = html;
+  return new Promise((resolve) => {
+    const go = () => {
+      veilEl.classList.add("hidden");
+      veilEl.innerHTML = "";
+      resolve();
+    };
+    veilEl.querySelector("[data-go]")?.addEventListener("click", go);
+    veilEl.addEventListener("click", go, { once: true });
+  });
+}
+
 async function showVeil(title, hold) {
   veilEl.classList.remove("hidden");
   veilEl.innerHTML = `<strong>${title.replace("\n", "<br>")}</strong>`;
   await wait(slam || turbo ? 350 : hold);
   veilEl.classList.add("hidden");
+}
+
+function orbTier(value) {
+  if (value >= 50) return "high";
+  if (value >= 10) return "mid";
+  return "low";
+}
+
+function orbMarkup(value) {
+  const tier = orbTier(value);
+  return `<div class="orb orb-${value} tier-${tier}" data-value="${value}">
+    <img class="orb-glow" alt="" src="assets/art-v4/ui/particles/soft_glow.webp" />
+    <img class="orb-glint" alt="" src="assets/art-v4/ui/particles/glint_star.webp" />
+    <svg viewBox="0 0 80 80" aria-hidden="true">
+      <circle class="ring" cx="40" cy="40" r="28" fill="none" stroke="#1a120e" stroke-width="3" />
+      <path d="M40 16c2 8 16 14 16 28a16 16 0 0 1-32 0c0-14 14-20 16-28z" fill="${tier === "high" ? "#e2b15a" : tier === "mid" ? "#8a3450" : "#c4622d"}" stroke="#1a120e" stroke-width="3" />
+      <path d="M28 36h24" stroke="#1a120e" stroke-width="3" />
+      <circle cx="40" cy="64" r="4" fill="#e2b15a" stroke="#1a120e" stroke-width="2" />
+    </svg>
+    <b>${value}×</b>
+  </div>`;
+}
+
+function paintFeatureHud() {
+  const spin = hudEl.dataset.spin || "";
+  const bloom = hudEl.dataset.bloom || "";
+  const applied = hudEl.dataset.applied || "";
+  const parts = [];
+  if (spin) parts.push(`<span>${copy.strings.freespins} ${spin}</span>`);
+  if (bloom) parts.push(`<span class="mult-meter">${copy.strings.bloom} ${bloom}×</span>`);
+  if (applied && applied !== bloom) parts.push(`<span class="mult-meter hot">${applied}×</span>`);
+  if (parts.length) hudEl.innerHTML = parts.join("");
+}
+
+async function flyMultiplier(value, source) {
+  const target = ui.win;
+  if (!source || !target) return;
+  const from = source.getBoundingClientRect();
+  const to = target.getBoundingClientRect();
+  const flyer = document.createElement("div");
+  flyer.className = `flyer tier-${orbTier(value)}`;
+  flyer.textContent = `${value}×`;
+  flyer.style.left = `${from.left + from.width / 2}px`;
+  flyer.style.top = `${from.top + from.height / 2}px`;
+  document.body.appendChild(flyer);
+  await wait(30);
+  flyer.style.left = `${to.left + to.width / 2}px`;
+  flyer.style.top = `${to.top + to.height / 2}px`;
+  await wait(turbo ? 160 : 520);
+  flyer.remove();
+  target.classList.add("win-burst");
+  setTimeout(() => target.classList.remove("win-burst"), 560);
+}
+
+async function placeOrb(event) {
+  const cell = reelNodes[event.reel]?.querySelectorAll(".cell")[event.row];
+  if (!cell) return;
+  cell.insertAdjacentHTML("beforeend", orbMarkup(event.value));
+  cell.classList.add("orb-land");
+  await wait(turbo ? 90 : 320);
+  await flyMultiplier(event.value, cell.querySelector(".orb"));
 }
 
 function showBanner(text) {
@@ -290,6 +375,8 @@ async function playEvents(events) {
     switch (event.type) {
       case "reveal":
         clearWins();
+        delete hudEl.dataset.applied;
+        for (const reel of reelNodes) reel.classList.remove("expand");
         if ((event.anticipation || []).some((value) => value > 0)) audio.anticipate();
         await Promise.all(
           event.board.map((column, index) =>
@@ -304,6 +391,33 @@ async function playEvents(events) {
       case "winInfo":
         highlight(event.wins);
         break;
+      case "multiplierLand":
+        audio.bell?.();
+        await placeOrb(event);
+        break;
+      case "multiplierApply":
+        hudEl.dataset.applied = String(event.multiplier);
+        paintFeatureHud();
+        ui.win.classList.add("win-burst");
+        setTimeout(() => ui.win.classList.remove("win-burst"), 560);
+        break;
+      case "wildSticky":
+        for (const pos of event.positions || []) {
+          const cell = reelNodes[pos.reel]?.querySelectorAll(".cell")[pos.row];
+          if (!cell) continue;
+          cell.classList.add("sticky");
+          if (event.wildMult > 1) cell.dataset.wild = `${event.wildMult}×`;
+        }
+        break;
+      case "wildExpand":
+        for (const reel of event.reels || []) {
+          reelNodes[reel]?.classList.add("expand");
+          if (event.wildMult > 1) reelNodes[reel].dataset.wild = `${event.wildMult}×`;
+        }
+        break;
+      case "bonusReveal":
+        await waitGate(`<strong>HIDDEN</strong><button class="text-btn" type="button" data-go>Start</button>`);
+        break;
       case "setWin":
         break;
       case "setTotalWin":
@@ -311,23 +425,30 @@ async function playEvents(events) {
         break;
       case "freeSpinTrigger":
         feature = true;
+        lastFeature = true;
         audio.feature();
-        await showVeil(copy.strings.featureIntro(event.totalFs), 1500);
+        await waitGate(
+          `<strong>${(event.bonusTier || "normal").toUpperCase()}<br>${copy.strings.featureIntro(event.totalFs).replace("\n", "<br>")}</strong><button class="text-btn" type="button" data-go>Start</button>`,
+        );
         break;
       case "freeSpinRetrigger":
-        hudEl.innerHTML = `<span>+${event.added}</span>`;
+        hudEl.dataset.spin = `+${event.added}`;
+        paintFeatureHud();
         await wait(500);
         break;
       case "updateFreeSpin":
         hudEl.dataset.spin = `${event.amount}/${event.total}`;
-        hudEl.innerHTML = `<span>${copy.strings.freespins} ${hudEl.dataset.spin}</span><span>${copy.strings.bloom} ${hudEl.dataset.bloom || 1}×</span>`;
+        paintFeatureHud();
         break;
       case "updateGlobalMult":
         hudEl.dataset.bloom = String(event.globalMult);
-        hudEl.innerHTML = `<span>${copy.strings.freespins} ${hudEl.dataset.spin || ""}</span><span>${copy.strings.bloom} ${event.globalMult}×</span>`;
+        paintFeatureHud();
         break;
       case "freeSpinEnd":
-        await showVeil(copy.strings.featureOutro, 1200);
+        await countTo(winValue(event.amount));
+        await waitGate(
+          `<strong>${copy.strings.featureOutro}<br>${money(winValue(event.amount))}</strong><button class="text-btn" type="button" data-go>Collect</button>`,
+        );
         break;
       case "wincap":
         showBanner(copy.strings.max);
@@ -378,7 +499,7 @@ function infoHtml() {
     <p>${copy.strings.tagline}</p>
     <h3>${copy.strings.rules}</h3>
     ${copy.rules.map((rule) => `<p>${rule}</p>`).join("")}
-    <p>Lantern values: ${scatter}. Bell bloom values: 1×, 2× and 3×.</p>
+    <p>Lantern values: ${scatter}. Bell multipliers: 2×, 3×, 5×, 10×, 25×, 50×, 100×.</p>
     <h3>${copy.strings.table}</h3>
     <table><thead><tr><th>Symbol</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody>${rows}</tbody></table>
     <h3>Controls</h3>
@@ -419,12 +540,16 @@ async function doSpin(nextMode) {
   audio.unlock();
   audio.spin();
   mode = nextMode;
+  lastFeature = false;
   wagered = betAmount();
+  sessionLoss += stake;
   const amount = session.betLevelsApi[betIndex];
+  let played = null;
   try {
     const force = session.mock ? forceId : null;
     forceId = null;
     const data = await session.client.play({ amount, mode: nextMode, currency, force });
+    played = data.round;
     balance = fromApi(data.balance.amount);
     renderMeters();
     await settle(data.round);
@@ -438,12 +563,24 @@ async function doSpin(nextMode) {
     }
     return;
   }
+  if (played) rememberRound(nextMode, stake, winShown, played.state);
   spinning = false;
-  if (autoLeft > 0 && nextMode === "base") {
+  if (autoLeft > 0 && (nextMode === "base" || nextMode === "ante")) {
+    if (stopOnFeature && lastFeature) autoLeft = 0;
+    if (autoLoss > 0 && sessionLoss >= autoLoss) autoLeft = 0;
+    if (autoWin > 0 && winShown >= autoWin) autoLeft = 0;
     autoLeft -= 1;
     renderMeters();
     if (autoLeft > 0) doSpin("base");
   }
+}
+
+function rememberRound(modeName, bet, win, events) {
+  try {
+    const list = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+    list.unshift({ t: Date.now(), mode: modeName, bet, win, events });
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, 20)));
+  } catch { /* ignore */ }
 }
 
 function showError(message) {
@@ -470,7 +607,7 @@ function applyJurisdiction() {
 }
 
 function bind() {
-  ui.spin.addEventListener("click", () => doSpin("base"));
+  ui.spin.addEventListener("click", () => doSpin(anteOn ? "ante" : "base"));
   ui.dec.addEventListener("click", () => {
     if (betIndex > 0) betIndex -= 1;
     renderMeters();
@@ -491,24 +628,71 @@ function bind() {
       return;
     }
     openModal(
-      `<div class="sheet"><h2>${copy.strings.autoTitle}</h2><p>${copy.strings.autoBody(25)}</p>
-        <button class="text-btn" type="button" data-ok>${copy.strings.confirm}</button>
+      `<div class="sheet"><h2>${copy.strings.autoTitle}</h2>
+        <div class="gridbets">
+          <button class="text-btn" type="button" data-n="10">10</button>
+          <button class="text-btn" type="button" data-n="25">25</button>
+          <button class="text-btn" type="button" data-n="50">50</button>
+          <button class="text-btn" type="button" data-n="100">100</button>
+        </div>
+        <p><label><input id="stop-feature" type="checkbox" checked /> Stop on feature</label></p>
+        <p><label>Loss limit <input id="loss-limit" type="number" min="0" value="0" /></label>
+        <label>Win limit <input id="win-limit" type="number" min="0" value="0" /></label></p>
         <button class="text-btn" type="button" data-cancel>${copy.strings.cancel}</button></div>`,
-      () => {
-        autoLeft = 25;
-        renderMeters();
-        doSpin("base");
-      },
     );
+    ui.modal.querySelectorAll("[data-n]").forEach((button) => {
+      button.addEventListener("click", () => {
+        autoLeft = Number(button.dataset.n);
+        stopOnFeature = ui.modal.querySelector("#stop-feature").checked;
+        autoLoss = Number(ui.modal.querySelector("#loss-limit").value) || 0;
+        autoWin = Number(ui.modal.querySelector("#win-limit").value) || 0;
+        sessionLoss = 0;
+        closeModal();
+        renderMeters();
+        doSpin(anteOn ? "ante" : "base");
+      });
+    });
+  });
+  ui.ante?.addEventListener("click", () => {
+    anteOn = !anteOn;
+    ui.ante.setAttribute("aria-pressed", String(anteOn));
+    ui.ante.textContent = anteOn ? "Ante 1.25×" : "Ante";
+  });
+  ui.history?.addEventListener("click", () => {
+    const list = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+    const rows = list.length
+      ? list.map((item, index) => `<button class="text-btn" type="button" data-hist="${index}">${new Date(item.t).toLocaleTimeString()} ${item.mode} ${money(item.bet)} → ${money(item.win)}</button>`).join("")
+      : "<p>No rounds yet.</p>";
+    openModal(`<div class="sheet"><h2>History</h2><div class="gridbets">${rows}</div><button class="text-btn" type="button" data-cancel>${copy.strings.close}</button></div>`);
+    ui.modal.querySelectorAll("[data-hist]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const item = list[Number(button.dataset.hist)];
+        closeModal();
+        if (item?.events) {
+          spinning = true;
+          await playEvents(item.events);
+          spinning = false;
+        }
+      });
+    });
   });
   ui.lantern.addEventListener("click", () => {
     openModal(
       `<div class="sheet"><h2>${copy.strings.featureTitle}</h2>
-        <div class="card"><div>Lantern Watch</div><b>${MATH.modes.lantern.cost}×</b><p>${copy.strings.featureBody}</p></div>
+        <div class="card"><div>Normal</div><b>${MATH.modes.bonus?.cost ?? MATH.modes.lantern?.cost ?? 17.1}×</b><p>${copy.strings.featureBody}</p>
+          <button class="text-btn" type="button" data-mode="bonus">${copy.strings.confirm}</button></div>
+        <div class="card"><div>Super</div><b>${MATH.modes.super?.cost ?? 23.5}×</b><p>Super starts the larger watch.</p>
+          <button class="text-btn" type="button" data-mode="super">${copy.strings.confirm}</button></div>
         <button class="text-btn" type="button" data-ok>${copy.strings.confirm}</button>
         <button class="text-btn" type="button" data-cancel>${copy.strings.cancel}</button></div>`,
-      () => doSpin("lantern"),
     );
+    ui.modal.querySelectorAll("[data-mode]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const next = button.dataset.mode;
+        closeModal();
+        doSpin(next);
+      });
+    });
   });
   ui.bet.addEventListener("click", () => {
     const buttons = (session.betLevels || [])
@@ -527,14 +711,23 @@ function bind() {
     openModal(`<div class="sheet"><h2>${copy.strings.soundOn}</h2>
       <p><button class="text-btn" type="button" id="tog-sound">${soundOn ? copy.strings.soundOn : copy.strings.soundOff}</button>
       <button class="text-btn" type="button" id="tog-turbo">${copy.strings.turbo}</button></p>
+      <p><label>SFX <input id="sfx-vol" type="range" min="0" max="100" value="80" /></label></p>
+      <p><label>Music <input id="music-vol" type="range" min="0" max="100" value="70" /></label></p>
       <p>Space bar starts a round when no panel is open.</p>
       <button class="text-btn" type="button" data-cancel>${copy.strings.close}</button></div>`);
+    const saveLevels = () => {
+      audio.setLevels({
+        sfx: Number(ui.modal.querySelector("#sfx-vol").value) / 100,
+        musicLevel: Number(ui.modal.querySelector("#music-vol").value) / 100,
+      });
+    };
+    ui.modal.querySelector("#sfx-vol")?.addEventListener("input", saveLevels);
+    ui.modal.querySelector("#music-vol")?.addEventListener("input", saveLevels);
     ui.modal.querySelector("#tog-sound")?.addEventListener("click", () => {
       soundOn = !soundOn;
       audio.unlock();
-      audio.setMuted(!soundOn);
+      audio.setLevels({ sound: soundOn });
       renderMeters();
-      closeModal();
     });
     ui.modal.querySelector("#tog-turbo")?.addEventListener("click", () => {
       turbo = !turbo;
@@ -569,6 +762,10 @@ function bind() {
 }
 
 async function boot() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(AUDIO_KEY) || "{}");
+    if (saved && typeof saved.sfx === "number") audio.setLevels({ sfx: saved.sfx, musicLevel: saved.music, sound: saved.soundOn });
+  } catch { /* ignore */ }
   for (let i = 0; i < 5; i += 1) {
     const reel = document.createElement("div");
     reel.className = "reel";

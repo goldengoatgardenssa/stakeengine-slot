@@ -2,6 +2,8 @@ export function createAudio() {
   let ctx = null;
   let music = null;
   let muted = false;
+  let sfxVol = 1;
+  let musicVol = 1;
   const notes = [146.83, 174.61, 196, 220, 261.63, 293.66];
   const pattern = [0, 2, 3, 4, 3, 2, 4, 1];
 
@@ -18,7 +20,7 @@ export function createAudio() {
     osc.type = type;
     osc.frequency.value = freq;
     gain.gain.setValueAtTime(0.0001, when);
-    gain.gain.exponentialRampToValueAtTime(gainValue, when + 0.02);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.0001, gainValue * sfxVol), when + 0.02);
     gain.gain.exponentialRampToValueAtTime(0.0001, when + dur);
     osc.connect(gain).connect(audio.destination);
     osc.start(when);
@@ -50,6 +52,14 @@ export function createAudio() {
         clearInterval(music);
         music = null;
       } else startMusic();
+    },
+    setLevels({ sfx, musicLevel, sound }) {
+      if (typeof sfx === "number") sfxVol = sfx;
+      if (typeof musicLevel === "number") musicVol = musicLevel;
+      if (typeof sound === "boolean") this.setMuted(!sound);
+      try {
+        localStorage.setItem("copperbell-audio", JSON.stringify({ sfx: sfxVol, music: musicVol, soundOn: !muted }));
+      } catch { /* ignore */ }
     },
     spin() {
       if (muted) return;

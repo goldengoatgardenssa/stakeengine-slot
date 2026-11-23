@@ -1,208 +1,80 @@
 {
-  "verifiedAt": "2026-11-23T18:50:43.806Z",
-  "results": [
+  "verifiedAt": "2026-11-23T21:42:49.549Z",
+  "sims": 100000,
+  "modes": [
+    {
+      "mode": "base",
+      "rows": 100000,
+      "csv": 100000,
+      "mismatches": 0,
+      "badStep": 0
+    },
+    {
+      "mode": "ante",
+      "rows": 100000,
+      "csv": 100000,
+      "mismatches": 0,
+      "badStep": 0
+    },
+    {
+      "mode": "bonus",
+      "rows": 100000,
+      "csv": 100000,
+      "mismatches": 0,
+      "badStep": 0
+    },
+    {
+      "mode": "super",
+      "rows": 100000,
+      "csv": 100000,
+      "mismatches": 0,
+      "badStep": 0
+    }
+  ],
+  "reportModes": [
     {
       "mode": "base",
       "cost": 1,
-      "books": {
-        "rows": 100000,
-        "mismatch": 0,
-        "badFinal": 0,
-        "badStep": 0
-      },
-      "rtp": 0.9639941831032146,
-      "hitRate": 0.2801546475949152,
-      "topWinX": 5000,
-      "volatility": 24.300094204053043,
-      "normEtl40": 0.3813987970298099,
-      "normEtl10k": 0,
-      "sumEtl": 0.3813987970298099,
-      "sumEtlAbs": 0.3813987970298099,
-      "cvarNorm": 241.2412539767215,
-      "cvarAbs": 241.2412539767215,
-      "prob5k": 0.00002222331363384735,
-      "checks": [
-        {
-          "id": "rtp_low",
-          "pass": true,
-          "value": 0.9639941831032146
-        },
-        {
-          "id": "rtp_high",
-          "pass": true,
-          "value": 0.9639941831032146
-        },
-        {
-          "id": "volatility_cap",
-          "pass": true,
-          "value": 24.300094204053043
-        },
-        {
-          "id": "etl40",
-          "pass": true,
-          "value": 0.3813987970298099
-        },
-        {
-          "id": "etl10k",
-          "pass": true,
-          "value": 0
-        },
-        {
-          "id": "tail_combined",
-          "pass": true,
-          "value": 0.3813987970298099
-        },
-        {
-          "id": "tail_combined_base_bets",
-          "pass": true,
-          "value": 0.3813987970298099
-        },
-        {
-          "id": "cvar",
-          "pass": true,
-          "value": 241.2412539767215
-        },
-        {
-          "id": "prob5k",
-          "pass": true,
-          "value": 0.00002222331363384735
-        },
-        {
-          "id": "prob10k",
-          "pass": true,
-          "value": 0
-        },
-        {
-          "id": "top_win_present",
-          "pass": true,
-          "value": 5000
-        },
-        {
-          "id": "top_win_cap",
-          "pass": true,
-          "value": 5000
-        },
-        {
-          "id": "cost_cap",
-          "pass": true,
-          "value": 1
-        },
-        {
-          "id": "hit_rate",
-          "pass": true,
-          "value": 0.2801546475949152
-        },
-        {
-          "id": "payout_step",
-          "pass": true,
-          "value": "checked at generation"
-        },
-        {
-          "id": "volatility_floor",
-          "pass": true,
-          "value": 24.300094204053043
-        }
-      ],
-      "pass": true
+      "pass": true,
+      "rtp": 0.9641011720738875,
+      "hitRate": 0.2158073436163135,
+      "top": 5000,
+      "volatility": 25.705636732391486,
+      "etl40": 0.5205822109434352,
+      "cvar": 343.31170610142743
     },
     {
-      "mode": "lantern",
-      "cost": 17.8,
-      "books": {
-        "rows": 100000,
-        "mismatch": 0,
-        "badFinal": 0,
-        "badStep": 0
-      },
-      "rtp": 0.9633224946416524,
-      "hitRate": 0.9964968190358754,
-      "topWinX": 5000,
-      "volatility": 35.371894993565675,
-      "normEtl40": 0.005538545025676584,
-      "normEtl10k": 0,
-      "sumEtl": 0.005538545025676584,
-      "sumEtlAbs": 0.09858610145704319,
-      "cvarNorm": 26.115162661289748,
-      "cvarAbs": 464.84989537095754,
-      "prob5k": 0.000019717220291408637,
-      "checks": [
-        {
-          "id": "rtp_low",
-          "pass": true,
-          "value": 0.9633224946416524
-        },
-        {
-          "id": "rtp_high",
-          "pass": true,
-          "value": 0.9633224946416524
-        },
-        {
-          "id": "volatility_cap",
-          "pass": true,
-          "value": 35.371894993565675
-        },
-        {
-          "id": "etl40",
-          "pass": true,
-          "value": 0.005538545025676584
-        },
-        {
-          "id": "etl10k",
-          "pass": true,
-          "value": 0
-        },
-        {
-          "id": "tail_combined",
-          "pass": true,
-          "value": 0.005538545025676584
-        },
-        {
-          "id": "tail_combined_base_bets",
-          "pass": true,
-          "value": 0.09858610145704319
-        },
-        {
-          "id": "cvar",
-          "pass": true,
-          "value": 26.115162661289748
-        },
-        {
-          "id": "prob5k",
-          "pass": true,
-          "value": 0.000019717220291408637
-        },
-        {
-          "id": "prob10k",
-          "pass": true,
-          "value": 0
-        },
-        {
-          "id": "top_win_present",
-          "pass": true,
-          "value": 5000
-        },
-        {
-          "id": "top_win_cap",
-          "pass": true,
-          "value": 5000
-        },
-        {
-          "id": "cost_cap",
-          "pass": true,
-          "value": 17.8
-        },
-        {
-          "id": "hit_rate",
-          "pass": true,
-          "value": 0.9964968190358754
-        },
-        {
-          "id": "payout_step",
-          "pass": true,
-          "value": "checked at generation"
-        }
-      ],
-      "pass": true
+      "mode": "ante",
+      "cost": 1.25,
+      "pass": true,
+      "rtp": 0.9638127496958967,
+      "hitRate": 0.18967285217786245,
+      "top": 5000,
+      "volatility": 25.82640941503787,
+      "etl40": 0.49437783171180777,
+      "cvar": 288.4072702422679
+    },
+    {
+      "mode": "bonus",
+      "cost": 21.3,
+      "pass": true,
+      "rtp": 0.9640024722700364,
+      "hitRate": 0.95706620870944,
+      "top": 5000,
+      "volatility": 46.79296227948415,
+      "etl40": 0.006016279195461738,
+      "cvar": 31.573586938776394
+    },
+    {
+      "mode": "super",
+      "cost": 27.1,
+      "pass": true,
+      "rtp": 0.9640006102938077,
+      "hitRate": 0.9541973351768018,
+      "top": 5000,
+      "volatility": 51.943839508953765,
+      "etl40": 0.004315827486151151,
+      "cvar": 27.224398427886463
     }
   ]
 }

@@ -44,9 +44,23 @@ export const PAYTABLE = {
 export const SCATTER_PAY = { 3: 200, 4: 800, 5: 2000 };
 export const FS_FOR_SCATTERS = { 3: 8, 4: 10, 5: 12 };
 export const RETRIGGER_SPINS = 3;
-export const MAX_FREE_SPINS = 14;
+export const MAX_FREE_SPINS = 18;
 export const BLOOM_MAX = 3;
 export const LANTERN_SPINS = 8;
+export const ANTE_COST = 1.25;
+export const BONUS_TIERS = {
+  normal: { spins: 8, bloomMax: 3 },
+  super: { spins: 10, bloomMax: 4 },
+  hidden: { spins: 12, bloomMax: 4 },
+  epic: { spins: 14, bloomMax: 5 },
+};
+
+export function bonusTier(scatterCount, rng) {
+  if (scatterCount >= 5) return "epic";
+  if (scatterCount === 4) return "super";
+  if (rng && rng() < 0.08) return "hidden";
+  return "normal";
+}
 
 /** Twenty left-to-right lines. Row 0 is the top. */
 export const PAYLINES = [
@@ -113,7 +127,9 @@ function stripFromFreq(freq, rng) {
 }
 
 const stripRng = mulberry32(20261123);
+const ANTE_FREQ = BASE_FREQ.map((freq) => ({ ...freq, S: freq.S + 1 }));
 export const BASE_STRIPS = BASE_FREQ.map((freq) => stripFromFreq(freq, stripRng));
+export const ANTE_STRIPS = ANTE_FREQ.map((freq) => stripFromFreq(freq, stripRng));
 export const FREE_STRIPS = [0, 1, 2, 3, 4].map(() => stripFromFreq(FREE_FREQ, stripRng));
 export const FREE_JACKPOT_STOP = FREE_STRIPS[0].length;
 for (const strip of FREE_STRIPS) {
@@ -305,7 +321,48 @@ function createRound() {
   return { events, push };
 }
 
-function settleSpin(round, cols, stops, gameType, bloom, totalH) {
+/** Face values are the exact one-spin multiplier. High faces stay rare so the tail rules hold. */
+const ORB_WEIGHTS = {
+  base: [[2, 72], [3, 22], [5, 6]],
+  normal: [[2, 62], [3, 26], [5, 9], [10, 3]],
+  super: [[2, 56], [3, 26], [5, 13], [10, 5]],
+  hidden: [[2, 44], [3, 26], [5, 16], [10, 9], [25, 4], [50, 1]],
+  epic: [[3, 36], [5, 28], [10, 18], [25, 11], [50, 5], [100, 2]],
+};
+
+const ORB_CHANCE = { base: 0.03, normal: 0.08, super: 0.08, hidden: 0.1, epic: 0.14 };
+const STICKY_CAP = { normal: 0, super: 1, hidden: 2, epic: 3 };
+const STICKY_LIFE = { super: 1, hidden: 2, epic: 3 };
+const STICKY_LOCK = { super: 0.07, hidden: 0.2, epic: 0.45 };
+const WILD_MULT = { normal: 1, super: 2, hidden: 2, epic: 3 };
+
+function toneOrb(orb, rawHundredths) {
+  if (!orb) return null;
+  if (orb >= 100 && rawHundredths > 150) return 10;
+  if (orb >= 50 && rawHundredths > 250) return 10;
+  if (orb >= 25 && rawHundredths > 500) return 5;
+  if (orb >= 10 && rawHundredths > 900) return 5;
+  return orb;
+}
+
+function rollOrb(tier, rng) {
+  const chance = ORB_CHANCE[tier] || 0;
+  if (!rng || rng() > chance) return null;
+  const table = ORB_WEIGHTS[tier] || ORB_WEIGHTS.normal;
+  const total = table.reduce((sum, pair) => sum + pair[1], 0);
+  let roll = rng() * total;
+  for (const [value, weight] of table) {
+    roll -= weight;
+    if (roll <= 0) return value;
+  }
+  return table[0][0];
+}
+
+function rollCell(rng) {
+  return { reel: Math.floor(rng() * REELS), row: Math.floor(rng() * ROWS) };
+}
+
+function settleSpin(round, cols, stops, gameType, bloom, totalH, fx = {}) {
   const evaluated = evaluateBoard(cols);
   let wins = applyBloom(evaluated.wins, bloom);
   let spinH = sumWins(wins);
@@ -320,9 +377,15 @@ function settleSpin(round, cols, stops, gameType, bloom, totalH) {
     capped = true;
   }
   round.push(revealEvent(cols, stops, gameType));
+  if (fx.expand?.length) round.push({ type: "wildExpand", reels: fx.expand, wildMult: fx.wildMult || 1 });
+  if (fx.sticky?.length) round.push({ type: "wildSticky", positions: fx.sticky, wildMult: fx.wildMult || 1 });
+  if (fx.orb) {
+    round.push({ type: "multiplierLand", value: fx.orb, reel: fx.reel ?? 2, row: fx.row ?? 1 });
+  }
   if (wins.length > 0 && spinH > 0) {
     round.push({ type: "winInfo", totalWin: spinH, wins });
     round.push({ type: "setWin", amount: spinH, winLevel: winLevel(spinH) });
+    if (bloom > 1) round.push({ type: "multiplierApply", multiplier: bloom, orb: fx.orb || null });
   }
   const nextTotal = totalH + spinH;
   round.push({ type: "setTotalWin", amount: nextTotal });
@@ -389,13 +452,14 @@ function getTriggerBoards() {
   return triggerBoards;
 }
 
-function runFeature(round, rng, startSpins, startTotal, scripted) {
+function runFeature(round, rng, startSpins, startTotal, scripted, bloomMax = BLOOM_MAX, tier = "normal") {
   let totalH = startTotal;
   let bloom = 1;
   let spinsLeft = startSpins;
   let played = 0;
   let capped = false;
   let guard = 0;
+  const sticky = [];
   while (spinsLeft > 0 && !capped && guard < MAX_FREE_SPINS + 2) {
     guard += 1;
     played += 1;
@@ -407,11 +471,64 @@ function runFeature(round, rng, startSpins, startTotal, scripted) {
     } else {
       drawn = drawBoard(FREE_STRIPS, rng);
     }
-    const settled = settleSpin(round, drawn.cols, drawn.stops, "freegame", bloom, totalH);
+    const natural = drawn.cols.map((column) => column.slice());
+    const cols = natural.map((column) => column.slice());
+    const cap = STICKY_CAP[tier] || 0;
+    if (!scripted && cap > 0) {
+      for (const pos of sticky) cols[pos.reel][pos.row] = "W";
+    }
+    const expanded = [];
+    if (!scripted && (tier === "hidden" || tier === "epic")) {
+      const odds = tier === "epic" ? 0.36 : 0.18;
+      for (let reel = 0; reel < REELS; reel += 1) {
+        if (natural[reel].includes("W") && rng() < odds) {
+          cols[reel] = ["W", "W", "W"];
+          expanded.push(reel);
+          break;
+        }
+      }
+    }
+    const rawSpin = sumWins(evaluateBoard(cols).wins);
+    const orb = scripted ? null : toneOrb(rollOrb(tier, rng), rawSpin);
+    const spot = scripted ? { reel: 2, row: 1 } : rollCell(rng);
+    const wildMult = !orb && bloom === 1 && (expanded.length || sticky.length) ? WILD_MULT[tier] || 1 : 1;
+    const applied = orb || Math.max(bloom, wildMult);
+    const settled = settleSpin(round, cols, drawn.stops, "freegame", applied, totalH, {
+      expand: expanded,
+      sticky: sticky.map((pos) => ({ reel: pos.reel, row: pos.row })),
+      orb,
+      reel: spot.reel,
+      row: spot.row,
+      wildMult,
+    });
     totalH = settled.totalH;
     capped = settled.capped;
-    if (settled.spinH > 0 && bloom < BLOOM_MAX) bloom += 1;
+    if (!scripted && orb && bloom < bloomMax) bloom += 1;
+    else if (settled.spinH > 0 && bloom < bloomMax) bloom += 1;
     spinsLeft -= 1;
+    if (!scripted) {
+      for (const pos of sticky) pos.life -= 1;
+      for (let i = sticky.length - 1; i >= 0; i -= 1) {
+        if (sticky[i].life <= 0) sticky.splice(i, 1);
+      }
+      if (tier === "epic" && sticky.length && rng() < 0.75) {
+        const walker = sticky[0];
+        const nextReel = Math.min(REELS - 1, walker.reel + 1);
+        const blocked = sticky.some((pos, index) => index > 0 && pos.reel === nextReel && pos.row === walker.row);
+        if (!blocked) walker.reel = nextReel;
+      }
+    }
+    if (!scripted && cap > 0 && sticky.length < cap && rng() < (STICKY_LOCK[tier] || 0)) {
+      const minReel = tier === "super" ? 2 : tier === "hidden" ? 1 : 0;
+      for (let reel = REELS - 1; reel >= minReel && sticky.length < cap; reel -= 1) {
+        for (let row = 0; row < ROWS && sticky.length < cap; row += 1) {
+          if (natural[reel][row] !== "W") continue;
+          if (sticky.some((pos) => pos.reel === reel && pos.row === row)) continue;
+          sticky.push({ reel, row, life: STICKY_LIFE[tier] || 1 });
+          break;
+        }
+      }
+    }
     if (!capped && settled.scatterCount >= 3 && played + spinsLeft < MAX_FREE_SPINS) {
       const added = Math.min(RETRIGGER_SPINS, MAX_FREE_SPINS - (played + spinsLeft));
       if (added > 0) {
@@ -446,21 +563,60 @@ function finish(round, totalH) {
   return { payoutMultiplier: amount, events: round.events };
 }
 
-export function playBase(rng) {
+function pushTrigger(round, tier, positions) {
+  const spec = BONUS_TIERS[tier];
+  if (tier === "hidden") {
+    round.push({ type: "bonusReveal", from: "normal", to: "hidden" });
+  }
+  round.push({
+    type: "freeSpinTrigger",
+    totalFs: spec.spins,
+    positions,
+    bonusTier: tier,
+  });
+}
+
+function playSpin(strips, rng) {
   const round = createRound();
-  const drawn = drawBoard(BASE_STRIPS, rng);
-  const settled = settleSpin(round, drawn.cols, drawn.stops, "basegame", 1, 0);
+  const drawn = drawBoard(strips, rng);
+  const orb = rollOrb("base", rng);
+  const spot = rollCell(rng);
+  const settled = settleSpin(round, drawn.cols, drawn.stops, "basegame", orb || 1, 0, {
+    orb,
+    reel: spot.reel,
+    row: spot.row,
+  });
   let totalH = settled.totalH;
   if (settled.scatterCount >= 3 && totalH < MAX_WIN_H) {
-    const spins = FS_FOR_SCATTERS[Math.min(settled.scatterCount, 5)];
-    round.push({
-      type: "freeSpinTrigger",
-      totalFs: spins,
-      positions: settled.scatterPos,
-    });
-    totalH = runFeature(round, rng, spins, totalH, null);
+    const tier = bonusTier(settled.scatterCount, rng);
+    pushTrigger(round, tier, settled.scatterPos);
+    totalH = runFeature(round, rng, BONUS_TIERS[tier].spins, totalH, null, BONUS_TIERS[tier].bloomMax, tier);
   }
   return finish(round, totalH);
+}
+
+export function playBase(rng) {
+  return playSpin(BASE_STRIPS, rng);
+}
+
+export function playAnte(rng) {
+  return playSpin(ANTE_STRIPS, rng);
+}
+
+function playBought(tier, rng) {
+  const round = createRound();
+  const rolled = tier === "normal" && rng() < 0.08 ? "hidden" : tier;
+  pushTrigger(round, rolled, []);
+  const totalH = runFeature(round, rng, BONUS_TIERS[rolled].spins, 0, null, BONUS_TIERS[rolled].bloomMax, rolled);
+  return finish(round, totalH);
+}
+
+export function playBonus(rng) {
+  return playBought("normal", rng);
+}
+
+export function playSuper(rng) {
+  return playBought("super", rng);
 }
 
 export function playLantern(rng) {
@@ -490,14 +646,10 @@ export function playCap(mode, variant) {
     const totalH = runFeature(round, rng, spins, settled.totalH, variant + 1);
     return finish(round, totalH);
   }
-  if (mode === "lantern") {
-    round.push({
-      type: "freeSpinTrigger",
-      totalFs: LANTERN_SPINS,
-      positions: [],
-      mode: "lantern",
-    });
-    const totalH = runFeature(round, rng, LANTERN_SPINS, 0, variant + 3);
+  if (mode === "lantern" || mode === "bonus" || mode === "super" || mode === "ante") {
+    const tier = mode === "super" ? "super" : "normal";
+    pushTrigger(round, tier, []);
+    const totalH = runFeature(round, rng, BONUS_TIERS[tier].spins, 0, variant + 3, BONUS_TIERS[tier].bloomMax);
     return finish(round, totalH);
   }
   throw new Error(`Unknown mode ${mode}`);
@@ -505,7 +657,9 @@ export function playCap(mode, variant) {
 
 export function playMode(mode, rng) {
   if (mode === "base") return playBase(rng);
-  if (mode === "lantern") return playLantern(rng);
+  if (mode === "ante") return playAnte(rng);
+  if (mode === "bonus" || mode === "lantern") return playBonus(rng);
+  if (mode === "super") return playSuper(rng);
   throw new Error(`Unknown mode ${mode}`);
 }
 

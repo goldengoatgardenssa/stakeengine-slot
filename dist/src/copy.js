@@ -78,7 +78,7 @@ export function createCopy(social) {
     "Copperbell Orchard is a 5-reel, 3-row game with 20 lines. Wins count from the left, on consecutive reels.",
     "The Copperbell Goat is wild and stands in for every symbol except the Orchard Lantern.",
     "Three or more Orchard Lanterns anywhere start Lantern Watch: 8, 10 or 12 free spins for 3, 4 or 5 lanterns.",
-    "During Lantern Watch the bell bloom starts at 1× and grows by 1 after each winning spin, up to 3×. The bloom multiplies that spin.",
+    "During Lantern Watch the bell bloom starts at 1× and grows by 1 after a winning spin. Copper bell multipliers of 2×, 3×, 5×, 10×, 25×, 50× and 100× can land and multiply that spin. A Super watch can lock a goat for the next spin. Hidden and epic watches can expand or walk a goat, and a locked goat can multiply that spin.",
     "Three or more lanterns during the feature add 3 spins. The feature stops at 14 spins, or sooner if the maximum win is reached.",
     "The maximum win in every mode is 5,000× the base play amount. Further wins in that round are not added.",
     modeLine(social, "base"),

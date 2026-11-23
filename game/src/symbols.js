@@ -144,6 +144,25 @@ export const SYMBOL_SVG = {
   ),
 };
 
+const ART = {
+  W: "W_wild_goat",
+  S: "S_scatter_lantern",
+  H1: "H1_h1_honey_hive",
+  H2: "H2_h2_copper_can",
+  H3: "H3_h3_coin_pouch",
+  H4: "H4_h4_jam_crock",
+  L1: "L1_l1_apple",
+  L2: "L2_l2_pear",
+  L3: "L3_l3_plums",
+  L4: "L4_l4_cherries",
+};
+
 export function symbolMarkup(id) {
-  return SYMBOL_SVG[id] || SYMBOL_SVG.L4;
+  const file = ART[id] || ART.L4;
+  const root = `assets/art-v4/symbols/layers/${file}`;
+  return `<div class="sym sym-${id}" data-sym="${id}">
+    <img class="ly glow" alt="" src="${root}_glow.webp" />
+    <img class="ly base" alt="" src="${root}_base.webp" />
+    <img class="ly hi" alt="" src="${root}_highlight.webp" />
+  </div>`;
 }

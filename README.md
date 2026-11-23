@@ -2,7 +2,7 @@
 
 Publish-ready Stake Engine slot for studio `goldengoatgardenssa`. It replaces the rejected **Secure the Bag PERP Edition** (front v10, math v6, rated 3.7/9).
 
-The new game keeps a pastoral theme and drops the PERP branding, the drug-adjacent symbols, and the NoLimit-style feature names. Math is two correctly priced modes, both inside the 96.00–96.70% band, with a 5,000× cap.
+The new game keeps a pastoral theme and drops the PERP branding, the drug-adjacent symbols, and the NoLimit-style feature names. Math is four modes (base, ante, bonus, super), each inside the 96.00–96.70% band, with a 5,000× cap. Free spins can land copper-bell multipliers and sticky, expanding, or walking goat wilds.
 
 ## Play locally
 

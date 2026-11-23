@@ -29,24 +29,15 @@
         </div>
       </header>
       <main class="stage" id="stage">
-        <svg class="layer sky" viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true">
-          <rect width="800" height="300" fill="#b7d6e0"/>
-          <circle cx="640" cy="70" r="36" fill="#fff3cf" stroke="#1a120e" stroke-width="4"/>
-          <path d="M40 80h70M130 60h40M200 90h80" stroke="#fff" stroke-width="6" opacity="0.5"/>
-        </svg>
-        <svg class="layer far" viewBox="0 0 900 220" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 160c80-50 120-30 180-70 70 30 90 10 160-30 80 40 120 10 180-20 90 30 140 0 200 20v90H0z" fill="#6e9a68"/>
-          <path d="M40 150c20-60 70-80 70-80s8 30-8 70M220 140c30-70 80-90 80-90s16 40-10 80M520 150c28-64 74-80 74-80s14 36-8 74" fill="#2d5c3c" stroke="#1a120e" stroke-width="3"/>
-        </svg>
-        <svg class="layer near" viewBox="0 0 800 200" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 120h800v80H0z" fill="#c4a15a"/>
-          <path d="M0 130c40-20 60 10 100-8 40 16 50-12 90 4 50-20 70 8 120-6 40 18 60-10 100 6 50-16 80 10 120-4 40 14 70-8 110 8v70H0z" fill="#3f6b3a"/>
-          <circle cx="120" cy="70" r="7" fill="#e2b15a" stroke="#1a120e"/>
-          <circle cx="300" cy="54" r="6" fill="#c4622d" stroke="#1a120e"/>
-          <circle cx="560" cy="64" r="7" fill="#8a3450" stroke="#1a120e"/>
-        </svg>
+        <img class="layer sky" alt="" src="assets/art-v4/background/landscape/bg_1_sky_moon.webp" />
+        <img class="layer far" alt="" src="assets/art-v4/background/landscape/bg_2_far_treeline.webp" />
+        <img class="layer near" alt="" src="assets/art-v4/background/landscape/bg_3_near_orchard_lanterns.webp" />
+        <img class="layer fore" alt="" src="assets/art-v4/background/landscape/bg_4_foreground_branches.webp" />
         <div class="hud" id="hud"></div>
-        <div class="reels" id="reels"></div>
+        <div class="frame-wrap">
+          <div class="reels" id="reels"></div>
+          <img class="frame" alt="" src="assets/art-v4/frame/reel_frame_5x3.webp" />
+        </div>
         <canvas class="fx" id="fx"></canvas>
         <div class="banner" id="banner"></div>
         <div class="veil hidden" id="veil"></div>
@@ -72,8 +63,10 @@
           <button id="bet-inc" class="step" type="button" aria-label="Increase">+</button>
         </div>
         <div class="actions" id="mode-actions">
+          <button id="ante" class="text-btn" type="button" aria-pressed="false">Ante</button>
           <button id="auto" class="text-btn" type="button">Auto</button>
           <button id="lantern" class="text-btn" type="button">Lantern</button>
+          <button id="history" class="text-btn" type="button">History</button>
         </div>
         <button id="spin" class="spin" type="button">Spin</button>
       </footer>

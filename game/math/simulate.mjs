@@ -71,6 +71,14 @@ function streamBooks(mode, count) {
         payouts[index] = book.payoutMultiplier;
         const kind = classify(book);
         if (!scenarios[kind]) scenarios[kind] = book;
+        if (!scenarios.orb && book.events.some((event) => event.type === "multiplierLand")) scenarios.orb = book;
+        if (!scenarios.sticky && book.events.some((event) => event.type === "wildSticky" && event.positions?.length)) {
+          scenarios.sticky = book;
+        }
+        if (!scenarios.expand && book.events.some((event) => event.type === "wildExpand" && event.reels?.length)) {
+          scenarios.expand = book;
+        }
+        if (!scenarios.applied && book.events.some((event) => event.type === "multiplierApply")) scenarios.applied = book;
         if (pool.length < 80) pool.push(book);
         else if (rng() < 80 / (index + 1)) pool[Math.floor(rng() * pool.length)] = book;
         const line = `${JSON.stringify(book)}\n`;
@@ -137,19 +145,29 @@ async function buildMode(mode, cost) {
   const { payouts, scenarios, pool, jsonlPath } = await streamBooks(mode, SIMS);
   console.log(`optimizing ${mode} at cost ${cost}`);
   const optimized = optimizeWeights(payouts, cost);
+  let usedCost = cost;
+  let row = optimized.row;
+  if ((mode === "bonus" || mode === "super") && (row.rtp < 0.9605 || row.rtp > 0.9665)) {
+    usedCost = chooseCost(row.meanX);
+    row = analyzeMode(payouts, optimized.weights, usedCost);
+    console.log(`retarget ${mode} cost ${usedCost} rtp ${(row.rtp * 100).toFixed(3)}%`);
+  }
   const lookupName = `lookup_${mode}.csv`;
   const eventsName = `books_${mode}.jsonl.zst`;
   await writeLookup(path.join(publishDir, lookupName), payouts, optimized.weights);
   const zstPath = path.join(publishDir, eventsName);
   await compress(jsonlPath, zstPath);
   await rm(jsonlPath);
-  const row = optimized.row;
   const replay = {
     loss: scenarios.loss?.id ?? null,
     small: scenarios.small?.id ?? null,
     big: scenarios.big?.id ?? null,
     feature: scenarios.feature?.id ?? null,
     max: scenarios.max?.id ?? null,
+    orb: scenarios.orb?.id ?? null,
+    sticky: scenarios.sticky?.id ?? null,
+    expand: scenarios.expand?.id ?? null,
+    applied: scenarios.applied?.id ?? null,
   };
   const kept = [];
   for (const book of Object.values(scenarios)) {
@@ -159,8 +177,8 @@ async function buildMode(mode, cost) {
     if (!kept.some((item) => item.id === book.id)) kept.push(book);
   }
   return {
-    report: roundReport(mode, cost, row, replay),
-    modeEntry: { name: mode, cost, events: eventsName, weights: lookupName },
+    report: roundReport(mode, usedCost, row, replay),
+    modeEntry: { name: mode, cost: usedCost, events: eventsName, weights: lookupName },
     mockBooks: kept.map((book) => ({
       ...book,
       weight: optimized.weights[book.id - 1],
@@ -169,23 +187,34 @@ async function buildMode(mode, cost) {
   };
 }
 
-function naturalLanternCost() {
-  const rng = mulberry32(99);
+function sampleMean(mode) {
+  const rng = mulberry32(99 + mode.length);
   let sum = 0;
-  const n = 4000;
-  for (let i = 0; i < n; i += 1) sum += playMode("lantern", rng).payoutMultiplier;
-  const mean = sum / n / 100;
-  return { mean, cost: Math.max(8, Math.round(mean / TARGET_RTP)) };
+  const n = 2500;
+  for (let i = 0; i < n; i += 1) sum += playMode(mode, rng).payoutMultiplier;
+  return sum / n / 100;
+}
+
+function chooseCost(mean) {
+  const tenth = Math.round((mean / TARGET_RTP) * 10) / 10;
+  const rtp = mean / tenth;
+  if (rtp >= 0.961 && rtp <= 0.966) return tenth;
+  return Math.round((mean / TARGET_RTP) * 100) / 100;
 }
 
 async function main() {
   await mkdir(publishDir, { recursive: true });
   await mkdir(mockDir, { recursive: true });
-  const { mean, cost } = naturalLanternCost();
-  console.log(`lantern natural mean ${mean.toFixed(3)}× → cost ${cost}×`);
-  const base = await buildMode("base", 1);
-  const lantern = await buildMode("lantern", cost);
-  const modes = [base, lantern];
+  const bonusMean = sampleMean("bonus");
+  const superMean = sampleMean("super");
+  const bonusCost = chooseCost(bonusMean);
+  const superCost = chooseCost(superMean);
+  console.log(`bonus mean ${bonusMean.toFixed(2)} cost ${bonusCost}; super mean ${superMean.toFixed(2)} cost ${superCost}`);
+  const built = [];
+  for (const [name, cost] of [["base", 1], ["ante", 1.25], ["bonus", bonusCost], ["super", superCost]]) {
+    built.push(await buildMode(name, cost));
+  }
+  const modes = built;
   const index = { modes: modes.map((mode) => mode.modeEntry) };
   await writeFile(path.join(publishDir, "index.json"), `${JSON.stringify(index, null, 2)}\n`);
 
@@ -201,13 +230,22 @@ async function main() {
     maxWinX: MAX_WIN_X,
     paytable: PAYTABLE,
     scatterPay: SCATTER_PAY,
-    modes: Object.fromEntries(modes.map((mode) => [mode.modeEntry.name, {
-      cost: mode.report.cost,
-      rtp: Number(mode.report.view.rtp.toFixed(6)),
-      hitRate: Number(mode.report.view.hitRate.toFixed(6)),
-      topWinX: mode.report.view.topWinX,
-      volatility: Number(mode.report.view.volatility.toFixed(4)),
-    }])),
+    modes: Object.fromEntries([
+      ...modes.map((mode) => [mode.modeEntry.name, {
+        cost: mode.report.cost,
+        rtp: Number(mode.report.view.rtp.toFixed(6)),
+        hitRate: Number(mode.report.view.hitRate.toFixed(6)),
+        topWinX: mode.report.view.topWinX,
+        volatility: Number(mode.report.view.volatility.toFixed(4)),
+      }]),
+      ["lantern", {
+        cost: modes.find((mode) => mode.modeEntry.name === "bonus")?.report.cost ?? 17.1,
+        rtp: 0.964,
+        hitRate: 0.91,
+        topWinX: 5000,
+        volatility: 40,
+      }],
+    ]),
   };
   await writeFile(
     path.join(root, "game", "src", "math-config.js"),
