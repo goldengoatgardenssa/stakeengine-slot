@@ -1,80 +1,37 @@
 {
-  "verifiedAt": "2026-11-23T21:42:49.549Z",
-  "sims": 100000,
+  "verifiedAt": "2026-11-23T22:34:56.693Z",
+  "sims": 60000,
+  "note": "60,000 rounds so each book file stays under 100MB.",
   "modes": [
     {
       "mode": "base",
-      "rows": 100000,
-      "csv": 100000,
-      "mismatches": 0,
-      "badStep": 0
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
     },
     {
       "mode": "ante",
-      "rows": 100000,
-      "csv": 100000,
-      "mismatches": 0,
-      "badStep": 0
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
     },
     {
       "mode": "bonus",
-      "rows": 100000,
-      "csv": 100000,
-      "mismatches": 0,
-      "badStep": 0
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
     },
     {
       "mode": "super",
-      "rows": 100000,
-      "csv": 100000,
-      "mismatches": 0,
-      "badStep": 0
-    }
-  ],
-  "reportModes": [
-    {
-      "mode": "base",
-      "cost": 1,
-      "pass": true,
-      "rtp": 0.9641011720738875,
-      "hitRate": 0.2158073436163135,
-      "top": 5000,
-      "volatility": 25.705636732391486,
-      "etl40": 0.5205822109434352,
-      "cvar": 343.31170610142743
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
     },
     {
-      "mode": "ante",
-      "cost": 1.25,
-      "pass": true,
-      "rtp": 0.9638127496958967,
-      "hitRate": 0.18967285217786245,
-      "top": 5000,
-      "volatility": 25.82640941503787,
-      "etl40": 0.49437783171180777,
-      "cvar": 288.4072702422679
-    },
-    {
-      "mode": "bonus",
-      "cost": 21.3,
-      "pass": true,
-      "rtp": 0.9640024722700364,
-      "hitRate": 0.95706620870944,
-      "top": 5000,
-      "volatility": 46.79296227948415,
-      "etl40": 0.006016279195461738,
-      "cvar": 31.573586938776394
-    },
-    {
-      "mode": "super",
-      "cost": 27.1,
-      "pass": true,
-      "rtp": 0.9640006102938077,
-      "hitRate": 0.9541973351768018,
-      "top": 5000,
-      "volatility": 51.943839508953765,
-      "etl40": 0.004315827486151151,
-      "cvar": 27.224398427886463
+      "mode": "epic",
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
     }
   ]
 }

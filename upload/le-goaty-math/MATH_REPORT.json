@@ -1,0 +1,661 @@
+{
+  "generatedAt": "2026-11-23T22:33:48.641Z",
+  "sims": 60000,
+  "template": {
+    "id": "1kmax_1cent",
+    "maxBetUsd": 1000,
+    "topWinLimitX": 25000,
+    "costLimitX": 500,
+    "why": "Selected on purpose: a 10,000× cap and a feature cost under 500× qualify for the $1,000 max-bet template."
+  },
+  "exposureAtMaxBetUsd": 10000000,
+  "roundCostAtMaxBetUsd": 37300,
+  "roundCostLimitUsd": 500000,
+  "modes": [
+    {
+      "mode": "base",
+      "cost": 1,
+      "replay": {
+        "loss": 9,
+        "small": 10,
+        "big": null,
+        "feature": 13,
+        "max": 1,
+        "tumble": 1,
+        "collector": 1,
+        "golden": 1,
+        "bell": 1
+      },
+      "checks": [
+        {
+          "id": "rtp_low",
+          "pass": true,
+          "value": 0.9639698059030912
+        },
+        {
+          "id": "rtp_high",
+          "pass": true,
+          "value": 0.9639698059030912
+        },
+        {
+          "id": "volatility_cap",
+          "pass": true,
+          "value": 47.242011292062806
+        },
+        {
+          "id": "etl40",
+          "pass": true,
+          "value": 0.28630941197152837
+        },
+        {
+          "id": "etl10k",
+          "pass": true,
+          "value": 0.22222097284653045
+        },
+        {
+          "id": "tail_combined",
+          "pass": true,
+          "value": 0.5085303848180588
+        },
+        {
+          "id": "tail_combined_base_bets",
+          "pass": true,
+          "value": 0.5085303848180588
+        },
+        {
+          "id": "cvar",
+          "pass": true,
+          "value": 272.33449433337717
+        },
+        {
+          "id": "prob5k",
+          "pass": true,
+          "value": 0.000022222097284653046
+        },
+        {
+          "id": "prob10k",
+          "pass": true,
+          "value": 0.000022222097284653046
+        },
+        {
+          "id": "top_win_present",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "top_win_cap",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "cost_cap",
+          "pass": true,
+          "value": 1
+        },
+        {
+          "id": "hit_rate",
+          "pass": true,
+          "value": 0.33794855553367664
+        },
+        {
+          "id": "payout_step",
+          "pass": true,
+          "value": "checked at generation"
+        },
+        {
+          "id": "volatility_floor",
+          "pass": true,
+          "value": 47.242011292062806
+        }
+      ],
+      "pass": true,
+      "view": {
+        "rounds": 60000,
+        "cost": 1,
+        "rtp": 0.9639698059030912,
+        "hitRate": 0.33794855553367664,
+        "topWinX": 10000,
+        "volatility": 47.242011292062806,
+        "etl40": 0.28630941197152837,
+        "etl10k": 0.22222097284653045,
+        "tailCombined": 0.5085303848180588,
+        "tailCombinedBaseBets": 0.5085303848180588,
+        "prob5k": 0.000022222097284653046,
+        "prob10k": 0.000022222097284653046,
+        "cvar": 272.33449433337717,
+        "meanX": 0.9639698059030912,
+        "freq": {
+          "ge_0x": 1,
+          "ge_1x": 0.16824175966299568,
+          "ge_5x": 0.025571195121947426,
+          "ge_10x": 0.019312316421865452,
+          "ge_20x": 0.006157162605285797,
+          "ge_40x": 0.001261604018092965,
+          "ge_100x": 0.00003992755329620036,
+          "ge_1000x": 0.000022222097284653046,
+          "ge_5000x": 0.000022222097284653046,
+          "ge_10000x": 0.000022222097284653046
+        },
+        "normEtl40": 0.28630941197152837,
+        "normEtl10k": 0.22222097284653045,
+        "sumEtl": 0.5085303848180588,
+        "sumEtlAbs": 0.5085303848180588,
+        "cvarNorm": 272.33449433337717,
+        "cvarAbs": 272.33449433337717
+      },
+      "bytes": 7059082
+    },
+    {
+      "mode": "ante",
+      "cost": 1.25,
+      "replay": {
+        "loss": 14,
+        "small": 9,
+        "big": null,
+        "feature": 15,
+        "max": 1,
+        "tumble": 1,
+        "collector": 1,
+        "golden": 1,
+        "bell": 1
+      },
+      "checks": [
+        {
+          "id": "rtp_low",
+          "pass": true,
+          "value": 0.9638391712898688
+        },
+        {
+          "id": "rtp_high",
+          "pass": true,
+          "value": 0.9638391712898688
+        },
+        {
+          "id": "volatility_cap",
+          "pass": true,
+          "value": 47.420344046526715
+        },
+        {
+          "id": "etl40",
+          "pass": true,
+          "value": 0.29131402804639206
+        },
+        {
+          "id": "etl10k",
+          "pass": true,
+          "value": 0.17778519537120688
+        },
+        {
+          "id": "tail_combined",
+          "pass": true,
+          "value": 0.4690992234175989
+        },
+        {
+          "id": "tail_combined_base_bets",
+          "pass": true,
+          "value": 0.5863740292719987
+        },
+        {
+          "id": "cvar",
+          "pass": true,
+          "value": 233.26262910042487
+        },
+        {
+          "id": "prob5k",
+          "pass": true,
+          "value": 0.00002222314942140086
+        },
+        {
+          "id": "prob10k",
+          "pass": true,
+          "value": 0.00002222314942140086
+        },
+        {
+          "id": "top_win_present",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "top_win_cap",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "cost_cap",
+          "pass": true,
+          "value": 1.25
+        },
+        {
+          "id": "hit_rate",
+          "pass": true,
+          "value": 0.12057722797212261
+        },
+        {
+          "id": "payout_step",
+          "pass": true,
+          "value": "checked at generation"
+        }
+      ],
+      "pass": true,
+      "view": {
+        "rounds": 60000,
+        "cost": 1.25,
+        "rtp": 0.9638391712898688,
+        "hitRate": 0.12057722797212261,
+        "topWinX": 10000,
+        "volatility": 47.420344046526715,
+        "etl40": 0.3641425350579901,
+        "etl10k": 0.2222314942140086,
+        "tailCombined": 0.5863740292719987,
+        "tailCombinedBaseBets": 0.5863740292719987,
+        "prob5k": 0.00002222314942140086,
+        "prob10k": 0.00002222314942140086,
+        "cvar": 291.5782863755311,
+        "meanX": 1.204798964112336,
+        "freq": {
+          "ge_0x": 1,
+          "ge_1x": 0.07689943063735603,
+          "ge_5x": 0.043238876244225524,
+          "ge_10x": 0.035509503757629,
+          "ge_20x": 0.01627830138913018,
+          "ge_40x": 0.004699118279879344,
+          "ge_100x": 0.0000400738941941411,
+          "ge_1000x": 0.00002222314942140086,
+          "ge_5000x": 0.00002222314942140086,
+          "ge_10000x": 0.00002222314942140086
+        },
+        "normEtl40": 0.29131402804639206,
+        "normEtl10k": 0.17778519537120688,
+        "sumEtl": 0.4690992234175989,
+        "sumEtlAbs": 0.5863740292719987,
+        "cvarNorm": 233.26262910042487,
+        "cvarAbs": 291.5782863755311
+      },
+      "bytes": 22427893
+    },
+    {
+      "mode": "bonus",
+      "cost": 13.9,
+      "replay": {
+        "loss": null,
+        "small": null,
+        "big": null,
+        "feature": 9,
+        "max": 1,
+        "tumble": 1,
+        "collector": 1,
+        "golden": 1,
+        "bell": 1
+      },
+      "checks": [
+        {
+          "id": "rtp_low",
+          "pass": true,
+          "value": 0.9619009000026337
+        },
+        {
+          "id": "rtp_high",
+          "pass": true,
+          "value": 0.9619009000026337
+        },
+        {
+          "id": "volatility_cap",
+          "pass": true,
+          "value": 47.71290814909022
+        },
+        {
+          "id": "etl40",
+          "pass": true,
+          "value": 0.015986322458040714
+        },
+        {
+          "id": "etl10k",
+          "pass": true,
+          "value": 0.015986322458040714
+        },
+        {
+          "id": "tail_combined",
+          "pass": true,
+          "value": 0.03197264491608143
+        },
+        {
+          "id": "tail_combined_base_bets",
+          "pass": true,
+          "value": 0.4444197643335318
+        },
+        {
+          "id": "cvar",
+          "pass": true,
+          "value": 20.40985367059952
+        },
+        {
+          "id": "prob5k",
+          "pass": true,
+          "value": 0.000022220988216676588
+        },
+        {
+          "id": "prob10k",
+          "pass": true,
+          "value": 0.000022220988216676588
+        },
+        {
+          "id": "top_win_present",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "top_win_cap",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "cost_cap",
+          "pass": true,
+          "value": 13.9
+        },
+        {
+          "id": "hit_rate",
+          "pass": true,
+          "value": 1
+        },
+        {
+          "id": "payout_step",
+          "pass": true,
+          "value": "checked at generation"
+        }
+      ],
+      "pass": true,
+      "view": {
+        "rounds": 60000,
+        "cost": 13.9,
+        "rtp": 0.9619009000026337,
+        "hitRate": 1,
+        "topWinX": 10000,
+        "volatility": 47.71290814909022,
+        "etl40": 0.2222098821667659,
+        "etl10k": 0.2222098821667659,
+        "tailCombined": 0.4444197643335318,
+        "tailCombinedBaseBets": 0.4444197643335318,
+        "prob5k": 0.000022220988216676588,
+        "prob10k": 0.000022220988216676588,
+        "cvar": 283.69696602133337,
+        "meanX": 13.37042251003661,
+        "freq": {
+          "ge_0x": 1,
+          "ge_1x": 0.9998833203684978,
+          "ge_5x": 0.9511279029193468,
+          "ge_10x": 0.6192910309269715,
+          "ge_20x": 0.12438603965082028,
+          "ge_40x": 0.01539059530894051,
+          "ge_100x": 0.000038889507002711115,
+          "ge_1000x": 0.000022220988216676588,
+          "ge_5000x": 0.000022220988216676588,
+          "ge_10000x": 0.000022220988216676588
+        },
+        "normEtl40": 0.015986322458040714,
+        "normEtl10k": 0.015986322458040714,
+        "sumEtl": 0.03197264491608143,
+        "sumEtlAbs": 0.4444197643335318,
+        "cvarNorm": 20.40985367059952,
+        "cvarAbs": 283.69696602133337
+      },
+      "bytes": 70939115
+    },
+    {
+      "mode": "super",
+      "cost": 26,
+      "replay": {
+        "loss": null,
+        "small": null,
+        "big": null,
+        "feature": 9,
+        "max": 1,
+        "tumble": 1,
+        "collector": 1,
+        "golden": 1,
+        "bell": 1
+      },
+      "checks": [
+        {
+          "id": "rtp_low",
+          "pass": true,
+          "value": 0.9635207867417968
+        },
+        {
+          "id": "rtp_high",
+          "pass": true,
+          "value": 0.9635207867417968
+        },
+        {
+          "id": "volatility_cap",
+          "pass": true,
+          "value": 48.99127207904777
+        },
+        {
+          "id": "etl40",
+          "pass": true,
+          "value": 0.008546533929490997
+        },
+        {
+          "id": "etl10k",
+          "pass": true,
+          "value": 0.008546533929490997
+        },
+        {
+          "id": "tail_combined",
+          "pass": true,
+          "value": 0.017093067858981993
+        },
+        {
+          "id": "tail_combined_base_bets",
+          "pass": true,
+          "value": 0.4444197643335318
+        },
+        {
+          "id": "cvar",
+          "pass": true,
+          "value": 12.21807186334059
+        },
+        {
+          "id": "prob5k",
+          "pass": true,
+          "value": 0.000022220988216676588
+        },
+        {
+          "id": "prob10k",
+          "pass": true,
+          "value": 0.000022220988216676588
+        },
+        {
+          "id": "top_win_present",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "top_win_cap",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "cost_cap",
+          "pass": true,
+          "value": 26
+        },
+        {
+          "id": "hit_rate",
+          "pass": true,
+          "value": 1
+        },
+        {
+          "id": "payout_step",
+          "pass": true,
+          "value": "checked at generation"
+        }
+      ],
+      "pass": true,
+      "view": {
+        "rounds": 60000,
+        "cost": 26,
+        "rtp": 0.9635207867417968,
+        "hitRate": 1,
+        "topWinX": 10000,
+        "volatility": 48.99127207904777,
+        "etl40": 0.2222098821667659,
+        "etl10k": 0.2222098821667659,
+        "tailCombined": 0.4444197643335318,
+        "tailCombinedBaseBets": 0.4444197643335318,
+        "prob5k": 0.000022220988216676588,
+        "prob10k": 0.000022220988216676588,
+        "cvar": 317.66986844685533,
+        "meanX": 25.051540455286716,
+        "freq": {
+          "ge_0x": 1,
+          "ge_1x": 0.9999499944436419,
+          "ge_5x": 0.9876986331359066,
+          "ge_10x": 0.8992888094947794,
+          "ge_20x": 0.5695355023506583,
+          "ge_40x": 0.13283697867533978,
+          "ge_100x": 0.00037225988272340165,
+          "ge_1000x": 0.000022220988216676588,
+          "ge_5000x": 0.000022220988216676588,
+          "ge_10000x": 0.000022220988216676588
+        },
+        "normEtl40": 0.008546533929490997,
+        "normEtl10k": 0.008546533929490997,
+        "sumEtl": 0.017093067858981993,
+        "sumEtlAbs": 0.4444197643335318,
+        "cvarNorm": 12.21807186334059,
+        "cvarAbs": 317.66986844685533
+      },
+      "bytes": 76017660
+    },
+    {
+      "mode": "epic",
+      "cost": 37.3,
+      "replay": {
+        "loss": null,
+        "small": null,
+        "big": null,
+        "feature": 9,
+        "max": 1,
+        "tumble": 1,
+        "collector": 1,
+        "golden": 1,
+        "bell": 1
+      },
+      "checks": [
+        {
+          "id": "rtp_low",
+          "pass": true,
+          "value": 0.9631132321806513
+        },
+        {
+          "id": "rtp_high",
+          "pass": true,
+          "value": 0.9631132321806513
+        },
+        {
+          "id": "volatility_cap",
+          "pass": true,
+          "value": 49.47691052270628
+        },
+        {
+          "id": "etl40",
+          "pass": true,
+          "value": 0.005957369495087558
+        },
+        {
+          "id": "etl10k",
+          "pass": true,
+          "value": 0.005957369495087558
+        },
+        {
+          "id": "tail_combined",
+          "pass": true,
+          "value": 0.011914738990175117
+        },
+        {
+          "id": "tail_combined_base_bets",
+          "pass": true,
+          "value": 0.4444197643335318
+        },
+        {
+          "id": "cvar",
+          "pass": true,
+          "value": 8.785456559903178
+        },
+        {
+          "id": "prob5k",
+          "pass": true,
+          "value": 0.000022220988216676588
+        },
+        {
+          "id": "prob10k",
+          "pass": true,
+          "value": 0.000022220988216676588
+        },
+        {
+          "id": "top_win_present",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "top_win_cap",
+          "pass": true,
+          "value": 10000
+        },
+        {
+          "id": "cost_cap",
+          "pass": true,
+          "value": 37.3
+        },
+        {
+          "id": "hit_rate",
+          "pass": true,
+          "value": 1
+        },
+        {
+          "id": "payout_step",
+          "pass": true,
+          "value": "checked at generation"
+        }
+      ],
+      "pass": true,
+      "view": {
+        "rounds": 60000,
+        "cost": 37.3,
+        "rtp": 0.9631132321806513,
+        "hitRate": 1,
+        "topWinX": 10000,
+        "volatility": 49.47691052270628,
+        "etl40": 0.2222098821667659,
+        "etl10k": 0.2222098821667659,
+        "tailCombined": 0.4444197643335318,
+        "tailCombinedBaseBets": 0.4444197643335318,
+        "prob5k": 0.000022220988216676588,
+        "prob10k": 0.000022220988216676588,
+        "cvar": 327.6975296843885,
+        "meanX": 35.92412356033829,
+        "freq": {
+          "ge_0x": 1,
+          "ge_1x": 1,
+          "ge_5x": 0.9991499055419122,
+          "ge_10x": 0.9867485275651026,
+          "ge_20x": 0.8542338032161281,
+          "ge_40x": 0.34682742285045104,
+          "ge_100x": 0.0009723265590206446,
+          "ge_1000x": 0.000022220988216676588,
+          "ge_5000x": 0.000022220988216676588,
+          "ge_10000x": 0.000022220988216676588
+        },
+        "normEtl40": 0.005957369495087558,
+        "normEtl10k": 0.005957369495087558,
+        "sumEtl": 0.011914738990175117,
+        "sumEtlAbs": 0.4444197643335318,
+        "cvarNorm": 8.785456559903178,
+        "cvarAbs": 327.6975296843885
+      },
+      "bytes": 92551859
+    }
+  ]
+}

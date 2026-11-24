@@ -1,0 +1,37 @@
+{
+  "verifiedAt": "2026-11-23T22:34:56.693Z",
+  "sims": 60000,
+  "note": "60,000 rounds so each book file stays under 100MB.",
+  "modes": [
+    {
+      "mode": "base",
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
+    },
+    {
+      "mode": "ante",
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
+    },
+    {
+      "mode": "bonus",
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
+    },
+    {
+      "mode": "super",
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
+    },
+    {
+      "mode": "epic",
+      "rows": 60000,
+      "csv": 60000,
+      "mismatches": 0
+    }
+  ]
+}

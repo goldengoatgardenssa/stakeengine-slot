@@ -103,7 +103,7 @@ export function betTemplate(topWinX, maxCost) {
       maxBetUsd: 1000,
       topWinLimitX: 25000,
       costLimitX: 500,
-      why: "Selected on purpose: a 5,000× cap and a feature cost under 500× qualify for the \$1,000 max-bet template.",
+      why: "Selected on purpose: a 10,000× cap and a feature cost under 500× qualify for the $1,000 max-bet template.",
     };
   }
   if (topWinX <= 250000 && maxCost <= 5000) {
